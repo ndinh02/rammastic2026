@@ -35,7 +35,7 @@ export default function App() {
       <ScheduleSection />
       <WhyJoinSection />
       <OrgSection />
-      <RegisterSection />
+      {/* <RegisterSection /> */}
     </div>
   )
 }

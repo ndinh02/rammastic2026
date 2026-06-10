@@ -29,7 +29,7 @@ const infoItems = [
   { symbol: '[LOC]', label: 'LOCATION', value: 'Frankfurt am Main' },
   { symbol: '[DE]', label: 'COUNTRY', value: 'Germany' },
   { symbol: '[CAL]', label: 'DATE', value: '17–19 September 2026' },
-  { symbol: '[3D]', label: 'DURATION', value: '3 days · 2 nights' },
+  { symbol: '[3D]', label: 'DURATION', value: '4 days · 3 nights' },
 ]
 
 export function AboutSection() {

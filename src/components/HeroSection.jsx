@@ -147,7 +147,8 @@ export function HeroSection() {
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0 }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
             <a
-              href="#register"
+              href="https://forms.gle/ngdrp1LpLMoqeL3KA"
+              target="_blank"
               style={{
                 fontFamily: "'Press Start 2P', sans-serif",
                 background: 'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',

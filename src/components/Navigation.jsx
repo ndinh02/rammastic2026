@@ -68,7 +68,8 @@ export function Navigation() {
         </div>
 
         <a
-          href="#register"
+          href="https://forms.gle/ngdrp1LpLMoqeL3KA"
+          target="_blank"
           className="desktop-cta"
           style={{
             fontFamily: "'Press Start 2P', sans-serif",
@@ -142,7 +143,9 @@ export function Navigation() {
               </nav>
               <div style={{ padding: '0 24px 40px' }}>
                 <a
-                  href="#register"
+                  href="https://forms.gle/ngdrp1LpLMoqeL3KA"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={close}
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', padding: '16px 0',
