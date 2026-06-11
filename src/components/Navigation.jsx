@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 
+const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+
 const navLinks = [
   { label: 'Về Rammastic', href: '#about' },
   { label: 'SiviHack', href: '#sivihack' },
@@ -50,7 +52,7 @@ export function Navigation() {
         }}
       >
         <a href="#" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
-          <img src="/brand_assets/logo.png" alt="Rammastic" style={{ height: 36, width: 'auto', objectFit: 'contain' }} />
+          <img src="/brand_assets/brand_logo_horizontal.svg" alt="Rammastic" style={{ height: 36, width: 'auto', objectFit: 'contain' }} />
         </a>
 
         <div style={{ display: 'none', alignItems: 'center', gap: 28 }} className="desktop-nav">
@@ -58,7 +60,7 @@ export function Navigation() {
             <a
               key={link.href}
               href={link.href}
-              style={{ fontFamily: "'JetBrains Mono', monospace", color: 'rgba(232,224,255,0.55)', fontSize: '0.75rem', letterSpacing: '0.05em', position: 'relative' }}
+              style={{ fontFamily: HW, color: 'rgba(232,224,255,0.55)', fontSize: '0.85rem', letterSpacing: '0.05em', position: 'relative' }}
               onMouseEnter={e => e.currentTarget.style.color = '#cab1fd'}
               onMouseLeave={e => e.currentTarget.style.color = 'rgba(232,224,255,0.55)'}
             >
@@ -72,12 +74,12 @@ export function Navigation() {
           target="_blank"
           className="desktop-cta"
           style={{
-            fontFamily: "'Press Start 2P', sans-serif",
+            fontFamily: HW,
             background: 'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
             color: '#fff', border: '2px solid rgba(255,255,255,0.15)',
-            boxShadow: '0 3px 0 #5a30c0',
-            clipPath: 'polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)',
-            padding: '10px 20px', fontSize: '0.55rem', letterSpacing: '0.1em', fontWeight: 400,
+            boxShadow: '0 4px 16px rgba(90,48,192,0.4)',
+            borderRadius: '9999px',
+            padding: '10px 20px', fontSize: '0.8rem', letterSpacing: '0.1em', fontWeight: 700,
           }}
         >
           DANG KY
@@ -118,7 +120,7 @@ export function Navigation() {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 24px', borderBottom: '1px solid rgba(202,177,253,0.1)' }}>
-                <span style={{ fontFamily: "'Press Start 2P', sans-serif", color: '#cab1fd', fontSize: '0.52rem', letterSpacing: '0.1em' }}>MENU</span>
+                <span style={{ fontFamily: HW, color: '#cab1fd', fontSize: '0.85rem', letterSpacing: '0.1em', fontWeight: 700 }}>MENU</span>
                 <button onClick={close} style={{ width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <span style={{ color: '#7c6ea0', fontSize: '1.2rem', lineHeight: 1 }}>×</span>
                 </button>
@@ -132,11 +134,11 @@ export function Navigation() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.06 + i * 0.05 }}
-                    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.85rem', color: 'rgba(232,224,255,0.65)', letterSpacing: '0.05em', padding: '16px 0', borderBottom: '1px solid rgba(202,177,253,0.07)', display: 'flex', alignItems: 'center', gap: 12 }}
+                    style={{ fontFamily: HW, fontSize: '0.95rem', color: 'rgba(232,224,255,0.65)', letterSpacing: '0.05em', padding: '16px 0', borderBottom: '1px solid rgba(202,177,253,0.07)', display: 'flex', alignItems: 'center', gap: 12 }}
                     onMouseEnter={e => e.currentTarget.style.color = '#cab1fd'}
                     onMouseLeave={e => e.currentTarget.style.color = 'rgba(232,224,255,0.65)'}
                   >
-                    <span style={{ color: '#71a1e6', fontSize: '0.6rem' }}>{'// '}</span>
+                    <span style={{ color: '#71a1e6', fontSize: '0.7rem' }}>{'// '}</span>
                     {link.label}
                   </motion.a>
                 ))}
@@ -149,11 +151,11 @@ export function Navigation() {
                   onClick={close}
                   style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', padding: '16px 0',
-                    fontFamily: "'Press Start 2P', sans-serif", fontWeight: 400, letterSpacing: '0.08em', fontSize: '0.55rem',
+                    fontFamily: HW, fontWeight: 700, letterSpacing: '0.08em', fontSize: '0.85rem',
                     background: 'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
                     color: '#fff', border: '2px solid rgba(255,255,255,0.15)',
-                    boxShadow: '0 4px 0 #5a30c0',
-                    clipPath: 'polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)',
+                    boxShadow: '0 4px 16px rgba(90,48,192,0.4)',
+                    borderRadius: '9999px',
                   }}
                 >
                   DANG KY NGAY

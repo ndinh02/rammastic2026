@@ -1,9 +1,12 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
 
+const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+const PIXEL = "'Pixelify Sans', sans-serif"
+
 function SectionLabel({ children }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, fontFamily: "'JetBrains Mono', monospace" }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, fontFamily: HW }}>
       <span style={{ color: '#71a1e6', fontSize: '0.7rem' }}>{'//'}</span>
       <span style={{ color: '#7c6ea0', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>{children}</span>
       <div style={{ flex: 1, height: 1, background: 'rgba(202,177,253,0.1)' }} />
@@ -47,8 +50,8 @@ export function OrgSection() {
         <SectionLabel>ban tổ chức</SectionLabel>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} style={{ marginTop: 32, marginBottom: 48, textAlign: 'center' }}>
-          <h2 style={{ fontFamily: "'Orbitron', sans-serif", fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, color: '#e8e0ff' }}>Được tổ chức bởi</h2>
-          <p style={{ marginTop: 12, maxWidth: 672, margin: '12px auto 0', fontSize: '0.875rem', lineHeight: 1.6, color: 'rgba(232,224,255,0.5)' }}>
+          <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, color: '#e8e0ff' }}>Được tổ chức bởi</h2>
+          <p style={{ marginTop: 12, maxWidth: 672, margin: '12px auto 0', fontSize: '0.875rem', lineHeight: 1.6, color: 'rgba(232,224,255,0.5)', fontFamily: HW }}>
             SiviCamp 2026 được dẫn dắt bởi ba tổ chức sinh viên Việt Nam hàng đầu tại Đức, cùng nhau xây dựng một trải nghiệm cộng đồng chất lượng và bền vững.
           </p>
         </motion.div>
@@ -68,21 +71,21 @@ export function OrgSection() {
                 <div style={{ width: 64, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center', background: `${org.color}0d`, border: `1px solid ${org.color}30`, padding: '8px 10px' }}>
                   <img src={org.logo} alt={org.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'brightness(0) invert(1)', opacity: 0.9 }} />
                 </div>
-                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.6rem', color: '#7c6ea0', letterSpacing: '0.15em' }}>{org.id}</span>
+                <span style={{ fontFamily: HW, fontSize: '0.65rem', color: '#7c6ea0', letterSpacing: '0.15em' }}>{org.id}</span>
               </div>
 
               <div>
-                <div style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '1.1rem', fontWeight: 800, color: org.color, textShadow: `0 0 20px ${org.color}40`, marginBottom: 4 }}>{org.name}</div>
-                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.75rem', letterSpacing: '0.15em', color: '#7c6ea0' }}>{org.role}</div>
+                <div style={{ fontFamily: HW, fontSize: '1.1rem', fontWeight: 800, color: org.color, textShadow: `0 0 20px ${org.color}40`, marginBottom: 4 }}>{org.name}</div>
+                <div style={{ fontFamily: HW, fontSize: '0.75rem', letterSpacing: '0.15em', color: '#7c6ea0' }}>{org.role}</div>
               </div>
 
-              <p style={{ color: 'rgba(232,224,255,0.82)', fontSize: '0.85rem', lineHeight: 1.7 }}>{org.description}</p>
+              <p style={{ color: 'rgba(232,224,255,0.82)', fontSize: '0.85rem', lineHeight: 1.7, fontFamily: HW }}>{org.description}</p>
 
               <div style={{ display: 'flex', gap: 16, paddingTop: 16, borderTop: '1px solid rgba(202,177,253,0.08)' }}>
                 {org.stats.map(({ label, value }) => (
                   <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '1rem', fontWeight: 800, color: org.color }}>{value}</span>
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.55rem', color: '#7c6ea0', letterSpacing: '0.12em' }}>{label}</span>
+                    <span style={{ fontFamily: HW, fontSize: '1rem', fontWeight: 800, color: org.color }}>{value}</span>
+                    <span style={{ fontFamily: HW, fontSize: '0.6rem', color: '#7c6ea0', letterSpacing: '0.12em' }}>{label}</span>
                   </div>
                 ))}
               </div>

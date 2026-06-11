@@ -6,15 +6,14 @@ import { SiviHackSection } from './components/SiviHackSection'
 import { SiviTaSection } from './components/SiviTaSection'
 import { SiviTourSection } from './components/SiviTourSection'
 import { ScheduleSection } from './components/ScheduleSection'
-import { WhyJoinSection } from './components/WhyJoinSection'
+import { PricingSection } from './components/PricingSection'
 import { OrgSection } from './components/OrgSection'
-import { RegisterSection } from './components/RegisterSection'
 
 export default function App() {
   return (
     <div
       className="min-h-screen overflow-x-hidden pb-20 md:pb-0"
-      style={{ background: '#07030f', fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+      style={{ background: '#07030f', fontFamily: "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif" }}
     >
       {/* Scanline overlay */}
       <div
@@ -33,9 +32,8 @@ export default function App() {
       <SiviTaSection />
       <SiviTourSection />
       <ScheduleSection />
-      <WhyJoinSection />
+      <PricingSection />
       <OrgSection />
-      {/* <RegisterSection /> */}
     </div>
   )
 }

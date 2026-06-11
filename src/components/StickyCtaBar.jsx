@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 
+const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+
 export function StickyCtaBar() {
   const [visible, setVisible] = useState(false)
 
@@ -34,17 +36,17 @@ export function StickyCtaBar() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0, background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.2)', padding: '6px 10px' }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', boxShadow: '0 0 6px #4ade80', display: 'inline-block', flexShrink: 0 }} />
-              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.58rem', color: '#4ade80', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>100 chỗ</span>
+              <span style={{ fontFamily: HW, fontSize: '0.75rem', color: '#4ade80', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>100 chỗ</span>
             </div>
             <a
               href="#register"
               style={{
                 flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, minHeight: 48,
-                fontFamily: "'Press Start 2P', sans-serif", fontSize: '0.52rem', fontWeight: 400, letterSpacing: '0.08em',
+                fontFamily: HW, fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.08em',
                 background: 'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
                 color: '#fff', border: '2px solid rgba(255,255,255,0.15)',
-                boxShadow: '0 3px 0 #5a30c0, inset 0 1px 0 rgba(255,255,255,0.2)',
-                clipPath: 'polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)',
+                boxShadow: '0 4px 16px rgba(90,48,192,0.4), inset 0 1px 0 rgba(255,255,255,0.2)',
+                borderRadius: '9999px',
               }}
               onTouchStart={e => { e.currentTarget.style.transform = 'scale(0.97)' }}
               onTouchEnd={e => { e.currentTarget.style.transform = '' }}

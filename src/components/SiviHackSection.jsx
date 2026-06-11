@@ -1,9 +1,12 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'motion/react'
 
+const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+const PIXEL = "'Pixelify Sans', sans-serif"
+
 function SectionLabel({ children }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, fontFamily: "'JetBrains Mono', monospace" }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, fontFamily: HW }}>
       <span style={{ color: '#71a1e6', fontSize: '0.7rem' }}>{'//'}</span>
       <span style={{ color: '#7c6ea0', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>{children}</span>
       <div style={{ flex: 1, height: 1, background: 'rgba(202,177,253,0.1)' }} />
@@ -58,6 +61,13 @@ const folders = [
   },
 ]
 
+const teamChars = [
+  { src: '/pixel_asset/pixeled_girl.svg', alt: 'girl' },
+  { src: '/pixel_asset/pixeled_boy.svg',  alt: 'boy' },
+  { src: '/pixel_asset/pixeled_dog.svg',  alt: 'dog' },
+  { src: '/pixeled_frog.svg',             alt: 'frog' },
+]
+
 function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
   return (
     <motion.div
@@ -66,15 +76,19 @@ function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
       animate={inView ? {
         opacity: 1,
         y: isHovered ? -16 : 0,
-        scale: isHovered ? 1.04 : 1,
+        scale: isHovered ? 1.05 : 1,
         rotate: isHovered ? 0 : folder.rotate,
         zIndex: isHovered ? 20 : folder.zIndex,
       } : {}}
       transition={{
         opacity: { duration: 0.5, delay: 0.15 + index * 0.12 },
-        y: isHovered ? { type: 'spring', stiffness: 280, damping: 22 } : { type: 'spring', stiffness: 200, damping: 20, delay: 0.15 + index * 0.12 },
+        y: isHovered
+          ? { type: 'spring', stiffness: 280, damping: 22 }
+          : { type: 'spring', stiffness: 200, damping: 20, delay: 0.15 + index * 0.12 },
         scale: { type: 'spring', stiffness: 280, damping: 22 },
-        rotate: isHovered ? { type: 'spring', stiffness: 280, damping: 22 } : { type: 'spring', stiffness: 160, damping: 18, delay: 0.15 + index * 0.12 },
+        rotate: isHovered
+          ? { type: 'spring', stiffness: 280, damping: 22 }
+          : { type: 'spring', stiffness: 160, damping: 18, delay: 0.15 + index * 0.12 },
       }}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
@@ -99,7 +113,7 @@ function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
         transition: 'box-shadow 0.3s',
       }}>
         <p style={{
-          fontFamily: "'Orbitron', sans-serif",
+          fontFamily: HW,
           fontSize: 'clamp(0.75rem, 2.5vw, 0.95rem)',
           fontWeight: 800,
           color: folder.textColor,
@@ -107,7 +121,7 @@ function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
           marginBottom: 5,
         }}>{folder.title}</p>
         <p style={{
-          fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+          fontFamily: HW,
           fontSize: 'clamp(0.65rem, 2vw, 0.8rem)',
           color: folder.textColor,
           opacity: 0.75,
@@ -116,7 +130,7 @@ function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
           fontWeight: 500,
         }}>{folder.subtitle}</p>
         <p style={{
-          fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+          fontFamily: HW,
           fontSize: 'clamp(0.6rem, 1.8vw, 0.72rem)',
           color: folder.textColor,
           opacity: 0.6,
@@ -142,9 +156,9 @@ export function SiviHackSection() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 64, alignItems: 'start', marginTop: 32 }}>
           {/* Left: description */}
           <motion.div initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7 }}>
-            <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '0.55rem', letterSpacing: '0.12em', color: '#cab1fd', marginBottom: 16 }}>MISSION_001</div>
-            <h2 style={{ fontFamily: "'Orbitron', sans-serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginBottom: 4 }}>SiviHack</h2>
-            <div style={{ fontFamily: "'Caveat', cursive", fontSize: '1.1rem', color: '#71a1e6', marginBottom: 24, fontStyle: 'italic' }}>"Technology starts with people"</div>
+            <div style={{ fontFamily: HW, fontSize: '0.7rem', letterSpacing: '0.12em', color: '#cab1fd', marginBottom: 16, fontWeight: 600 }}>MISSION_001</div>
+            <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginBottom: 4 }}>SiviHack</h2>
+            <div style={{ fontFamily: HW, fontSize: '1.1rem', color: '#71a1e6', marginBottom: 24, fontStyle: 'italic' }}>"Technology starts with people"</div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
               {[
@@ -157,24 +171,37 @@ export function SiviHackSection() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.3 + i * 0.1 }}
-                  style={{ color: 'rgba(232,224,255,0.85)', lineHeight: 1.8, fontSize: '0.88rem', fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                  style={{ color: 'rgba(232,224,255,0.85)', lineHeight: 1.8, fontSize: '0.88rem', fontFamily: HW }}
                 >
                   {text}
                 </motion.p>
               ))}
             </div>
 
+            {/* Team size box */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.55 }}
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 16, padding: '12px 20px', marginBottom: 24, border: '1px solid rgba(113,161,230,0.2)', background: 'rgba(113,161,230,0.05)' }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 16, padding: '12px 20px', marginBottom: 12, border: '1px solid rgba(113,161,230,0.2)', background: 'rgba(113,161,230,0.05)' }}
             >
-              <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '2rem', fontWeight: 900, color: '#71a1e6', textShadow: '0 0 20px rgba(113,161,230,0.4)' }}>3–6</span>
+              <span style={{ fontFamily: HW, fontSize: '2rem', fontWeight: 900, color: '#71a1e6', textShadow: '0 0 20px rgba(113,161,230,0.4)' }}>3–6</span>
               <div>
-                <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '0.45rem', color: '#71a1e6', letterSpacing: '0.1em' }}>TEAM_SIZE</div>
-                <div style={{ color: 'rgba(232,224,255,0.45)', fontSize: '0.78rem', marginTop: 4, fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>người mỗi đội · 48 giờ hacking</div>
+                <div style={{ fontFamily: HW, fontSize: '0.65rem', color: '#71a1e6', letterSpacing: '0.1em', fontWeight: 700 }}>TEAM_SIZE</div>
+                <div style={{ color: 'rgba(232,224,255,0.45)', fontSize: '0.78rem', marginTop: 4, fontFamily: HW }}>người mỗi đội · 48 giờ hacking</div>
               </div>
+            </motion.div>
+
+            {/* Pixel characters */}
+            <motion.div
+              initial={{ opacity: 0, y: 8 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.65 }}
+              style={{ display: 'flex', gap: 4, marginBottom: 24 }}
+            >
+              {teamChars.map(({ src, alt }) => (
+                <img key={alt} src={src} alt={alt} style={{ width: 48, height: 48, imageRendering: 'pixelated' }} />
+              ))}
             </motion.div>
 
             <motion.a
@@ -183,13 +210,13 @@ export function SiviHackSection() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.7 }}
               style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '14px', fontSize: '0.6rem', fontWeight: 400, letterSpacing: '0.1em',
-                fontFamily: "'Press Start 2P', sans-serif",
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '14px 32px', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.1em',
+                fontFamily: HW,
                 background: 'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
                 color: '#fff', border: '2px solid rgba(255,255,255,0.15)',
-                boxShadow: '0 4px 0 #5a30c0, inset 0 1px 0 rgba(255,255,255,0.2)',
+                boxShadow: '0 4px 20px rgba(90,48,192,0.45), inset 0 1px 0 rgba(255,255,255,0.2)',
                 textShadow: '0 1px 2px rgba(0,0,0,0.35)',
-                clipPath: 'polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)',
+                borderRadius: '9999px',
               }}
               onMouseDown={e => { e.currentTarget.style.transform = 'translateY(2px)' }}
               onMouseUp={e => { e.currentTarget.style.transform = '' }}
@@ -205,7 +232,7 @@ export function SiviHackSection() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.65rem', letterSpacing: '0.12em', color: '#7c6ea0', marginBottom: 16 }}>
+            <div style={{ fontFamily: HW, fontSize: '0.65rem', letterSpacing: '0.12em', color: '#7c6ea0', marginBottom: 16 }}>
               {'// access_requirements — hover to lift'}
             </div>
 
@@ -224,7 +251,7 @@ export function SiviHackSection() {
               ))}
             </div>
 
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.58rem', color: '#3a2a5a', letterSpacing: '0.12em', textAlign: 'center', marginTop: 16 }}>
+            <p style={{ fontFamily: HW, fontSize: '0.65rem', color: '#3a2a5a', letterSpacing: '0.12em', textAlign: 'center', marginTop: 16 }}>
               all 4 conditions required · hover to lift
             </p>
           </motion.div>

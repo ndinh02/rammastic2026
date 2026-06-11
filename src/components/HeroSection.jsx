@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
 import { SponsorsBar } from './SponsorsBar'
 
+const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+const PIXEL = "'Pixelify Sans', sans-serif"
+
 function GlitchText({ text }) {
   const [glitching, setGlitching] = useState(false)
   useEffect(() => {
@@ -13,7 +16,7 @@ function GlitchText({ text }) {
   }, [])
   return (
     <span style={{
-      fontFamily: "'Press Start 2P', 'Orbitron', sans-serif",
+      fontFamily: PIXEL,
       color: '#cab1fd',
       textShadow: glitching
         ? '3px 0 #71a1e6, -3px 0 #ff66aa, 0 0 40px rgba(202,177,253,0.9)'
@@ -64,15 +67,15 @@ function Countdown() {
               background: 'rgba(202,177,253,0.07)', border: '2px solid rgba(202,177,253,0.35)',
               boxShadow: 'inset 0 0 0 1px rgba(202,177,253,0.1), 2px 2px 0 rgba(0,0,0,0.4)',
             }}>
-              <span style={{ fontFamily: "'JetBrains Mono', monospace", color: '#cab1fd', fontSize: '1.3rem', fontWeight: 700, textShadow: '0 0 10px rgba(202,177,253,0.5)' }}>
+              <span style={{ fontFamily: HW, color: '#cab1fd', fontSize: '1.3rem', fontWeight: 700, textShadow: '0 0 10px rgba(202,177,253,0.5)' }}>
                 {String(val).padStart(2, '0')}
               </span>
             </div>
-            <span style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '0.45rem', color: '#a896cc', letterSpacing: '0.08em', marginTop: 6 }}>
+            <span style={{ fontFamily: HW, fontSize: '0.65rem', color: '#a896cc', letterSpacing: '0.08em', marginTop: 6 }}>
               {label}
             </span>
           </div>
-          {i < 3 && <span style={{ color: 'rgba(202,177,253,0.4)', fontSize: '1.1rem', fontFamily: "'JetBrains Mono', monospace", marginBottom: 20 }}>:</span>}
+          {i < 3 && <span style={{ color: 'rgba(202,177,253,0.4)', fontSize: '1.1rem', fontFamily: HW, marginBottom: 20 }}>:</span>}
         </div>
       ))}
     </div>
@@ -119,28 +122,28 @@ export function HeroSection() {
       <div style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: 768, margin: '0 auto', padding: '0 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28, textAlign: 'center' }}>
 
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-          <span style={{ fontFamily: "'Press Start 2P', sans-serif", fontSize: '0.62rem', color: '#71a1e6', letterSpacing: '0.3em', fontWeight: 400 }}>SIVICAMP 2026</span>
-          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.6rem', color: 'rgba(232,224,255,0.35)', letterSpacing: '0.18em' }}>17–19 SEPT · FRANKFURT AM MAIN, GERMANY</span>
+          <span style={{ fontFamily: HW, fontSize: '0.75rem', color: '#71a1e6', letterSpacing: '0.3em', fontWeight: 600 }}>SIVICAMP 2026</span>
+          <span style={{ fontFamily: HW, fontSize: '0.7rem', color: 'rgba(232,224,255,0.35)', letterSpacing: '0.18em' }}>17–19 SEPT · FRANKFURT AM MAIN, GERMANY</span>
         </motion.div>
 
         <motion.div initial={{ opacity: 0, scale: 0.93 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.35, duration: 0.7 }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-          <h1 style={{ fontFamily: "'Press Start 2P', 'Orbitron', sans-serif", fontSize: 'clamp(1.8rem, 7vw, 4.2rem)', fontWeight: 400, lineHeight: 1.1, display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.45em', color: '#71a1e6', fontWeight: 700, textShadow: '0 0 16px rgba(113,161,230,0.6)', alignSelf: 'center', marginBottom: '0.08em' }}>#</span>
+          <h1 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.8rem, 7vw, 4.2rem)', fontWeight: 400, lineHeight: 1.1, display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
+            <span style={{ fontFamily: HW, fontSize: '0.45em', color: '#71a1e6', fontWeight: 700, textShadow: '0 0 16px rgba(113,161,230,0.6)', alignSelf: 'center', marginBottom: '0.08em' }}>#</span>
             <GlitchText text="RAMMASTIC" />
           </h1>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 2 }}>
             <span style={{ width: 6, height: 6, background: '#4ade80', boxShadow: '0 0 8px #4ade80', display: 'inline-block', flexShrink: 0 }} />
-            <span style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '0.45rem', color: '#cab1fd', letterSpacing: '0.15em' }}>REGISTRATIONS OPEN</span>
+            <span style={{ fontFamily: HW, fontSize: '0.7rem', color: '#cab1fd', letterSpacing: '0.15em' }}>REGISTRATIONS OPEN</span>
           </div>
         </motion.div>
 
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} style={{ color: 'rgba(232,224,255,0.52)', fontSize: '0.92rem', lineHeight: 1.75, maxWidth: 460, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} style={{ color: 'rgba(232,224,255,0.52)', fontSize: '0.92rem', lineHeight: 1.75, maxWidth: 460, fontFamily: HW }}>
           Trại hè tài năng đầu tiên cho sinh viên và người trẻ Việt Nam tại Đức.{' '}
           <span style={{ color: 'rgba(232,224,255,0.3)' }}>Nơi công nghệ gặp gỡ văn hoá.</span>
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '0.45rem', color: '#7c6ea0', letterSpacing: '0.15em' }}>EVENT_STARTS_IN</span>
+          <span style={{ fontFamily: HW, fontSize: '0.65rem', color: '#7c6ea0', letterSpacing: '0.15em' }}>EVENT_STARTS_IN</span>
           <Countdown />
         </motion.div>
 
@@ -150,13 +153,13 @@ export function HeroSection() {
               href="https://forms.gle/ngdrp1LpLMoqeL3KA"
               target="_blank"
               style={{
-                fontFamily: "'Press Start 2P', sans-serif",
+                fontFamily: HW,
                 background: 'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
                 color: '#fff', border: '2px solid rgba(255,255,255,0.15)',
-                boxShadow: '0 4px 0 #5a30c0, inset 0 1px 0 rgba(255,255,255,0.25)',
+                boxShadow: '0 4px 20px rgba(90,48,192,0.45), inset 0 1px 0 rgba(255,255,255,0.25)',
                 textShadow: '0 1px 2px rgba(0,0,0,0.4)',
-                clipPath: 'polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)',
-                minHeight: 52, padding: '0 36px', fontSize: '0.6rem', fontWeight: 400, letterSpacing: '0.1em',
+                borderRadius: '9999px',
+                minHeight: 52, padding: '0 36px', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.1em',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}
               onMouseDown={e => { e.currentTarget.style.transform = 'translateY(2px) scale(0.97)' }}
@@ -168,8 +171,9 @@ export function HeroSection() {
             <a
               href="#about"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: HW,
                 color: 'rgba(232,224,255,0.78)', border: '2px solid rgba(202,177,253,0.35)',
+                borderRadius: '9999px',
                 minHeight: 52, padding: '0 28px', fontSize: '0.875rem', letterSpacing: '0.15em',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}

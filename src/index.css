@@ -1,3 +1,13 @@
+/* CSS variables for Tailwind theme (used by map component) */
+:root {
+  --background: 258 62% 4%;
+  --foreground: 250 100% 94%;
+  --muted-foreground: 263 22% 52%;
+}
+
+@tailwind components;
+@tailwind utilities;
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -5,7 +15,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
   background: #07030f;
   color: #e8e0ff;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }

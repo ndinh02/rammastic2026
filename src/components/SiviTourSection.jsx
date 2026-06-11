@@ -1,9 +1,13 @@
 import { useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'motion/react'
+import { SiviTourMap } from './SiviTourMap'
+
+const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+const PIXEL = "'Pixelify Sans', sans-serif"
 
 function SectionLabel({ children }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, fontFamily: "'JetBrains Mono', monospace" }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, fontFamily: HW }}>
       <span style={{ color: '#71a1e6', fontSize: '0.7rem' }}>{'//'}</span>
       <span style={{ color: '#7c6ea0', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>{children}</span>
       <div style={{ flex: 1, height: 1, background: 'rgba(202,177,253,0.1)' }} />
@@ -70,8 +74,8 @@ function AccordionItem({ stop, isOpen, onToggle, inView, index }) {
           flexShrink: 0,
           width: 40, height: 40,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontFamily: "'JetBrains Mono', monospace",
-          fontSize: '0.7rem', fontWeight: 700,
+          fontFamily: HW,
+          fontSize: '0.75rem', fontWeight: 700,
           color: stop.color,
           background: `${stop.color}12`,
           border: `1px solid ${stop.color}30`,
@@ -79,8 +83,8 @@ function AccordionItem({ stop, isOpen, onToggle, inView, index }) {
         }}>{stop.marker}</span>
 
         <div style={{ flex: 1 }}>
-          <div style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.9rem', fontWeight: 700, color: '#e8e0ff', marginBottom: 2 }}>{stop.name}</div>
-          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.62rem', color: '#a896cc', letterSpacing: '0.06em' }}>{stop.desc}</div>
+          <div style={{ fontFamily: HW, fontSize: '0.9rem', fontWeight: 700, color: '#e8e0ff', marginBottom: 2 }}>{stop.name}</div>
+          <div style={{ fontFamily: HW, fontSize: '0.72rem', color: '#a896cc', letterSpacing: '0.06em' }}>{stop.desc}</div>
         </div>
 
         <motion.div
@@ -108,7 +112,7 @@ function AccordionItem({ stop, isOpen, onToggle, inView, index }) {
               paddingBottom: 18,
             }}>
               <p style={{
-                fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+                fontFamily: HW,
                 fontSize: '0.85rem',
                 color: 'rgba(232,224,255,0.68)',
                 lineHeight: 1.75,
@@ -137,20 +141,17 @@ export function SiviTourSection() {
       <div style={{ maxWidth: 1152, margin: '0 auto' }}>
         <SectionLabel>city exploration</SectionLabel>
 
-        {/* Frankfurt image banner */}
+        {/* Interactive Frankfurt map */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          style={{ position: 'relative', marginTop: 24, marginBottom: 48, overflow: 'hidden', height: 180, borderTop: '2px solid rgba(113,161,230,0.3)' }}
+          style={{ position: 'relative', marginTop: 24, marginBottom: 48, height: 320, borderRadius: 8, overflow: 'hidden', border: '1px solid rgba(113,161,230,0.2)' }}
         >
-          <img
-            src="https://images.unsplash.com/photo-1642096633192-9290503a9a38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-            alt="Frankfurt am Main skyline"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.5) saturate(0.75)' }}
-          />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, #07030f 0%, transparent 25%, transparent 75%, #07030f 100%), linear-gradient(to bottom, transparent 40%, #07030f 100%)' }} />
-          <div style={{ position: 'absolute', bottom: 12, left: 16, fontFamily: "'Press Start 2P', sans-serif", fontSize: '0.5rem', color: 'rgba(113,161,230,0.7)', letterSpacing: '0.2em' }}>FRANKFURT AM MAIN · GERMANY</div>
+          <SiviTourMap />
+          <div style={{ position: 'absolute', bottom: 10, left: 14, fontFamily: HW, fontSize: '0.62rem', color: 'rgba(113,161,230,0.65)', letterSpacing: '0.18em', fontWeight: 600, pointerEvents: 'none', zIndex: 10 }}>
+            FRANKFURT AM MAIN · GERMANY
+          </div>
         </motion.div>
 
         {/* SiviTour description — full width, stacked above city list */}
@@ -160,9 +161,9 @@ export function SiviTourSection() {
           transition={{ duration: 0.7 }}
           style={{ marginBottom: 48, maxWidth: 720 }}
         >
-          <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '0.55rem', letterSpacing: '0.12em', color: '#71a1e6', marginBottom: 16 }}>MISSION_003</div>
-          <h2 style={{ fontFamily: "'Orbitron', sans-serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginBottom: 8 }}>SiviTour</h2>
-          <div style={{ fontFamily: "'Caveat', cursive", fontSize: '1.2rem', color: '#71a1e6', marginBottom: 24, fontStyle: 'italic' }}>"Explore · Connect · Belong"</div>
+          <div style={{ fontFamily: HW, fontSize: '0.7rem', letterSpacing: '0.12em', color: '#71a1e6', marginBottom: 16, fontWeight: 600 }}>MISSION_003</div>
+          <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginBottom: 8 }}>SiviTour</h2>
+          <div style={{ fontFamily: HW, fontSize: '1.2rem', color: '#71a1e6', marginBottom: 24, fontStyle: 'italic' }}>"Explore · Connect · Belong"</div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {[
@@ -175,7 +176,7 @@ export function SiviTourSection() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + i * 0.1 }}
-                style={{ color: 'rgba(232,224,255,0.85)', lineHeight: 1.8, fontSize: '0.88rem', fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                style={{ color: 'rgba(232,224,255,0.85)', lineHeight: 1.8, fontSize: '0.88rem', fontFamily: HW }}
               >
                 {text}
               </motion.p>
@@ -189,24 +190,6 @@ export function SiviTourSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div style={{
-            display: 'flex', alignItems: 'center', gap: 10,
-            marginBottom: 20,
-            padding: '10px 14px',
-            background: 'rgba(113,161,230,0.06)',
-            border: '1px solid rgba(113,161,230,0.15)',
-          }}>
-            <span style={{ color: '#71a1e6', fontSize: '0.75rem' }}>ℹ</span>
-            <span style={{
-              fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-              fontSize: '0.8rem',
-              color: 'rgba(232,224,255,0.55)',
-              fontStyle: 'italic',
-            }}>
-              Muốn biết thêm kế hoạch? Nhấn để xem chi tiết
-            </span>
-          </div>
-
           <div style={{ position: 'relative' }}>
             <div style={{ position: 'absolute', left: 20, top: 0, bottom: 0, width: 1, background: 'linear-gradient(to bottom, #71a1e6, rgba(113,161,230,0.1))', pointerEvents: 'none' }} />
             <div style={{ paddingLeft: 0 }}>

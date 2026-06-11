@@ -1,9 +1,12 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
 
+const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+const PIXEL = "'Pixelify Sans', sans-serif"
+
 function SectionLabel({ children }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, fontFamily: "'JetBrains Mono', monospace" }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, fontFamily: HW }}>
       <span style={{ color: '#71a1e6', fontSize: '0.7rem' }}>{'//'}</span>
       <span style={{ color: '#7c6ea0', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>{children}</span>
       <div style={{ flex: 1, height: 1, background: 'rgba(202,177,253,0.1)' }} />
@@ -29,9 +32,9 @@ export function SiviTaSection() {
           transition={{ duration: 0.7 }}
           style={{ marginTop: 32 }}
         >
-          <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '0.55rem', letterSpacing: '0.12em', color: '#eeb2ff', marginBottom: 16 }}>MISSION_002</div>
-          <h2 style={{ fontFamily: "'Orbitron', sans-serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginBottom: 8 }}>SiviTa</h2>
-          <div style={{ fontFamily: "'Caveat', cursive", fontSize: '1.2rem', color: '#eeb2ff', marginBottom: 24, fontStyle: 'italic' }}>"Everyone has a story worth sharing"</div>
+          <div style={{ fontFamily: HW, fontSize: '0.7rem', letterSpacing: '0.12em', color: '#eeb2ff', marginBottom: 16, fontWeight: 600 }}>MISSION_002</div>
+          <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginBottom: 8 }}>SiviTa</h2>
+          <div style={{ fontFamily: HW, fontSize: '1.2rem', color: '#eeb2ff', marginBottom: 24, fontStyle: 'italic' }}>"Everyone has a story worth sharing"</div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 36 }}>
             {[
@@ -44,7 +47,7 @@ export function SiviTaSection() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.3 + i * 0.1 }}
-                style={{ color: 'rgba(232,224,255,0.85)', lineHeight: 1.8, fontSize: '0.88rem', fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+                style={{ color: 'rgba(232,224,255,0.85)', lineHeight: 1.8, fontSize: '0.88rem', fontFamily: HW }}
               >
                 {text}
               </motion.p>
@@ -61,8 +64,8 @@ export function SiviTaSection() {
               <div style={{ width: 8, height: 8, background: '#eeb2ff', boxShadow: '0 0 8px #eeb2ff' }} />
             </div>
             <div>
-              <div style={{ fontFamily: "'Orbitron', sans-serif", fontSize: '0.8rem', color: '#eeb2ff', fontWeight: 700 }}>Last Day · Gala Night</div>
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.6rem', color: '#7c6ea0', marginTop: 2 }}>19/09/2026 · Dành cho tất cả người đăng ký</div>
+              <div style={{ fontFamily: HW, fontSize: '0.8rem', color: '#eeb2ff', fontWeight: 700 }}>Last Day · Gala Night</div>
+              <div style={{ fontFamily: HW, fontSize: '0.65rem', color: '#7c6ea0', marginTop: 2 }}>19/09/2026 · Dành cho tất cả người đăng ký</div>
             </div>
           </motion.div>
         </motion.div>

@@ -1,9 +1,12 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
 
+const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
+const PIXEL = "'Pixelify Sans', sans-serif"
+
 function SectionLabel({ children }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, fontFamily: "'JetBrains Mono', monospace" }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8, fontFamily: HW }}>
       <span style={{ color: '#71a1e6', fontSize: '0.7rem' }}>{'//'}</span>
       <span style={{ color: '#7c6ea0', fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>{children}</span>
       <div style={{ flex: 1, height: 1, background: 'rgba(202,177,253,0.1)' }} />
@@ -71,17 +74,28 @@ function StackCard({ cat, index, total }) {
               <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#ff5f57', display: 'inline-block' }} />
               <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#ffbd2e', display: 'inline-block' }} />
               <span style={{ width: 12, height: 12, borderRadius: '50%', background: '#28c840', display: 'inline-block' }} />
-              <span style={{ marginLeft: 'auto', fontFamily: "'JetBrains Mono', monospace", fontSize: '0.56rem', color: 'rgba(232,224,255,0.2)', letterSpacing: '0.1em' }}>{String(index + 1).padStart(2, '0')}/{total}</span>
+              <span style={{ marginLeft: 'auto', fontFamily: HW, fontSize: '0.62rem', color: 'rgba(232,224,255,0.2)', letterSpacing: '0.1em' }}>{String(index + 1).padStart(2, '0')}/{total}</span>
             </div>
-            <div style={{ fontSize: '2.5rem', marginBottom: 14, lineHeight: 1, color: cat.color, fontFamily: "'JetBrains Mono', monospace" }}>{cat.symbol}</div>
-            <div style={{ fontFamily: "'Orbitron', sans-serif", fontSize: 'clamp(1rem, 2.5vw, 1.45rem)', fontWeight: 900, color: cat.color, textShadow: `0 0 28px ${cat.color}45`, lineHeight: 1.2, marginBottom: 8 }}>{cat.tagline}</div>
-            <div style={{ fontFamily: "'Press Start 2P', monospace", fontSize: '0.42rem', color: `${cat.color}70`, letterSpacing: '0.15em' }}>{cat.label.toUpperCase()}</div>
+            <div style={{ fontSize: '2.5rem', marginBottom: 14, lineHeight: 1, color: cat.color, fontFamily: HW }}>{cat.symbol}</div>
+            {cat.key === 'coder' ? (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 8 }}>
+                {['Build.', 'Ship.', 'Win.'].map((word, wi) => (
+                  <div key={wi} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <img src={`/pixel_asset/pixeled_no_${wi + 1}.svg`} alt={`${wi + 1}`} style={{ width: 26, height: 26, imageRendering: 'pixelated', flexShrink: 0 }} />
+                    <span style={{ fontFamily: HW, fontSize: 'clamp(1rem, 2.5vw, 1.35rem)', fontWeight: 900, color: cat.color, textShadow: `0 0 28px ${cat.color}45`, lineHeight: 1.2 }}>{word}</span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div style={{ fontFamily: HW, fontSize: 'clamp(1rem, 2.5vw, 1.45rem)', fontWeight: 900, color: cat.color, textShadow: `0 0 28px ${cat.color}45`, lineHeight: 1.2, marginBottom: 8 }}>{cat.tagline}</div>
+            )}
+            <div style={{ fontFamily: HW, fontSize: '0.7rem', color: `${cat.color}70`, letterSpacing: '0.15em' }}>{cat.label.toUpperCase()}</div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '40px 32px', gap: 20, background: 'rgba(7,3,15,0.45)', minHeight: 240 }}>
             {cat.perks.map(({ mark, text }, i) => (
               <motion.div key={i} initial={{ opacity: 0, x: 16 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.4, delay: 0.15 + i * 0.07 }} style={{ display: 'flex', alignItems: 'flex-start', gap: 14 }}>
                 <div style={{ flexShrink: 0, width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: cat.color, background: `${cat.color}0d`, border: `1px solid ${cat.color}25` }}>{mark}</div>
-                <span style={{ color: 'rgba(232,224,255,0.68)', fontSize: '0.85rem', lineHeight: 1.55, paddingTop: 3, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>{text}</span>
+                <span style={{ color: 'rgba(232,224,255,0.68)', fontSize: '0.85rem', lineHeight: 1.55, paddingTop: 3, fontFamily: HW }}>{text}</span>
               </motion.div>
             ))}
           </div>
@@ -97,10 +111,10 @@ export function WhyJoinSection() {
       <div style={{ maxWidth: 960, margin: '0 auto' }}>
         <div style={{ paddingTop: 96, paddingBottom: 32 }}>
           <SectionLabel>tại sao bạn nên tham gia</SectionLabel>
-          <h2 style={{ fontFamily: "'Orbitron', sans-serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginTop: 32 }}>
+          <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginTop: 32 }}>
             What&apos;s in it<br /><span style={{ color: '#cab1fd' }}>for you?</span>
           </h2>
-          <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.65rem', color: '#4a3a6a', letterSpacing: '0.15em', marginTop: 12 }}>scroll to explore each group ↓</p>
+          <p style={{ fontFamily: HW, fontSize: '0.75rem', color: '#4a3a6a', letterSpacing: '0.15em', marginTop: 12 }}>scroll to explore each group ↓</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', paddingBottom: `${categories.length * 28 + 40}px` }}>
@@ -113,12 +127,12 @@ export function WhyJoinSection() {
           <a
             href="#register"
             style={{
-              padding: '16px 40px', fontFamily: "'Press Start 2P', sans-serif", fontSize: '0.6rem', fontWeight: 400, letterSpacing: '0.1em',
+              padding: '16px 40px', fontFamily: HW, fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.1em',
               background: 'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
               color: '#fff', border: '2px solid rgba(255,255,255,0.15)',
-              boxShadow: '0 4px 0 #5a30c0, inset 0 1px 0 rgba(255,255,255,0.2)',
+              boxShadow: '0 4px 20px rgba(90,48,192,0.45), inset 0 1px 0 rgba(255,255,255,0.2)',
               textShadow: '0 1px 2px rgba(0,0,0,0.35)',
-              clipPath: 'polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)',
+              borderRadius: '9999px',
             }}
             onMouseDown={e => { e.currentTarget.style.transform = 'translateY(2px)' }}
             onMouseUp={e => { e.currentTarget.style.transform = '' }}
