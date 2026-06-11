@@ -3,19 +3,6 @@ import { CreativePricing } from '@/components/ui/creative-pricing'
 
 const ticketTiers = [
   {
-    name: '1 Day Ticket',
-    icon: <Star className="w-6 h-6" />,
-    price: 20,
-    description: 'Join us for the final day experience',
-    color: 'amber',
-    features: [
-      'Touring in Frankfurt',
-      'Access to SiviTa',
-      'Community activities',
-      'Perfect for short participation',
-    ],
-  },
-  {
     name: 'Full Experience Ticket',
     icon: <Sparkles className="w-6 h-6" />,
     price: 45,
@@ -27,6 +14,19 @@ const ticketTiers = [
       'Touring in Frankfurt',
       'Access to SiviTa',
       'All activities included',
+    ],
+  },
+  {
+    name: '1 Day Ticket',
+    icon: <Star className="w-6 h-6" />,
+    price: 20,
+    description: 'Join us for the final day experience',
+    color: 'amber',
+    features: [
+      'Touring in Frankfurt',
+      'Access to SiviTa',
+      'Community activities',
+      'Perfect for short participation',
     ],
   },
 ]

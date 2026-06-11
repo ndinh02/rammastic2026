@@ -205,7 +205,8 @@ export function SiviHackSection() {
             </motion.div>
 
             <motion.a
-              href="#register"
+              href="https://forms.gle/ngdrp1LpLMoqeL3KA"
+              target="_blank"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.7 }}

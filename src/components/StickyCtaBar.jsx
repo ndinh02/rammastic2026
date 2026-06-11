@@ -39,7 +39,8 @@ export function StickyCtaBar() {
               <span style={{ fontFamily: HW, fontSize: '0.75rem', color: '#4ade80', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>100 chỗ</span>
             </div>
             <a
-              href="#register"
+              href="https://forms.gle/ngdrp1LpLMoqeL3KA"
+              target="_blank"
               style={{
                 flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, minHeight: 48,
                 fontFamily: HW, fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.08em',
