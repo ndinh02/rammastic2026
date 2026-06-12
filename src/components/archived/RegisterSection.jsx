@@ -65,7 +65,7 @@ export function RegisterSection() {
             </h2>
 
             <p style={{ color: 'rgba(232,224,255,0.82)', lineHeight: 1.8, fontSize: '0.95rem', fontFamily: HW }}>
-              SiviCamp 2026 chỉ có <span style={{ color: '#cab1fd', fontWeight: 600 }}>giới hạn 100 chỗ</span>. Đăng ký sớm để giữ vị trí của bạn và chuẩn bị cho một hành trình 48 giờ hack, học và kết nối.
+              SiviCamp 2026 chỉ có <span style={{ color: '#cab1fd', fontWeight: 600 }}>giới hạn 100 chỗ</span>. Đăng ký sớm để giữ vị trí của bạn và chuẩn bị cho một hành trình 24 giờ hack, học và kết nối.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column' }}>

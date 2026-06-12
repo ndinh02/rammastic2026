@@ -224,7 +224,7 @@ export function SiviHackSection() {
             <div className="space-y-4 mb-8">
               {[
                 "SiviHack là hackathon đầu tiên do SIVIDUC e.V. tổ chức — mô hình đầu tiên trong cộng đồng sinh viên Việt Nam tại châu Âu.",
-                "~100 người làm việc theo đội 3–6 để giải quyết bài toán thực tế và xây dựng prototype trong 48 giờ.",
+                "~100 người làm việc theo đội 3–6 để giải quyết bài toán thực tế và xây dựng prototype trong 24 giờ.",
                 "Mentoring, workshop thực chiến, kết nối đối tác — cầu nối giữa học thuật và thực tiễn.",
               ].map((text, i) => (
                 <motion.p
@@ -262,7 +262,7 @@ export function SiviHackSection() {
                   TEAM_SIZE
                 </div>
                 <div style={{ color: "rgba(232,224,255,0.45)", fontSize: "0.78rem" }}>
-                  người mỗi đội · 48 giờ hacking
+                  người mỗi đội · 24 giờ hacking
                 </div>
               </div>
             </motion.div>
