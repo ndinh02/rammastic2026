@@ -81,7 +81,7 @@ function StackCard({ cat, index, total }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 2, marginBottom: 8 }}>
                 {['Build.', 'Ship.', 'Win.'].map((word, wi) => (
                   <div key={wi} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <img src={`/pixel_asset/pixeled_no_${wi + 1}.svg`} alt={`${wi + 1}`} style={{ width: 26, height: 26, imageRendering: 'pixelated', flexShrink: 0 }} />
+                    <img src={`${import.meta.env.BASE_URL}pixel_asset/pixeled_no_${wi + 1}.svg`} alt={`${wi + 1}`} style={{ width: 26, height: 26, imageRendering: 'pixelated', flexShrink: 0 }} />
                     <span style={{ fontFamily: HW, fontSize: 'clamp(1rem, 2.5vw, 1.35rem)', fontWeight: 900, color: cat.color, textShadow: `0 0 28px ${cat.color}45`, lineHeight: 1.2 }}>{word}</span>
                   </div>
                 ))}

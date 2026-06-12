@@ -62,10 +62,10 @@ const folders = [
 ]
 
 const teamChars = [
-  { src: '/pixel_asset/pixeled_girl.svg', alt: 'girl' },
-  { src: '/pixel_asset/pixeled_boy.svg',  alt: 'boy' },
-  { src: '/pixel_asset/pixeled_dog.svg',  alt: 'dog' },
-  { src: '/pixeled_frog.svg',             alt: 'frog' },
+  { src: `${import.meta.env.BASE_URL}pixel_asset/pixeled_girl.svg`, alt: 'girl' },
+  { src: `${import.meta.env.BASE_URL}pixel_asset/pixeled_boy.svg`,  alt: 'boy' },
+  { src: `${import.meta.env.BASE_URL}pixel_asset/pixeled_dog.svg`,  alt: 'dog' },
+  { src: `${import.meta.env.BASE_URL}pixel_asset/pixeled_frog.svg`, alt: 'frog' },
 ]
 
 function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {

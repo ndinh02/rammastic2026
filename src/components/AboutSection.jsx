@@ -98,7 +98,7 @@ export function AboutSection() {
         >
           <motion.img
             key={bugKey}
-            src="/pixel_asset/pixeled_bug.svg"
+            src={`${import.meta.env.BASE_URL}pixel_asset/pixeled_bug.svg`}
             alt=""
             aria-hidden="true"
             initial={{ y: 80, opacity: 0 }}

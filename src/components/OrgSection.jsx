@@ -20,21 +20,21 @@ const orgs = [
     role: 'Main Organizer', roleVi: 'Đơn vị tổ chức chính',
     description: 'Dẫn dắt toàn bộ sự kiện SiviCamp 2026 và là đơn vị sáng lập SiviHack.',
     stats: [{ label: 'FOUNDED', value: '2019' }, { label: 'MEMBERS', value: '200+' }],
-    logo: '/organizers/org_sividuc_logo.png',
+    logo: `${import.meta.env.BASE_URL}organizers/org_sividuc_logo.png`,
   },
   {
     id: 'ORG_002', name: 'VGI e.V.', color: '#71a1e6',
     role: 'Technical Partner', roleVi: 'Chuyên môn & Hội đồng đánh giá',
     description: 'Đồng hành về chuyên môn kỹ thuật và tham gia hội đồng đánh giá các đội thi.',
     stats: [{ label: 'EXPERTS', value: '15+' }, { label: 'WORKSHOPS', value: '3' }],
-    logo: '/organizers/org_vgi_logo.png',
+    logo: `${import.meta.env.BASE_URL}organizers/org_vgi_logo.png`,
   },
   {
     id: 'ORG_003', name: 'VSAF e.V.', color: '#eeb2ff',
     role: 'Operations Partner', roleVi: 'Vận hành & Hậu cần',
     description: 'Đảm nhận vận hành và hậu cần để mang đến trải nghiệm cộng đồng chất lượng.',
     stats: [{ label: 'VOLUNTEERS', value: '30+' }, { label: 'CAPACITY', value: '200' }],
-    logo: '/organizers/org_vsaf_logo.jpg',
+    logo: `${import.meta.env.BASE_URL}organizers/org_vsaf_logo.jpg`,
   },
 ]
 

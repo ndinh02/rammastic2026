@@ -1,8 +1,8 @@
 const sponsors = [
-  { name: 'NVIDIA',      src: '/sponsors/spon_nvidia_logo_fixed.svg', height: 40 },
-  { name: 'FPT',         src: '/sponsors/spon_fpt_logo.svg',          height: 48 },
-  { name: 'Vietinbank',  src: '/sponsors/spon_vietinbank_logo.svg',   height: 44 },
-  { name: 'Code4You',    src: '/sponsors/spon_code4you_logo.png',     height: 44 },
+  { name: 'NVIDIA',      src: `${import.meta.env.BASE_URL}sponsors/spon_nvidia_logo_fixed.svg`, height: 40 },
+  { name: 'FPT',         src: `${import.meta.env.BASE_URL}sponsors/spon_fpt_logo.svg`,          height: 48 },
+  { name: 'Vietinbank',  src: `${import.meta.env.BASE_URL}sponsors/spon_vietinbank_logo.svg`,   height: 44 },
+  { name: 'Code4You',    src: `${import.meta.env.BASE_URL}sponsors/spon_code4you_logo.png`,     height: 44 },
 ]
 
 const items = [...sponsors, ...sponsors, ...sponsors, ...sponsors,

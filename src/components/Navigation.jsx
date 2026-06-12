@@ -52,7 +52,7 @@ export function Navigation() {
         }}
       >
         <a href="#" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
-          <img src="/brand_assets/brand_logo_horizontal.svg" alt="Rammastic" style={{ height: 36, width: 'auto', objectFit: 'contain' }} />
+          <img src={`${import.meta.env.BASE_URL}brand_assets/brand_logo_horizontal.svg`} alt="Rammastic" style={{ height: 36, width: 'auto', objectFit: 'contain' }} />
         </a>
 
         <div style={{ display: 'none', alignItems: 'center', gap: 28 }} className="desktop-nav">
