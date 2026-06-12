@@ -23,7 +23,7 @@ const puzzlePieces = [
     clip: "polygon(0 0, 75% 0, 75% 20%, 100% 20%, 100% 100%, 25% 100%, 25% 80%, 0 80%)",
   },
   {
-    value: "48h",
+    value: "24h",
     label: "Hacking",
     color: "#4a80cc",
     bg: "rgba(74,128,204,0.15)",
