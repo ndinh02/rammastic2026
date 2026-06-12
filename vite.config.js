@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'node:url'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
   server: { port: 3000 },
   resolve: {
@@ -19,4 +19,5 @@ export default defineConfig({
       },
     },
   },
-})
+  base: mode === 'production' ? '/sivicamp2026/' : '/',
+}))
