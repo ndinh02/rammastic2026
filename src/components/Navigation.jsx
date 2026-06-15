@@ -7,8 +7,8 @@ const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const navLinks = [
   { label: 'Về Rammastic', href: '#about' },
   { label: 'SiviHack', href: '#sivihack' },
-  { label: 'SiviTa', href: '#sivita' },
-  { label: 'SiviTour', href: '#sivitour' },
+  // { label: 'SiviTa', href: '#sivita' },
+  // { label: 'SiviTour', href: '#sivitour' },
   { label: 'Chương Trình', href: '#schedule' },
   { label: 'Ban Tổ Chức', href: '#org' },
 ]
@@ -53,7 +53,7 @@ export function Navigation() {
         }}
       >
         <a href="#" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
-          <img src={`${import.meta.env.BASE_URL}brand_assets/brand_logo_horizontal.svg`} alt="Rammastic" style={{ height: 36, width: 'auto', objectFit: 'contain' }} />
+          <img src={`/logo/logo_RAMmastic.svg`} alt="Rammastic" style={{ height: 36, width: 'auto', objectFit: 'contain' }} />
         </a>
 
         <div style={{ display: 'none', alignItems: 'center', gap: 28 }} className="desktop-nav">
