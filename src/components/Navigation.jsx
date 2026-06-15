@@ -5,7 +5,7 @@ import { REGISTRATION_URL } from '@/config/links'
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 
 const navLinks = [
-  { label: 'Về Rammastic', href: '#about' },
+  { label: 'Về RAMmastic', href: '#about' },
   { label: 'SiviHack', href: '#sivihack' },
   // { label: 'SiviTa', href: '#sivita' },
   // { label: 'SiviTour', href: '#sivitour' },
