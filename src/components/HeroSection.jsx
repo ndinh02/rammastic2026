@@ -65,7 +65,7 @@ function Countdown() {
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div style={{
               width: 60, height: 60, display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: 'rgba(202,177,253,0.07)', border: '2px solid rgba(202,177,253,0.35)',
+              background: "url('/hero/hero-bg.jpg')",
               boxShadow: 'inset 0 0 0 1px rgba(202,177,253,0.1), 2px 2px 0 rgba(0,0,0,0.4)',
             }}>
               <span style={{ fontFamily: HW, color: '#cab1fd', fontSize: '1.3rem', fontWeight: 700, textShadow: '0 0 10px rgba(202,177,253,0.5)' }}>

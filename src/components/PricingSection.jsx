@@ -16,19 +16,19 @@ const ticketTiers = [
       'All activities included',
     ],
   },
-  {
-    name: '1 Day Ticket',
-    icon: <Star className="w-6 h-6" />,
-    price: 20,
-    description: 'Join us for the final day experience',
-    color: 'amber',
-    features: [
-      'Touring in Frankfurt',
-      'Access to SiviTa',
-      'Community activities',
-      'Perfect for short participation',
-    ],
-  },
+  // {
+  //   name: '1 Day Ticket',
+  //   icon: <Star className="w-6 h-6" />,
+  //   price: 20,
+  //   description: 'Join us for the final day experience',
+  //   color: 'amber',
+  //   features: [
+  //     'Touring in Frankfurt',
+  //     'Access to SiviTa',
+  //     'Community activities',
+  //     'Perfect for short participation',
+  //   ],
+  // },
 ]
 
 export function PricingSection() {

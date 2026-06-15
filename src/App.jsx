@@ -29,8 +29,8 @@ export default function App() {
       <HeroSection />
       <AboutSection />
       <SiviHackSection />
-      <SiviTaSection />
-      <SiviTourSection />
+      {/* <SiviTaSection /> */}
+      {/* <SiviTourSection /> */}
       <ScheduleSection />
       <PricingSection />
       <OrgSection />
