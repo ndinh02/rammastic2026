@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'motion/react'
+import { REGISTRATION_URL } from '@/config/links'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
@@ -205,7 +206,7 @@ export function SiviHackSection() {
             </motion.div>
 
             <motion.a
-              href="https://forms.gle/ngdrp1LpLMoqeL3KA"
+              href={REGISTRATION_URL}
               target="_blank"
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}

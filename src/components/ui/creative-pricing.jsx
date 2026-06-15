@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
+import { REGISTRATION_URL } from '@/config/links'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
@@ -172,7 +173,9 @@ function StackCard({ tier, index }) {
           </div>
 
           <a
-            href="#register"
+            href={REGISTRATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               display: 'block',
               textAlign: 'center',

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import { REGISTRATION_URL } from '@/config/links'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 
@@ -70,7 +71,7 @@ export function Navigation() {
         </div>
 
         <a
-          href="https://forms.gle/ngdrp1LpLMoqeL3KA"
+          href={REGISTRATION_URL}
           target="_blank"
           className="desktop-cta"
           style={{
@@ -145,7 +146,7 @@ export function Navigation() {
               </nav>
               <div style={{ padding: '0 24px 40px' }}>
                 <a
-                  href="https://forms.gle/ngdrp1LpLMoqeL3KA"
+                  href={REGISTRATION_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={close}
