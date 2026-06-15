@@ -16,25 +16,28 @@ function SectionLabel({ children }) {
 
 const orgs = [
   {
-    id: 'ORG_001', name: 'SIVIDUC e.V.', color: '#cab1fd',
-    role: 'Main Organizer', roleVi: 'Đơn vị tổ chức chính',
-    description: 'Dẫn dắt toàn bộ sự kiện SiviCamp 2026 và là đơn vị sáng lập SiviHack.',
-    stats: [{ label: 'FOUNDED', value: '2019' }, { label: 'MEMBERS', value: '200+' }],
-    logo: `${import.meta.env.BASE_URL}organizers/org_sividuc_logo.png`,
-  },
-  {
-    id: 'ORG_002', name: 'VGI e.V.', color: '#71a1e6',
+    name: 'VGI e.V.', color: '#71a1e6',
     role: 'Technical Partner', roleVi: 'Chuyên môn & Hội đồng đánh giá',
-    description: 'Đồng hành về chuyên môn kỹ thuật và tham gia hội đồng đánh giá các đội thi.',
-    stats: [{ label: 'EXPERTS', value: '15+' }, { label: 'WORKSHOPS', value: '3' }],
-    logo: `${import.meta.env.BASE_URL}organizers/org_vgi_logo.png`,
+    description: 'Mạng lưới Đổi mới Sáng tạo Việt Đức',
+    stats: [{ label: 'FOUNDED', value: '2020' }], //{ label: 'WORKSHOPS', value: '3' }],
+    logo: `${import.meta.env.BASE_URL}logo/vgi.svg`,
+    logoWidth: 100,
   },
   {
-    id: 'ORG_003', name: 'VSAF e.V.', color: '#eeb2ff',
+    name: 'SIVIDUC e.V.', color: '#cab1fd',
+    role: 'Main Organizer', roleVi: 'Đơn vị tổ chức chính',
+    description: 'Hội Sinh viên Việt Nam tại CHLB Đức',
+    stats: [{ label: 'FOUNDED', value: '2012' }],//, { label: 'MEMBERS', value: '200+' }],
+    logo: `${import.meta.env.BASE_URL}logo/sividuc.svg`,
+    logoWidth: 105,
+  },
+  {
+    name: 'VSAF e.V.', color: '#eeb2ff',
     role: 'Operations Partner', roleVi: 'Vận hành & Hậu cần',
-    description: 'Đảm nhận vận hành và hậu cần để mang đến trải nghiệm cộng đồng chất lượng.',
-    stats: [{ label: 'VOLUNTEERS', value: '30+' }, { label: 'CAPACITY', value: '200' }],
-    logo: `${import.meta.env.BASE_URL}organizers/org_vsaf_logo.jpg`,
+    description: 'Hội Sinh viên Việt Nam tại TP. Frankfurt am Main',
+    stats: [{ label: 'FOUNDED', value: '2015' }], //{ label: 'CAPACITY', value: '200' }],
+    logo: `${import.meta.env.BASE_URL}logo/vsaf.svg`,
+    logoWidth: 100,
   },
 ]
 
@@ -61,17 +64,37 @@ export function OrgSection() {
             <motion.div
               key={org.id}
               initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.15 + i * 0.12 }}
-              style={{ position: 'relative', padding: 24, display: 'flex', flexDirection: 'column', gap: 20, background: 'rgba(18,11,36,0.8)', border: '1px solid rgba(202,177,253,0.12)', transition: 'all 0.3s' }}
+              style={{ position: 'relative', padding: 24, display: 'flex', flexDirection: 'column', gap: 20, background: 'rgba(18,11,36,0.8)', border: '1px solid rgba(202,177,253,0.12)', transition: 'all 0.3s', alignItems: 'center', textAlign: 'center' }}
               onMouseEnter={e => { const el = e.currentTarget; el.style.border = `1px solid ${org.color}50`; el.style.boxShadow = `0 8px 40px ${org.color}12`; el.style.transform = 'translateY(-4px)' }}
               onMouseLeave={e => { const el = e.currentTarget; el.style.border = '1px solid rgba(202,177,253,0.12)'; el.style.boxShadow = 'none'; el.style.transform = 'none' }}
             >
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(90deg, transparent, ${org.color}60, transparent)` }} />
 
-              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
-                <div style={{ width: 64, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center', background: `${org.color}0d`, border: `1px solid ${org.color}30`, padding: '8px 10px' }}>
-                  <img src={org.logo} alt={org.name} style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'brightness(0) invert(1)', opacity: 0.9 }} />
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+                <div
+                  style={{
+                    width: 112,
+                    height: 88,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: 0,
+                    marginBottom: 4,
+                  }}
+                >
+                  <img
+                    src={org.logo}
+                    alt={org.name}
+                    style={{
+                      width: org.logoWidth,
+                      height: 'auto',
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      objectFit: 'contain',
+                      display: 'block',
+                    }}
+                  />
                 </div>
-                <span style={{ fontFamily: HW, fontSize: '0.65rem', color: '#7c6ea0', letterSpacing: '0.15em' }}>{org.id}</span>
               </div>
 
               <div>
