@@ -52,8 +52,26 @@ export function Navigation() {
           transition: 'all 0.3s',
         }}
       >
-        <a href="#" style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
-          <img src={`/logo/logo_RAMmastic.svg`} alt="Rammastic" style={{ height: 36, width: 'auto', objectFit: 'contain' }} />
+        <a
+          href="#"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            height: '100%',
+            flexShrink: 0,
+          }}
+        >
+          <img
+            src="/logo/logo_RAMmastic.svg"
+            alt="Rammastic"
+            style={{
+              height: '100%',
+              maxHeight: 56,
+              width: 'auto',
+              objectFit: 'contain',
+              display: 'block',
+            }}
+          />
         </a>
 
         <div style={{ display: 'none', alignItems: 'center', gap: 28 }} className="desktop-nav">

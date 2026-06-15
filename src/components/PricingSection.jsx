@@ -5,7 +5,7 @@ const ticketTiers = [
   {
     name: 'Full Experience Ticket',
     icon: <Sparkles className="w-6 h-6" />,
-    price: 45,
+    price: 49,
     description: 'Experience all 3 days of RAMmastic 2026',
     color: 'blue',
     popular: true,
