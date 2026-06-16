@@ -120,30 +120,37 @@ function FolderCard( {folder, index, inView, isHovered, isFront, onHover, onLeav
       }}>
         <p style={{
           fontFamily: VIET,
-          fontSize: 'clamp(0.75rem, 2.5vw, 0.95rem)',
+          fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
           fontWeight: 800,
           color: folder.textColor,
-          lineHeight: 1.3,
-          marginBottom: 5,
-          letterSpacing: '-0.01em',
-        }}>{folder.title}</p>
-        <p style={{
-          fontFamily: VIET,
-          fontSize: 'clamp(0.65rem, 2vw, 0.8rem)',
-          color: folder.textColor,
-          opacity: 0.75,
-          lineHeight: 1.5,
+          opacity: 1,
+          lineHeight: 1.25,
           marginBottom: 8,
-          fontWeight: 500,
-        }}>{folder.subtitle}</p>
+          letterSpacing: '-0.01em',
+        }}>
+          {folder.title}
+        </p>
         <p style={{
           fontFamily: VIET,
-          fontSize: 'clamp(0.6rem, 1.8vw, 0.72rem)',
+          fontSize: 'clamp(0.72rem, 2vw, 0.85rem)',
           color: folder.textColor,
-          opacity: 0.6,
-          lineHeight: 1.6,
+          opacity: 0.9,
+          lineHeight: 1.5,
+          marginBottom: 10,
+          fontWeight: 600,
+        }}>
+          {folder.subtitle}
+        </p>
+        <p style={{
+          fontFamily: VIET,
+          fontSize: 'clamp(0.67rem, 1.8vw, 0.78rem)',
+          color: folder.textColor,
+          opacity: 0.85,
+          lineHeight: 1.65,
           whiteSpace: 'pre-line',
-        }}>{folder.body}</p>
+        }}>
+          {folder.body}
+        </p>
       </div>
     </motion.div>
   )

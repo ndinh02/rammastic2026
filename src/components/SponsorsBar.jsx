@@ -3,25 +3,25 @@ const sponsors = [
     name: 'NVIDIA',
     src: `${import.meta.env.BASE_URL}logo/NVIDIA.svg`,
     width: 165,
-    scale: 2.05,
+    scale: 2.77,
   },
   {
     name: 'FPT',
     src: `${import.meta.env.BASE_URL}logo/FPT.svg`,
     width: 110,
-    scale: 1.1,
+    scale: 1.49,
   },
   {
     name: 'VietinBank',
     src: `${import.meta.env.BASE_URL}logo/VietinBank.svg`,
     width: 175,
-    scale: 2.2,
+    scale: 2.97,
   },
   {
     name: 'Code4You',
     src: `${import.meta.env.BASE_URL}logo/Code4You.svg`,
     width: 130,
-    scale: 1.25,
+    scale: 1.69,
   },
 ]
 

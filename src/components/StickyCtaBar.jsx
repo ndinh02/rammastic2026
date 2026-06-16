@@ -19,6 +19,19 @@ export function StickyCtaBar() {
   }, [])
 
   return (
+  <>
+    <style>{`
+      .mobile-sticky-cta {
+        display: none !important;
+      }
+
+      @media (max-width: 640px) {
+        .mobile-sticky-cta {
+          display: block !important;
+        }
+      }
+    `}</style>
+
     <AnimatePresence>
       {visible && (
         <motion.div
@@ -58,6 +71,7 @@ export function StickyCtaBar() {
           </div>
         </motion.div>
       )}
-    </AnimatePresence>
-  )
+        </AnimatePresence>
+      </>
+    )
 }
