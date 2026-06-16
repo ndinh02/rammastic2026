@@ -3,13 +3,13 @@ const sponsors = [
     name: 'NVIDIA',
     src: `${import.meta.env.BASE_URL}logo/NVIDIA.svg`,
     width: 165,
-    scale: 2.77,
+    scale: 2.5,
   },
   {
     name: 'FPT',
     src: `${import.meta.env.BASE_URL}logo/FPT.svg`,
     width: 110,
-    scale: 1.49,
+    scale: 1.75,
   },
   {
     name: 'VietinBank',

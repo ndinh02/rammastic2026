@@ -53,9 +53,9 @@ export function OrgSection() {
         <SectionLabel>ban tổ chức</SectionLabel>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} style={{ marginTop: 32, marginBottom: 48, textAlign: 'center' }}>
-          <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, color: '#e8e0ff' }}>Được tổ chức bởi</h2>
+          <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, color: '#e8e0ff' }}>ORGANISED BY</h2>
           <p style={{ marginTop: 12, maxWidth: 672, margin: '12px auto 0', fontSize: '0.875rem', lineHeight: 1.6, color: 'rgba(232,224,255,0.5)', fontFamily: HW }}>
-            SiviCamp 2026 được dẫn dắt bởi ba tổ chức sinh viên Việt Nam hàng đầu tại Đức, cùng nhau xây dựng một trải nghiệm cộng đồng chất lượng và bền vững.
+            SiviCamp 2026 được dẫn dắt bởi ba tổ chức phi lợi nhuận, hướng tới phát triển phong trào Thanh niên Sinh viên Việt Nam tại Châu Âu
           </p>
         </motion.div>
 

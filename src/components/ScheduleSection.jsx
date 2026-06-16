@@ -36,7 +36,7 @@ const schedule = [
     dayIndex: 0,
     weekday: 'Thứ Năm',
     color: '#cab1fd',
-    title: 'Khởi tranh SiviHack',
+    title: 'Kick-off SiviHack',
     subtitle: 'Ý tưởng 24 giờ Hackathon thách mọi giới hạn!',
     location: 'Deutschherrnufer 12, 60594 Frankfurt am Main',
     events: [
@@ -60,8 +60,8 @@ const schedule = [
       },
       {
         time: '22:00', endTime: '',
-        title: 'Trại Sinh Hoạt Tự Do',
-        desc: 'Vui chơi và nghỉ ngơi thoải mái.',
+        title: 'Trại Sinh sinh hoạt tự do',
+        desc: 'Vui chơi, bonding, nghỉ ngơi.',
         type: 'SOCIAL',
       },
     ],
@@ -71,7 +71,7 @@ const schedule = [
     dayIndex: 1,
     weekday: 'Thứ Sáu',
     color: '#71a1e6',
-    title: 'Chung kết SiviHack',
+    title: 'The Final Showdown - SiviHack',
     subtitle: 'Ý tưởng lên tiếng, bản lĩnh toả sáng — trận đấu cuối cùng!',
     location: 'Deutschherrnufer 12, 60594 Frankfurt am Main',
     events: [
@@ -89,7 +89,7 @@ const schedule = [
       },
       {
         time: '15:00', endTime: '',
-        title: 'Nộp Bài — Giờ G!',
+        title: 'Nộp Bài!',
         desc: 'Giờ phút quyết định đã điểm.',
         type: 'CHECKPOINT',
       },
@@ -101,8 +101,8 @@ const schedule = [
       },
       {
         time: '19:00', endTime: '',
-        title: 'Trại Sinh Hoạt Tự Do',
-        desc: 'Vui chơi và nghỉ ngơi.',
+        title: 'Trại Sinh sinh hoạt tự do',
+        desc: 'Vui chơi, bonding, nghỉ ngơi.',
         type: 'SOCIAL',
       },
     ],

@@ -3,30 +3,30 @@ import { CreativePricing } from '@/components/ui/creative-pricing'
 
 const ticketTiers = [
   {
-    name: 'Full Experience Ticket',
+    name: 'Full Experience Pass',
     icon: <Sparkles className="w-6 h-6" />,
     price: 49,
-    description: 'Experience all 3 days of RAMmastic 2026',
+    description: 'Tham gia toàn bộ chương trình Trại hè (giá Early Bird từ ngày 19/6 - 30/6)',
     color: 'blue',
     popular: true,
     features: [
-      'Full 3-day access',
-      'Touring in Frankfurt',
-      'Access to SiviTa',
-      'All activities included',
+      'Tham gia Cuộc thi SIVIHACK',
+      'SIVITOUR - khám phá trải nghiệm Frankfurt',
+      'SIVITA - Gala trao giải và cuộc thi âm nhạc',
+      'Bao gồm Áo Trại sinh, quà tặng Welcome Bag, 02 bữa ăn trưa và 01 bữa ăn tối',
     ],
   },
   // {
-  //   name: '1 Day Ticket',
+  //   name: 'Day Pass',
   //   icon: <Star className="w-6 h-6" />,
-  //   price: 20,
-  //   description: 'Join us for the final day experience',
+  //   price: 19,
+  //   description: 'Trải nghiệm chương trình Day 3 của Trại hè',
   //   color: 'amber',
   //   features: [
-  //     'Touring in Frankfurt',
-  //     'Access to SiviTa',
-  //     'Community activities',
-  //     'Perfect for short participation',
+  //     'Xem chung kết cuộc thi SIVIHACK',
+  //     'SIVITOUR - khám phá trải nghiệm Frankfurt',
+  //     'SIVITA - Gala trao giải và cuộc thi âm nhạc',
+  //     'Bao gồm Áo Trại sinh và 01 bữa ăn trưa',
   //   ],
   // },
 ]
@@ -35,7 +35,7 @@ export function PricingSection() {
   return (
     <CreativePricing
       tag="Giá vé RAMmastic 2026"
-      title="Thử thách bản thân cùng chúng mình!"
+      title="Your mision starts here..."
       description="Chọn hành trình phù hợp và cùng khám phá Frankfurt với cộng đồng thanh niên Việt Nam tại châu Âu."
       tiers={ticketTiers}
     />

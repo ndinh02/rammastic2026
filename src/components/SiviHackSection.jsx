@@ -4,7 +4,7 @@ import { REGISTRATION_URL } from '@/config/links'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
-const VIET = "'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif"
+const VIET = "system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif"
 
 function SectionLabel({ children }) {
   return (
@@ -60,6 +60,27 @@ const folders = [
     textColor: 'rgba(0,0,0,1)',
     rotate: 1,
     zIndex: 4,
+  },
+]
+
+const benefits = [
+  {
+    id: 'certificate',
+    icon: `${import.meta.env.BASE_URL}pixel_asset/benefit_certificate.svg`,
+    headline: 'Workshop + Certificate',
+    body: 'Tham gia miễn phí workshop và nhận chứng chỉ trị giá 90 USD từ NVIDIA',
+  },
+  {
+    id: 'prize',
+    icon: `${import.meta.env.BASE_URL}pixel_asset/benefit_prize.svg`,
+    headline: '1000,00€',
+    body: 'Tổng giá trị giải thưởng lên đến 4 con số!',
+  },
+  {
+    id: 'networking',
+    icon: `${import.meta.env.BASE_URL}pixel_asset/benefit_networking.svg`,
+    headline: 'Industry Networking',
+    body: 'Cơ hội networking với doanh nghiệp và chuyên gia đầu ngành',
   },
 ]
 
@@ -212,55 +233,8 @@ export function SiviHackSection() {
                 </motion.p>
               ))}
             </div>
-
-            {/* Team size box */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.55 }}
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 16, padding: '12px 20px', marginBottom: 12, border: '1px solid rgba(113,161,230,0.2)', background: 'rgba(113,161,230,0.05)' }}
-            >
-              <span style={{ fontFamily: HW, fontSize: '2rem', fontWeight: 900, color: '#71a1e6', textShadow: '0 0 20px rgba(113,161,230,0.4)' }}>3–6</span>
-              <div>
-                <div style={{ fontFamily: HW, fontSize: '0.65rem', color: '#71a1e6', letterSpacing: '0.1em', fontWeight: 700 }}>TEAM_SIZE</div>
-                <div style={{ color: 'rgba(232,224,255,0.45)', fontSize: '0.78rem', marginTop: 4, fontFamily: HW }}>người mỗi đội · 24 giờ hacking</div>
-              </div>
             </motion.div>
 
-            {/* Pixel characters */}
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.65 }}
-              style={{ display: 'flex', gap: 4, marginBottom: 24 }}
-            >
-              {teamChars.map(({ src, alt }) => (
-                <img key={alt} src={src} alt={alt} style={{ width: 48, height: 48, imageRendering: 'pixelated' }} />
-              ))}
-            </motion.div>
-
-            <motion.a
-              href={REGISTRATION_URL}
-              target="_blank"
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.7 }}
-              style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '14px 32px', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.1em',
-                fontFamily: HW,
-                background: 'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
-                color: '#fff', border: '2px solid rgba(255,255,255,0.15)',
-                boxShadow: '0 4px 20px rgba(90,48,192,0.45), inset 0 1px 0 rgba(255,255,255,0.2)',
-                textShadow: '0 1px 2px rgba(0,0,0,0.35)',
-                borderRadius: '9999px',
-              }}
-              onMouseDown={e => { e.currentTarget.style.transform = 'translateY(2px)' }}
-              onMouseUp={e => { e.currentTarget.style.transform = '' }}
-              onMouseLeave={e => { e.currentTarget.style.transform = '' }}
-            >
-              ĐĂNG KÝ NGAY
-            </motion.a>
-          </motion.div>
 
           {/* Right: scattered folders */}
           <motion.div
@@ -289,10 +263,86 @@ export function SiviHackSection() {
 
             <p style={{ fontFamily: HW, fontSize: '0.65rem', color: '#3a2a5a', letterSpacing: '0.12em', textAlign: 'center', marginTop: 16 }}>
             </p>
-          </motion.div>
+                    </motion.div>
         </div>
-      </div>
 
+        {/* Full-width benefits area */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.55, delay: 0.5 }}
+          className="benefits-section"
+        >
+          <h3 className="benefits-title">
+            Quyền lợi nổi bật
+          </h3>
+
+          <p className="benefits-subtitle">
+            Giải thưởng, chứng chỉ và kết nối chuyên môn.
+          </p>
+
+          <div className="benefits-grid">
+            {benefits.map((benefit, i) => (
+              <motion.div
+                key={benefit.id}
+                initial={{ opacity: 0, y: 14 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.45,
+                  delay: 0.6 + i * 0.08,
+                }}
+                className="benefit-item"
+              >
+                <img
+                  src={benefit.icon}
+                  alt=""
+                  aria-hidden="true"
+                  className="benefit-icon"
+                />
+
+                <div className="benefit-copy">
+                  <div className="benefit-headline">
+                    {benefit.headline}
+                  </div>
+
+                  <p className="benefit-body">
+                    {benefit.body}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.a
+            href={REGISTRATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.45, delay: 0.85 }}
+            whileHover={{ y: -2 }}
+            whileTap={{ y: 1, scale: 0.99 }}
+            className="benefits-cta"
+          >
+            NẮM BẮT CƠ HỘI TỪ HÔM NAY !
+          </motion.a>
+
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={inView ? { opacity: 0.9, y: 0 } : {}}
+            transition={{ duration: 0.4, delay: 0.95 }}
+            className="benefits-mascots"
+          >
+            {teamChars.map(({ src, alt }) => (
+              <img
+                key={alt}
+                src={src}
+                alt={alt}
+              />
+            ))}
+          </motion.div>
+        </motion.div>
+        </div>
       <style>{`
         .folders-scatter {
           display: grid;
@@ -309,7 +359,6 @@ export function SiviHackSection() {
           width: 100%;
         }
 
-        /* Pull both columns gently toward the centre */
         .folder-stem {
           top: 14px;
           left: 12px;
@@ -320,7 +369,6 @@ export function SiviHackSection() {
           left: -10px;
         }
 
-        /* Pull the lower row upward to form a loose cluster */
         .folder-age {
           margin-top: -88px;
           left: 30px;
@@ -332,14 +380,122 @@ export function SiviHackSection() {
           left: -16px;
           z-index: 4;
         }
+
+        .benefits-section {
+          width: 100%;
+          max-width: 980px;
+          margin: 36px auto 0;
+          text-align: center;
+        }
+
+        .benefits-title {
+          margin: 0 0 4px;
+          font-family: ${VIET};
+          font-size: clamp(1.5rem, 3vw, 2rem);
+          font-weight: 800;
+          line-height: 1.25;
+          color: #f1e9ff;
+        }
+
+        .benefits-subtitle {
+          margin: 0 0 24px;
+          font-family: ${VIET};
+          font-size: 0.9rem;
+          line-height: 1.6;
+          color: rgba(232,224,255,0.65);
+        }
+
+        .benefits-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 28px;
+          align-items: start;
+        }
+
+        .benefit-item {
+          min-width: 0;
+          padding: 8px 14px 12px;
+          text-align: center;
+        }
+
+        .benefit-icon {
+          width: 92px;
+          height: 92px;
+          margin: 0 auto 12px;
+          display: block;
+          object-fit: contain;
+          image-rendering: pixelated;
+        }
+
+        .benefit-headline {
+          margin-bottom: 8px;
+          font-family: ${VIET};
+          font-size: clamp(1rem, 2vw, 1.3rem);
+          font-weight: 800;
+          line-height: 1.3;
+          color: #f1e9ff;
+        }
+
+        .benefit-body {
+          max-width: 250px;
+          margin: 0 auto;
+          font-family: ${VIET};
+          font-size: 0.8rem;
+          line-height: 1.6;
+          color: rgba(232,224,255,0.75);
+        }
+
+        .benefits-cta {
+          width: min(760px, 100%);
+          min-height: 54px;
+          margin: 32px auto 0;
+          padding: 14px 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: ${HW};
+          font-size: 0.85rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          color: #fff;
+          text-decoration: none;
+          background: linear-gradient(
+            180deg,
+            #d4c0ff 0%,
+            #9b78f0 45%,
+            #7a50e0 100%
+          );
+          border: 2px solid rgba(255,255,255,0.15);
+          border-radius: 9999px;
+          box-shadow:
+            0 4px 20px rgba(90,48,192,0.45),
+            inset 0 1px 0 rgba(255,255,255,0.2);
+          text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+        }
+
+        .benefits-mascots {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 14px;
+        }
+
+        .benefits-mascots img {
+          width: 50px;
+          height: 50px;
+          display: block;
+          image-rendering: pixelated;
+        }
+
         @media (max-width: 640px) {
           .folders-scatter {
             position: relative;
             height: auto;
-            display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
           }
+
           .folder-item {
             position: relative !important;
             top: auto !important;
@@ -347,6 +503,52 @@ export function SiviHackSection() {
             right: auto !important;
             bottom: auto !important;
             width: 100% !important;
+            margin-top: 0 !important;
+          }
+
+          .benefits-section {
+            margin-top: 28px;
+          }
+
+          .benefits-grid {
+            grid-template-columns: 1fr;
+            gap: 10px;
+          }
+
+          .benefit-item {
+            display: grid;
+            grid-template-columns: 76px minmax(0, 1fr);
+            grid-template-rows: auto auto;
+            column-gap: 14px;
+            padding: 10px 12px;
+            text-align: left;
+          }
+
+          .benefit-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0;
+            grid-row: 1 / 3;
+            align-self: center;
+          }
+
+          .benefit-headline {
+            margin-bottom: 4px;
+            align-self: end;
+          }
+
+          .benefit-body {
+            max-width: none;
+            margin: 0;
+          }
+
+          .benefits-cta {
+            margin-top: 24px;
+            min-height: 50px;
+          }
+
+          .benefits-mascots {
+            margin-top: 12px;
           }
         }
       `}</style>
