@@ -320,9 +320,9 @@ export function HeroSection() {
             margin: 0,
           }}
         >
-          Trại hè tài năng đầu tiên cho sinh viên và người trẻ Việt Nam tại Đức.{' '}
+          Trại hè Tài năng đầu tiên cho Thanh niên, Sinh viên và người trẻ Việt Nam tại Đức và Châu Âu.{' '}
           <span style={{ color: 'rgba(232,224,255,0.3)' }}>
-            Nơi công nghệ gặp gỡ văn hoá.
+            Nơi Công nghệ gặp gỡ Văn hoá.
           </span>
         </motion.p>
 

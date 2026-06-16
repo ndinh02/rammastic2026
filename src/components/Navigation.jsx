@@ -83,7 +83,13 @@ export function Navigation() {
               onMouseEnter={e => e.currentTarget.style.color = '#cab1fd'}
               onMouseLeave={e => e.currentTarget.style.color = 'rgba(232,224,255,0.55)'}
             >
-              {link.label}
+              {link.label === 'Về RAMmastic' ? (
+                <>
+                  Về <strong style={{ fontWeight: 700 }}>RAMmastic</strong>
+                </>
+              ) : (
+                link.label
+              )}
             </a>
           ))}
         </div>
@@ -101,7 +107,7 @@ export function Navigation() {
             padding: '10px 20px', fontSize: '0.8rem', letterSpacing: '0.1em', fontWeight: 700,
           }}
         >
-          DANG KY
+          ĐĂNG KÝ
         </a>
 
         <button
@@ -158,7 +164,13 @@ export function Navigation() {
                     onMouseLeave={e => e.currentTarget.style.color = 'rgba(232,224,255,0.65)'}
                   >
                     <span style={{ color: '#71a1e6', fontSize: '0.7rem' }}>{'// '}</span>
-                    {link.label}
+                    {link.label === 'Về RAMmastic' ? (
+                      <>
+                        Về <strong style={{ fontWeight: 700 }}>RAMmastic</strong>
+                      </>
+                    ) : (
+                      link.label
+                    )}
                   </motion.a>
                 ))}
               </nav>
@@ -177,7 +189,7 @@ export function Navigation() {
                     borderRadius: '9999px',
                   }}
                 >
-                  DANG KY NGAY
+                  ĐĂNG KÝ NGAY
                 </a>
               </div>
             </motion.div>

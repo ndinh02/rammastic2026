@@ -4,6 +4,7 @@ import { REGISTRATION_URL } from '@/config/links'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
+const VIET = "'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif"
 
 function SectionLabel({ children }) {
   return (
@@ -18,9 +19,9 @@ function SectionLabel({ children }) {
 const folders = [
   {
     id: 'stem',
-    title: 'Nền tảng STEM',
-    subtitle: 'IT, Engineering, Data, AI',
-    body: 'Bạn đã có nền tảng kỹ thuật — đây là sân chơi của bạn.',
+    title: 'Cơ cấu giải thưởng',
+    subtitle: '',
+    body: '1) Giải Nhất, Nhì, Ba chung cuộc\n2) Giải Nhất theo từng Challenge/Chủ đề\n3) Giải thưởng phụ và Giấy khen',
     folderBody: '#7a9ee0',
     tabColor: '#5a80cc',
     textColor: 'rgba(255,255,255,0.92)',
@@ -29,9 +30,9 @@ const folders = [
   },
   {
     id: 'edu',
-    title: '≤ Thạc Sĩ',
-    subtitle: 'Chưa vượt quá trình độ Thạc sĩ',
-    body: 'Dành cho tài năng trẻ đang trên đà phát triển.',
+    title: 'Chủ đề: Applied AI for Business & Community Innovation',
+    subtitle: '',
+    body: 'Trại sinh có thể lựa chọn xây dựng các giải pháp lấy AI làm cốt lõi hoặc tận dụng các công cụ AI để hỗ trợ đổi mới sản phẩm, quy trình, dịch vụ hoặc mô hình trong bối cảnh doanh nghiệp, cộng đồng và đời sống sinh viên.',
     folderBody: '#c9a8f0',
     tabColor: '#a880d8',
     textColor: 'rgba(20,10,40,0.88)',
@@ -41,8 +42,8 @@ const folders = [
   {
     id: 'age',
     title: '18–35 tuổi',
-    subtitle: 'Sinh viên & người trẻ',
-    body: 'Người trẻ Việt Nam năng động, sáng tạo tại châu Âu.',
+    subtitle: 'Thanh niên và Sinh viên Việt Nam',
+    body: 'Dù bạn là Azubi, Học sinh, Sinh viên Cử nhân, Thạc sĩ, hay đã đi làm – đây là sân chơi dành cho tất cả mọi người!',
     folderBody: '#b8a4e8',
     tabColor: '#9078cc',
     textColor: 'rgba(255,255,255,0.9)',
@@ -52,8 +53,8 @@ const folders = [
   {
     id: 'viet',
     title: 'Người Việt',
-    subtitle: 'Hoặc có nguồn gốc Việt',
-    body: 'Đang học tập hoặc làm việc tại Đức. Cộng đồng của chúng ta.',
+    subtitle: 'Người Việt hoặc người gốc Việt',
+    body: 'Đang học tập hoặc làm việc tại châu Âu. Cộng đồng của chúng ta.',
     folderBody: '#f0ece8',
     tabColor: '#d0c8c0',
     textColor: 'rgba(20,10,40,0.85)',
@@ -75,22 +76,26 @@ function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
       className={`folder-item folder-${folder.id}`}
       initial={{ opacity: 0, y: 40, rotate: folder.rotate * 2 }}
       animate={inView ? {
-        opacity: 1,
-        y: isHovered ? -16 : 0,
-        scale: isHovered ? 1.05 : 1,
-        rotate: isHovered ? 0 : folder.rotate,
-        zIndex: isHovered ? 20 : folder.zIndex,
-      } : {}}
+      opacity: 1,
+      y: isHovered ? -14 : 0,
+      scale: 1,
+      rotate: isHovered ? 0 : folder.rotate,
+      zIndex: isHovered ? 20 : folder.zIndex,
+    } : {}}
       transition={{
-        opacity: { duration: 0.5, delay: 0.15 + index * 0.12 },
-        y: isHovered
-          ? { type: 'spring', stiffness: 280, damping: 22 }
-          : { type: 'spring', stiffness: 200, damping: 20, delay: 0.15 + index * 0.12 },
-        scale: { type: 'spring', stiffness: 280, damping: 22 },
-        rotate: isHovered
-          ? { type: 'spring', stiffness: 280, damping: 22 }
-          : { type: 'spring', stiffness: 160, damping: 18, delay: 0.15 + index * 0.12 },
-      }}
+      opacity: {
+        duration: 0.5,
+        delay: 0.15 + index * 0.12,
+      },
+      y: {
+        duration: 0.48,
+        ease: [0.22, 1, 0.36, 1],
+      },
+      rotate: {
+        duration: 0.55,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    }}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       style={{ cursor: 'default' }}
@@ -111,18 +116,19 @@ function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
         boxShadow: isHovered
           ? '0 20px 50px rgba(0,0,0,0.5), 0 4px 0 rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.25)'
           : '0 8px 32px rgba(0,0,0,0.35), 0 2px 0 rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.2)',
-        transition: 'box-shadow 0.3s',
+        transition: 'box-shadow 0.48s cubic-bezier(0.22, 1, 0.36, 1)',
       }}>
         <p style={{
-          fontFamily: HW,
+          fontFamily: VIET,
           fontSize: 'clamp(0.75rem, 2.5vw, 0.95rem)',
           fontWeight: 800,
           color: folder.textColor,
           lineHeight: 1.3,
           marginBottom: 5,
+          letterSpacing: '-0.01em',
         }}>{folder.title}</p>
         <p style={{
-          fontFamily: HW,
+          fontFamily: VIET,
           fontSize: 'clamp(0.65rem, 2vw, 0.8rem)',
           color: folder.textColor,
           opacity: 0.75,
@@ -131,11 +137,12 @@ function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
           fontWeight: 500,
         }}>{folder.subtitle}</p>
         <p style={{
-          fontFamily: HW,
+          fontFamily: VIET,
           fontSize: 'clamp(0.6rem, 1.8vw, 0.72rem)',
           color: folder.textColor,
           opacity: 0.6,
           lineHeight: 1.6,
+          whiteSpace: 'pre-line',
         }}>{folder.body}</p>
       </div>
     </motion.div>
@@ -159,13 +166,12 @@ export function SiviHackSection() {
           <motion.div initial={{ opacity: 0, x: -40 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7 }}>
             <div style={{ fontFamily: HW, fontSize: '0.7rem', letterSpacing: '0.12em', color: '#cab1fd', marginBottom: 16, fontWeight: 600 }}>MISSION_001</div>
             <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginBottom: 4 }}>SiviHack</h2>
-            <div style={{ fontFamily: HW, fontSize: '1.1rem', color: '#71a1e6', marginBottom: 24, fontStyle: 'italic' }}>"Technology starts with people"</div>
+            <div style={{ fontFamily: HW, fontSize: '1.1rem', color: '#71a1e6', marginBottom: 24, fontStyle: 'italic' }}>"The First-ever Hackathon for Young Vietnamese Talents in Europe"</div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
               {[
-                'SiviHack là hackathon đầu tiên do SIVIDUC e.V. tổ chức — mô hình đầu tiên trong cộng đồng sinh viên Việt Nam tại châu Âu.',
-                '~100 người làm việc theo đội 3–6 để giải quyết bài toán thực tế và xây dựng prototype trong 24 giờ.',
-                'Mentoring, workshop thực chiến, kết nối đối tác — cầu nối giữa học thuật và thực tiễn.',
+                'SiviHack là một sân chơi Hackathon chuyên nghiệp, uy tín, quy mô toàn châu Âu - lần đầu tiên được tổ chức dành riêng cho bạn trẻ Việt Nam! Nơi tinh thần đổi mới, sáng tạo và làm việc nhóm được đẩy đến giới hạn để tạo nên những ý tưởng đột phá, những giải pháp thực tiễn cho những đơn vị doanh nghiệp đồng hành!',
+                'Trong 24 giờ, 100 tài năng trẻ sẽ làm việc theo đội 3-6 để giải quyết bài toán thực tế và xây dựng prototype. Mentoring, workshop thực chiến, kết nối đối tác - cầu nối giữa học thuật và thực tiễn.',
               ].map((text, i) => (
                 <motion.p
                   key={i}
@@ -224,7 +230,7 @@ export function SiviHackSection() {
               onMouseUp={e => { e.currentTarget.style.transform = '' }}
               onMouseLeave={e => { e.currentTarget.style.transform = '' }}
             >
-              DANG KY NGAY
+              ĐĂNG KÝ NGAY
             </motion.a>
           </motion.div>
 
@@ -235,7 +241,6 @@ export function SiviHackSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <div style={{ fontFamily: HW, fontSize: '0.65rem', letterSpacing: '0.12em', color: '#7c6ea0', marginBottom: 16 }}>
-              {'// access_requirements — hover to lift'}
             </div>
 
             {/* Desktop: scattered layout | Mobile: 2-col grid */}
@@ -254,7 +259,6 @@ export function SiviHackSection() {
             </div>
 
             <p style={{ fontFamily: HW, fontSize: '0.65rem', color: '#3a2a5a', letterSpacing: '0.12em', textAlign: 'center', marginTop: 16 }}>
-              all 4 conditions required · hover to lift
             </p>
           </motion.div>
         </div>
@@ -262,17 +266,41 @@ export function SiviHackSection() {
 
       <style>{`
         .folders-scatter {
-          position: relative;
-          height: 360px;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          column-gap: 10px;
+          row-gap: 0;
+          align-items: start;
+          padding: 8px 2px 20px;
+          overflow: visible;
         }
-        .folder-item {
-          position: absolute;
-        }
-        .folder-stem  { top: 0;    left: 0;    width: 58%; z-index: 1; }
-        .folder-edu   { top: 16px; right: 0;   width: 58%; z-index: 2; }
-        .folder-age   { bottom: 0; left: 10%;  width: 52%; z-index: 3; }
-        .folder-viet  { top: 30%;  left: 18%;  width: 62%; z-index: 4; }
 
+        .folder-item {
+          position: relative;
+          width: 100%;
+        }
+
+        /* Pull both columns gently toward the centre */
+        .folder-stem {
+          top: 14px;
+          left: 12px;
+        }
+
+        .folder-edu {
+          top: 2px;
+          left: -10px;
+        }
+
+        /* Pull the lower row upward to form a loose cluster */
+        .folder-age {
+          margin-top: -22px;
+          left: 18px;
+        }
+
+        .folder-viet {
+          margin-top: -14px;
+          left: -6px;
+        }
         @media (max-width: 640px) {
           .folders-scatter {
             position: relative;

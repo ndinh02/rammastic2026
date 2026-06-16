@@ -53,7 +53,7 @@ export function StickyCtaBar() {
               onTouchStart={e => { e.currentTarget.style.transform = 'scale(0.97)' }}
               onTouchEnd={e => { e.currentTarget.style.transform = '' }}
             >
-              DANG KY NGAY
+              ĐĂNG KÝ NGAY
             </a>
           </div>
         </motion.div>

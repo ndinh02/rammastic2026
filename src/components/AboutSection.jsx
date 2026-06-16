@@ -127,9 +127,11 @@ export function AboutSection() {
                 </h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
                   {[
-                    'SiviCamp là sự kiện thường niên kết nối, khám phá và phát triển tài năng dành cho cộng đồng sinh viên và người trẻ Việt Nam tại Đức.',
-                    'Với chủ đề # RAMmastic, SiviCamp 2026 kết hợp SiviHack — sân chơi công nghệ AI — cùng SIVITA Gala Night, nơi nghệ thuật và câu chuyện cá nhân được lan toả qua âm nhạc và sáng tạo.',
-                  ].map((text, i) => (
+                      'SiviCamp là Trại hè thường niên lớn nhất dành cho cộng đồng Thanh niên - Sinh viên Việt Nam tại Đức.',
+                      <>
+                        Trở lại với tên gọi <strong style={{ fontWeight: 800 }}>RAMmastic</strong>, Trại hè 2026 sẽ mở ra không gian giao thoa giữa khoa học công nghệ và nghệ thuật sân khấu. Nơi những đam mê tưởng chừng khác biệt sẽ cùng gặp nhau trong một sân chơi chung.
+                      </>,
+                    ].map((text, i) => (
                     <motion.p
                       key={i}
                       initial={{ opacity: 0, y: 12 }}
