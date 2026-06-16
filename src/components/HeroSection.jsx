@@ -241,7 +241,7 @@ export function HeroSection() {
               fontWeight: 600,
             }}
           >
-            TRAI HÈ TÀI NĂNG THANH NIÊN SINH VIÊN VIỆT NAM TẠI ĐỨC
+            TRẠI HÈ TÀI NĂNG THANH NIÊN SINH VIÊN VIỆT NAM TẠI ĐỨC
           </span>
 
           <span
