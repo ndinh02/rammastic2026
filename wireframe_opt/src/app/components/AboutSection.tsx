@@ -146,7 +146,7 @@ export function AboutSection() {
                 <div className="space-y-4 mb-8">
                   {[
                     "SiviCamp là sự kiện thường niên kết nối, khám phá và phát triển tài năng dành cho cộng đồng sinh viên và người trẻ Việt Nam tại Đức.",
-                    `Với chủ đề # RAMmastic, SiviCamp 2026 kết hợp SiviHack — sân chơi công nghệ AI — cùng SIVITA Gala Night, nơi nghệ thuật và câu chuyện cá nhân được lan toả qua âm nhạc và sáng tạo.`,
+                    `Với chủ đề (#) RAMmastic, SiviCamp 2026 kết hợp SiviHack — sân chơi công nghệ AI — cùng SIVITA Gala Night, nơi nghệ thuật và câu chuyện cá nhân được lan toả qua âm nhạc và sáng tạo.`,
                   ].map((text, i) => (
                     <motion.p
                       key={i}

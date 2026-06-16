@@ -84,7 +84,7 @@ const schedule = [
       {
         time: '09:00', endTime: '15:00',
         title: 'Nước Rút Cuối Cùng',
-        desc: 'Những giờ phút cuồng nước rút cuối cùng của SiviHack.',
+        desc: 'Những giờ phút nước rút cuối cùng của SiviHack.',
         type: 'HACK',
       },
       {

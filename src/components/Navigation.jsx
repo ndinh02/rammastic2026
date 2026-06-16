@@ -62,7 +62,7 @@ export function Navigation() {
           }}
         >
           <img
-            src="/logo/logo_RAMmastic.svg"
+            src={`${import.meta.env.BASE_URL}logo/logo rammastic.png`}
             alt="Rammastic"
             style={{
               height: '100%',

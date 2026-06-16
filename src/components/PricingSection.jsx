@@ -13,6 +13,7 @@ const ticketTiers = [
       'Tham gia Cuộc thi SIVIHACK',
       'SIVITOUR - khám phá trải nghiệm Frankfurt',
       'SIVITA - Gala trao giải và cuộc thi âm nhạc',
+      'Tham gia Workshop của NVIDIA và có cơ hội nhận được chứng chỉ trị giá 90 USD',
       'Bao gồm Áo Trại sinh, quà tặng Welcome Bag, 02 bữa ăn trưa và 01 bữa ăn tối',
     ],
   },
