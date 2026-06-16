@@ -307,7 +307,7 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
@@ -324,7 +324,7 @@ export function HeroSection() {
           <span style={{ color: 'rgba(232,224,255,0.3)' }}>
             Nơi Công nghệ gặp gỡ Văn hoá.
           </span>
-        </motion.p>
+        </motion.p> */}
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
