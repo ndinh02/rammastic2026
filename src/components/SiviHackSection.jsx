@@ -70,7 +70,7 @@ const teamChars = [
   { src: `${import.meta.env.BASE_URL}pixel_asset/pixeled_frog.svg`, alt: 'frog' },
 ]
 
-function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
+function FolderCard( {folder, index, inView, isHovered, isFront, onHover, onLeave,} ) {
   return (
     <motion.div
       className={`folder-item folder-${folder.id}`}
@@ -80,7 +80,7 @@ function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
       y: isHovered ? -14 : 0,
       scale: 1,
       rotate: isHovered ? 0 : folder.rotate,
-      zIndex: isHovered ? 20 : folder.zIndex,
+      zIndex: isFront ? 20 : folder.zIndex,
     } : {}}
       transition={{
       opacity: {
@@ -88,11 +88,11 @@ function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
         delay: 0.15 + index * 0.12,
       },
       y: {
-        duration: 0.48,
+        duration: 0.32,
         ease: [0.22, 1, 0.36, 1],
       },
       rotate: {
-        duration: 0.55,
+        duration: 0.36,
         ease: [0.22, 1, 0.36, 1],
       },
     }}
@@ -116,7 +116,7 @@ function FolderCard({ folder, index, inView, isHovered, onHover, onLeave }) {
         boxShadow: isHovered
           ? '0 20px 50px rgba(0,0,0,0.5), 0 4px 0 rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.25)'
           : '0 8px 32px rgba(0,0,0,0.35), 0 2px 0 rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.2)',
-        transition: 'box-shadow 0.48s cubic-bezier(0.22, 1, 0.36, 1)',
+        transition: 'box-shadow 0.32s cubic-bezier(0.22, 1, 0.36, 1)',
       }}>
         <p style={{
           fontFamily: VIET,
@@ -153,6 +153,27 @@ export function SiviHackSection() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
   const [hoveredId, setHoveredId] = useState(null)
+  const [frontId, setFrontId] = useState(null)
+  const hoverTimerRef = useRef(null)
+  const handleFolderEnter = id => {
+    clearTimeout(hoverTimerRef.current)
+
+    setHoveredId(id)
+
+    hoverTimerRef.current = setTimeout(() => {
+      setFrontId(id)
+    }, 90)
+  }
+
+  const handleFolderLeave = id => {
+    clearTimeout(hoverTimerRef.current)
+
+    setHoveredId(null)
+
+    hoverTimerRef.current = setTimeout(() => {
+      setFrontId(current => (current === id ? null : current))
+    }, 140)
+  }
 
   return (
     <section id="sivihack" ref={ref} style={{ position: 'relative', padding: '96px 24px', overflow: 'hidden', background: 'linear-gradient(180deg, #07030f 0%, #0d0720 55%, #07030f 100%)' }}>
@@ -252,8 +273,9 @@ export function SiviHackSection() {
                   index={i}
                   inView={inView}
                   isHovered={hoveredId === folder.id}
-                  onHover={() => setHoveredId(folder.id)}
-                  onLeave={() => setHoveredId(null)}
+                  isFront={frontId === folder.id}
+                  onHover={() => handleFolderEnter(folder.id)}
+                  onLeave={() => handleFolderLeave(folder.id)}
                 />
               ))}
             </div>
@@ -293,13 +315,15 @@ export function SiviHackSection() {
 
         /* Pull the lower row upward to form a loose cluster */
         .folder-age {
-          margin-top: -22px;
-          left: 18px;
+          margin-top: -88px;
+          left: 30px;
+          z-index: 3;
         }
 
         .folder-viet {
-          margin-top: -14px;
-          left: -6px;
+          margin-top: -58px;
+          left: -16px;
+          z-index: 4;
         }
         @media (max-width: 640px) {
           .folders-scatter {
