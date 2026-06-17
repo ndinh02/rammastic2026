@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion } from 'motion/react'
 import { SponsorsBar } from './SponsorsBar'
 import { REGISTRATION_URL } from '@/config/links'
@@ -150,9 +150,122 @@ function ParticleField() {
   )
 }
 
+const FIREWORK_COLORS = ['#cab1fd', '#eeb2ff', '#71a1e6', '#f9d4ff', '#fbbf24', '#f472b6', '#ff6b6b', '#4ade80', '#fff', '#a78bfa']
+
+function Rocket({ x, y, targetX, targetY, color, duration, onComplete }) {
+  const angle = Math.atan2(targetY - y, targetX - x) * (180 / Math.PI) + 90
+  return (
+    <motion.div
+      style={{
+        position: 'absolute',
+        left: x - 2,
+        top: y - 8,
+        width: 4,
+        height: 10,
+        background: `linear-gradient(to top, transparent, ${color}, #fff)`,
+        borderRadius: 3,
+        pointerEvents: 'none',
+        zIndex: 60,
+        rotate: angle,
+        boxShadow: `0 0 8px 2px ${color}`,
+      }}
+      initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
+      animate={{ x: targetX - x, y: targetY - y, opacity: [1, 1, 0.7] }}
+      transition={{ duration, ease: [0.4, 0, 0.6, 1] }}
+      onAnimationComplete={onComplete}
+    />
+  )
+}
+
+function Spark({ x, y, angle, speed, color, size, gravity }) {
+  const rad = (angle * Math.PI) / 180
+  const vx = Math.cos(rad) * speed
+  const vy = Math.sin(rad) * speed
+  return (
+    <motion.div
+      style={{
+        position: 'absolute',
+        left: x - size / 2,
+        top: y - size / 2,
+        width: size,
+        height: size,
+        borderRadius: size > 5 ? '50%' : 1,
+        background: color,
+        pointerEvents: 'none',
+        zIndex: 55,
+        boxShadow: `0 0 ${size * 2.5}px ${color}`,
+      }}
+      initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
+      animate={{
+        x: [0, vx * 0.55, vx],
+        y: [0, vy * 0.55, vy + gravity],
+        opacity: [1, 0.85, 0],
+        scale: [1, 0.8, 0.15],
+      }}
+      transition={{ duration: 1.1 + Math.random() * 0.5, times: [0, 0.4, 1], ease: 'easeIn' }}
+    />
+  )
+}
+
 export function HeroSection() {
+  const sectionRef = useRef(null)
+  const buttonRef = useRef(null)
+  const [rockets, setRockets] = useState([])
+  const [sparks, setSparks] = useState([])
+
+  const spawnExplosion = useCallback((cx, cy) => {
+    const count = 32
+    const newSparks = Array.from({ length: count }, (_, i) => ({
+      id: `spark-${Date.now()}-${Math.random()}`,
+      x: cx,
+      y: cy,
+      angle: (360 / count) * i + (Math.random() - 0.5) * 14,
+      speed: 70 + Math.random() * 110,
+      color: FIREWORK_COLORS[Math.floor(Math.random() * FIREWORK_COLORS.length)],
+      size: Math.random() < 0.2 ? 7 : Math.random() * 4 + 2,
+      gravity: 80 + Math.random() * 100,
+    }))
+    setSparks((prev) => [...prev, ...newSparks])
+    const ids = new Set(newSparks.map((s) => s.id))
+    setTimeout(() => setSparks((prev) => prev.filter((s) => !ids.has(s.id))), 2000)
+  }, [])
+
+  const handleRocketDone = useCallback(
+    (rocketId, tx, ty) => {
+      setRockets((prev) => prev.filter((r) => r.id !== rocketId))
+      spawnExplosion(tx, ty)
+    },
+    [spawnExplosion],
+  )
+
+  const handleStartQuest = useCallback(
+    (e) => {
+      e.preventDefault()
+      if (!buttonRef.current || !sectionRef.current) return
+      const btnRect = buttonRef.current.getBoundingClientRect()
+      const secRect = sectionRef.current.getBoundingClientRect()
+      const cx = btnRect.left + btnRect.width / 2 - secRect.left
+      const cy = btnRect.top + btnRect.height / 2 - secRect.top
+
+      const newRockets = Array.from({ length: 6 }, (_, i) => ({
+        id: `rocket-${Date.now()}-${i}`,
+        x: cx + (Math.random() - 0.5) * 40,
+        y: cy,
+        targetX: cx + (Math.random() - 0.5) * (secRect.width * 0.7),
+        targetY: cy - secRect.height * (0.25 + Math.random() * 0.5),
+        color: FIREWORK_COLORS[Math.floor(Math.random() * FIREWORK_COLORS.length)],
+        duration: 0.45 + Math.random() * 0.35,
+      }))
+      setRockets((prev) => [...prev, ...newRockets])
+
+      setTimeout(() => window.open(REGISTRATION_URL, '_blank'), 1800)
+    },
+    [],
+  )
+
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className="hero-section"
       style={{
@@ -205,6 +318,17 @@ export function HeroSection() {
       />
 
       <ParticleField />
+
+      {rockets.map((r) => (
+        <Rocket
+          key={r.id}
+          {...r}
+          onComplete={() => handleRocketDone(r.id, r.targetX, r.targetY)}
+        />
+      ))}
+      {sparks.map((s) => (
+        <Spark key={s.id} {...s} />
+      ))}
 
       <div
         style={{
@@ -376,9 +500,11 @@ export function HeroSection() {
             }}
           >
             <a
+              ref={buttonRef}
               href={REGISTRATION_URL}
               target="_blank"
               rel="noreferrer"
+              onClick={handleStartQuest}
               style={{
                 fontFamily: HW,
                 background:
