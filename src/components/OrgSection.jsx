@@ -19,7 +19,7 @@ const orgs = [
     name: 'VGI e.V.', color: '#71a1e6',
     role: 'Technical Partner', roleVi: 'Chuyên môn & Hội đồng đánh giá',
     description: 'Mạng lưới Đổi mới Sáng tạo Việt Đức',
-    stats: [{ label: 'FOUNDED', value: '2020' }], //{ label: 'WORKSHOPS', value: '3' }],
+    stats: [{ label: 'FOUNDED', value: '2019' }], //{ label: 'WORKSHOPS', value: '3' }],
     logo: `${import.meta.env.BASE_URL}logo/vgi.svg`,
     logoWidth: 100,
   },
