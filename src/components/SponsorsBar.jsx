@@ -1,27 +1,23 @@
 const sponsors = [
   {
     name: 'NVIDIA',
-    src: `${import.meta.env.BASE_URL}logo/NVIDIA.svg`,
-    width: 165,
-    scale: 2.5,
+    src: `${import.meta.env.BASE_URL}logo/sponsors-optimized/NVIDIA.png`,
+    width: 87.1,
   },
   {
     name: 'FPT',
-    src: `${import.meta.env.BASE_URL}logo/FPT.svg`,
-    width: 110,
-    scale: 1.75,
+    src: `${import.meta.env.BASE_URL}logo/sponsors-optimized/FPT.png`,
+    width: 51.2,
   },
   {
     name: 'VietinBank',
-    src: `${import.meta.env.BASE_URL}logo/VietinBank.svg`,
-    width: 175,
-    scale: 2.97,
+    src: `${import.meta.env.BASE_URL}logo/sponsors-optimized/VietinBank.png`,
+    width: 90.7,
   },
   {
     name: 'Code4You',
-    src: `${import.meta.env.BASE_URL}logo/Code4You.svg`,
-    width: 130,
-    scale: 1.69,
+    src: `${import.meta.env.BASE_URL}logo/sponsors-optimized/Code4You.png`,
+    width: 52.2,
   },
 ]
 
@@ -46,6 +42,7 @@ export function SponsorsBar() {
         background: 'rgba(202,177,253,0.05)',
         borderTop: '1px solid rgba(202,177,253,0.12)',
         borderBottom: '1px solid rgba(202,177,253,0.12)',
+        isolation: 'isolate',
       }}
     >
       <div
@@ -81,9 +78,9 @@ export function SponsorsBar() {
           willChange: 'transform',
         }}
       >
-        {items.map((s, i) => (
+        {items.map((sponsor, index) => (
           <div
-            key={`${s.name}-${i}`}
+            key={`${sponsor.name}-${index}`}
             style={{
               flex: '0 0 auto',
               display: 'flex',
@@ -110,21 +107,26 @@ export function SponsorsBar() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                overflow: 'visible',
+                flexShrink: 0,
               }}
             >
               <img
-                src={s.src}
-                alt={s.name}
+                src={sponsor.src}
+                alt={sponsor.name}
+                draggable="false"
                 style={{
-                  width: s.width,
+                  width: sponsor.width,
                   height: 'auto',
-                  maxHeight: 48,
+                  maxWidth: 'none',
+                  maxHeight: 'none',
                   objectFit: 'contain',
                   opacity: 1,
                   display: 'block',
-                  transform: `scale(${s.scale})`,
-                  transformOrigin: 'center',
+                  transform: 'none',
+                  filter: 'none',
+                  mixBlendMode: 'normal',
+                  userSelect: 'none',
+                  WebkitUserDrag: 'none',
                 }}
               />
             </div>
