@@ -172,7 +172,7 @@ export function HeroSection() {
           position: 'absolute',
           inset: 0,
           pointerEvents: 'none',
-          backgroundImage: `url(${import.meta.env.BASE_URL}hero/hero.svg)`,
+          backgroundImage: `url(${import.meta.env.BASE_URL}hero/hero.webp)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
