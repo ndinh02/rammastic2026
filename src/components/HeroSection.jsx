@@ -172,7 +172,7 @@ export function HeroSection() {
           position: 'absolute',
           inset: 0,
           pointerEvents: 'none',
-          backgroundImage: "url('/hero/hero.svg')",
+          backgroundImage: `url(${import.meta.env.BASE_URL}hero/hero.svg)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -270,7 +270,7 @@ export function HeroSection() {
           }}
         >
           <img
-            src="/hero/logo_SiviCamp.svg"
+            src={`${import.meta.env.BASE_URL}hero/logo_SiviCamp.svg`}
             alt="SiviCamp 2026"
             style={{
               width: 'min(68vw, 380px)',
