@@ -154,6 +154,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
+      className="hero-section"
       style={{
         position: 'relative',
         display: 'flex',
@@ -162,7 +163,6 @@ export function HeroSection() {
         justifyContent: 'center',
         overflow: 'hidden',
         minHeight: '100svh',
-        paddingTop: 64,
         paddingBottom: 120,
       }}
     >
@@ -222,39 +222,38 @@ export function HeroSection() {
         }}
       >
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+        className="hero-event-info"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        <span
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 4,
+            fontFamily: HW,
+            fontSize: 'clamp(0.72rem, 2.2vw, 0.84rem)',
+            color: '#71a1e6',
+            letterSpacing: '0.26em',
+            lineHeight: 1.55,
+            fontWeight: 700,
+            textTransform: 'uppercase',
           }}
         >
-          <span
-            style={{
-              fontFamily: HW,
-              fontSize: '0.75rem',
-              color: '#71a1e6',
-              letterSpacing: '0.3em',
-              fontWeight: 600,
-            }}
-          >
-            TRẠI HÈ TÀI NĂNG THANH NIÊN SINH VIÊN VIỆT NAM TẠI ĐỨC
-          </span>
+          TRẠI HÈ TÀI NĂNG THANH NIÊN SINH VIÊN VIỆT NAM TẠI ĐỨC
+        </span>
 
-          <span
-            style={{
-              fontFamily: HW,
-              fontSize: '0.7rem',
-              color: 'white',
-              letterSpacing: '0.18em',
-            }}
-          >
-            17–19 SEPT · FRANKFURT AM MAIN, GERMANY
-          </span>
-        </motion.div>
+        <span
+          style={{
+            fontFamily: HW,
+            fontSize: 'clamp(0.68rem, 2vw, 0.78rem)',
+            color: '#ffffff',
+            letterSpacing: '0.16em',
+            lineHeight: 1.5,
+            textTransform: 'uppercase',
+          }}
+        >
+          17–19 SEPT · FRANKFURT AM MAIN, GERMANY
+        </span>
+      </motion.div>
 
         {/* Center SiviCamp logo */}
         <motion.div
@@ -270,15 +269,20 @@ export function HeroSection() {
           }}
         >
           <img
-            src={`${import.meta.env.BASE_URL}hero/logo_SiviCamp.svg`}
+            src={`${import.meta.env.BASE_URL}hero/logo_SiviCamp.png?v=png-fix-1`}
             alt="SiviCamp 2026"
+            draggable={false}
+            onContextMenu={(e) => e.preventDefault()}
             style={{
               width: 'min(68vw, 380px)',
               height: 'auto',
               display: 'block',
               margin: 0,
               padding: 0,
-              filter: 'drop-shadow(0 0 18px rgba(202,177,253,0.38))',
+              WebkitTouchCallout: 'none',
+              WebkitUserSelect: 'none',
+              userSelect: 'none',
+              pointerEvents: 'none',
             }}
           />
 
@@ -476,6 +480,50 @@ export function HeroSection() {
       >
         <SponsorsBar />
       </div>
+      <style>{`
+        .hero-section {
+          padding-top: 104px;
+        }
+
+        .hero-event-info {
+          width: 100%;
+          max-width: 760px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+          padding: 0 16px;
+          text-align: center;
+        }
+
+        @media (max-width: 767px) {
+          .hero-section {
+            justify-content: flex-start !important;
+            padding-top: 150px;
+            padding-bottom: 120px;
+          }
+
+          .hero-event-info {
+            gap: 10px;
+            padding-left: 18px;
+            padding-right: 18px;
+          }
+        }
+
+        @media (max-width: 430px) {
+          .hero-section {
+            padding-top: 142px;
+          }
+
+          .hero-event-info span:first-child {
+            letter-spacing: 0.22em !important;
+          }
+
+          .hero-event-info span:last-child {
+            letter-spacing: 0.13em !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

@@ -59,10 +59,24 @@ export function OrgSection() {
           </p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
+        <div
+          className="org-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 24,
+          }}
+        >
           {orgs.map((org, i) => (
             <motion.div
-              key={org.id}
+              key={org.name}
+              className={
+                org.name.startsWith('SIVIDUC')
+                  ? 'org-card org-card-sividuc'
+                  : org.name.startsWith('VGI')
+                  ? 'org-card org-card-vgi'
+                  : 'org-card org-card-vsaf'
+              }
               initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.15 + i * 0.12 }}
               style={{ position: 'relative', padding: 24, display: 'flex', flexDirection: 'column', gap: 20, background: 'rgba(18,11,36,0.8)', border: '1px solid rgba(202,177,253,0.12)', transition: 'all 0.3s', alignItems: 'center', textAlign: 'center' }}
               onMouseEnter={e => { const el = e.currentTarget; el.style.border = `1px solid ${org.color}50`; el.style.boxShadow = `0 8px 40px ${org.color}12`; el.style.transform = 'translateY(-4px)' }}
@@ -116,6 +130,18 @@ export function OrgSection() {
           ))}
         </div>
       </div>
+    
+        <style>{`
+      @media (max-width: 640px) {
+        .org-grid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .org-card-sividuc {
+          order: -1;
+        }
+      }
+    `}</style>
     </section>
   )
 }
