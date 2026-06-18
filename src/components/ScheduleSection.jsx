@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'motion/react'
-import { ChevronLeft, ChevronRight, MapPin, Clock } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
@@ -60,7 +60,7 @@ const schedule = [
       },
       {
         time: '22:00', endTime: '',
-        title: 'Trại Sinh sinh hoạt tự do',
+        title: 'Sinh Hoạt Tự Do',
         desc: 'Vui chơi, bonding, nghỉ ngơi.',
         type: 'SOCIAL',
       },
@@ -101,7 +101,7 @@ const schedule = [
       },
       {
         time: '19:00', endTime: '',
-        title: 'Trại Sinh sinh hoạt tự do',
+        title: 'Sinh Hoạt Tự Do',
         desc: 'Vui chơi, bonding, nghỉ ngơi.',
         type: 'SOCIAL',
       },
@@ -189,7 +189,16 @@ function EventCard({ ev, index, color }) {
       {/* Content column */}
       <div style={{ padding: '14px 16px', flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-          <span style={{ fontFamily: HW, fontSize: '0.85rem', fontWeight: 700, color: '#e8e0ff', lineHeight: 1.3 }}>
+          <span
+            className="schedule-event-title"
+            style={{
+              fontFamily: HW,
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              color: '#e8e0ff',
+              lineHeight: 1.3,
+            }}
+          >
             {ev.title}
           </span>
           <span style={{
@@ -260,25 +269,10 @@ export function ScheduleSection() {
             padding: '28px 24px 32px',
           }}>
             {/* Month header */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', marginBottom: 24 }}>
               <span style={{ fontFamily: HW, fontSize: '1rem', fontWeight: 700, color: '#e8e0ff', letterSpacing: '-0.01em' }}>
                 September <span style={{ color: '#cab1fd' }}>2026</span>
               </span>
-              <div style={{ display: 'flex', gap: 2 }}>
-                {[ChevronLeft, ChevronRight].map((Icon, i) => (
-                  <button
-                    key={i}
-                    style={{
-                      width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      background: 'rgba(202,177,253,0.06)', border: '1px solid rgba(202,177,253,0.12)',
-                      color: 'rgba(202,177,253,0.5)', cursor: 'default',
-                      transition: 'opacity 0.15s',
-                    }}
-                  >
-                    <Icon size={13} />
-                  </button>
-                ))}
-              </div>
             </div>
 
             {/* Week day headers */}
@@ -396,13 +390,17 @@ export function ScheduleSection() {
                       {currentDay.weekday} · {currentDay.date}/09/2026
                     </span>
                   </div>
-                  <h3 style={{
-                    fontFamily: PIXEL,
-                    fontSize: 'clamp(1rem, 2.5vw, 1.35rem)',
-                    color: '#e8e0ff',
-                    lineHeight: 1.2,
-                    marginBottom: 8,
-                  }}>
+                  <h3
+                    className="schedule-main-title"
+                    style={{
+                      fontFamily: PIXEL,
+                      fontSize: 'clamp(1.25rem, 2.9vw, 1.7rem)',
+                      color: '#e8e0ff',
+                      lineHeight: 1.12,
+                      letterSpacing: '0.01em',
+                      marginBottom: 10,
+                    }}
+                  >
                     {currentDay.title}
                   </h3>
                   <p style={{
@@ -454,13 +452,37 @@ export function ScheduleSection() {
         </motion.div>
       </div>
 
-      <style>{`
-        @media (max-width: 700px) {
-          .calendar-layout {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
-    </section>
-  )
-}
+            <style>{`
+              @media (max-width: 700px) {
+                .calendar-layout {
+                  grid-template-columns: 1fr !important;
+                }
+
+                .schedule-main-title {
+                  font-family: 'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+                  font-size: 1.38rem !important;
+                  line-height: 1.22 !important;
+                  letter-spacing: 0.01em !important;
+                  font-weight: 800 !important;
+                }
+
+                .schedule-event-title {
+                  font-size: 0.95rem !important;
+                  line-height: 1.35 !important;
+                  letter-spacing: 0 !important;
+                }
+              }
+
+              @media (max-width: 430px) {
+                .schedule-main-title {
+                  font-size: 1.28rem !important;
+                }
+
+                .schedule-event-title {
+                  font-size: 0.92rem !important;
+                }
+              }
+            `}</style>
+          </section>
+        )
+      }

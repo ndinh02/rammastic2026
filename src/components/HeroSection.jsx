@@ -241,11 +241,12 @@ export function HeroSection() {
         <span
           style={{
             fontFamily: HW,
-            fontSize: 'clamp(0.72rem, 2.2vw, 0.84rem)',
-            color: '#71a1e6',
-            letterSpacing: '0.26em',
-            lineHeight: 1.55,
+            fontSize: 'clamp(1.17rem, 1.5vw, 1.33rem)',
             fontWeight: 700,
+            letterSpacing: '0.18em',
+            lineHeight: 1.5,
+            color: '#71a1e6',
+            textAlign: 'center',
             textTransform: 'uppercase',
           }}
         >
@@ -256,9 +257,11 @@ export function HeroSection() {
           style={{
             fontFamily: HW,
             fontSize: 'clamp(0.68rem, 2vw, 0.78rem)',
-            color: '#ffffff',
-            letterSpacing: '0.16em',
+            fontWeight: 700,
+            letterSpacing: '0.18em',
             lineHeight: 1.5,
+            color: '#ffffff',
+            textAlign: 'center',
             textTransform: 'uppercase',
           }}
         >
@@ -417,6 +420,7 @@ export function HeroSection() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                ...registrationPressStyle,
               }}
               onMouseDown={(e) => {
                 e.currentTarget.style.transform = 'translateY(2px) scale(0.97)'
@@ -507,11 +511,11 @@ export function HeroSection() {
 
         .hero-event-info {
           width: 100%;
-          max-width: 760px;
+          max-width: 960px;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 8px;
+          gap: 10px;
           padding: 0 16px;
           text-align: center;
         }
@@ -519,28 +523,45 @@ export function HeroSection() {
         @media (max-width: 767px) {
           .hero-section {
             justify-content: flex-start !important;
-            padding-top: 150px;
+            padding-top: 142px;
             padding-bottom: 120px;
           }
 
           .hero-event-info {
-            gap: 10px;
+            gap: 12px;
             padding-left: 18px;
             padding-right: 18px;
+            margin-bottom: 4px;
+          }
+
+          .hero-event-info span:first-child {
+            font-size: clamp(1.14rem, 4.7vw, 1.36rem) !important;
+            letter-spacing: 0.14em !important;
+            line-height: 1.5 !important;
+            max-width: min(94vw, 680px);
+          }
+
+          .hero-event-info span:last-child {
+            font-size: 0.76rem !important;
+            letter-spacing: 0.1em !important;
+            line-height: 1.45 !important;
           }
         }
 
         @media (max-width: 430px) {
           .hero-section {
-            padding-top: 142px;
+            padding-top: 136px;
           }
 
           .hero-event-info span:first-child {
-            letter-spacing: 0.22em !important;
+            font-size: 1.17rem !important;
+            letter-spacing: 0.12em !important;
+            line-height: 1.5 !important;
           }
 
           .hero-event-info span:last-child {
-            letter-spacing: 0.13em !important;
+            font-size: 0.7rem !important;
+            letter-spacing: 0.08em !important;
           }
         }
       `}</style>
