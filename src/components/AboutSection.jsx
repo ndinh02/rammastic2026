@@ -128,7 +128,7 @@ export function AboutSection() {
   // 'idle' | 'bouncing' | 'hidden'
   const [phase, setPhase] = useState('idle')
 
-  const handleHoverStart = () => {
+  const handleBugActivate = () => {
     if (phase !== 'idle' || !inView) return
     setPhase('bouncing')
   }
@@ -183,10 +183,12 @@ export function AboutSection() {
             src={`${import.meta.env.BASE_URL}pixel_asset/pixeled_bug.svg`}
             alt=""
             aria-hidden="true"
+            draggable={false}
             initial={{ y: 80, opacity: 0 }}
             animate={bugAnimate}
             transition={bugTransition}
-            onHoverStart={handleHoverStart}
+            onHoverStart={handleBugActivate}
+            onTap={handleBugActivate}
             onAnimationComplete={handleAnimationComplete}
             style={{
               position: 'absolute',
@@ -198,6 +200,10 @@ export function AboutSection() {
               imageRendering: 'pixelated',
               pointerEvents: phase === 'idle' && inView ? 'auto' : 'none',
               cursor: 'pointer',
+              touchAction: 'manipulation',
+              WebkitTouchCallout: 'none',
+              WebkitUserSelect: 'none',
+              userSelect: 'none',
             }}
           />
 

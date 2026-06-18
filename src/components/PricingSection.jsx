@@ -36,7 +36,7 @@ export function PricingSection() {
   return (
     <CreativePricing
       tag="Giá vé RAMmastic 2026"
-      title="Your mision starts here..."
+      title="Your mission starts here..."
       description="Chọn hành trình phù hợp và cùng khám phá Frankfurt với cộng đồng thanh niên Việt Nam tại châu Âu."
       tiers={ticketTiers}
     />
