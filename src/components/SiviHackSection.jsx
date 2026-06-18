@@ -39,7 +39,7 @@ const folders = [
     id: 'edu',
     title: 'Chủ đề: Applied AI for Business & Community Innovation',
     subtitle: '',
-    body: 'Trại sinh có thể lựa chọn xây dựng các giải pháp lấy AI làm cốt lõi hoặc tận dụng các công cụ AI để hỗ trợ đổi mới sản phẩm, quy trình, dịch vụ hoặc mô hình trong bối cảnh doanh nghiệp, cộng đồng và đời sống sinh viên.',
+    body: 'Xây dựng giải pháp AI cho doanh nghiệp, sản phẩm, dịch vụ hoặc vấn đề cộng đồng.',
     folderBody: '#c9a8f0',
     tabColor: '#a880d8',
     textColor: 'rgba(0,0,0,0.88)',
@@ -50,7 +50,7 @@ const folders = [
     id: 'age',
     title: '18–35 tuổi',
     subtitle: 'Thanh niên và Sinh viên Việt Nam',
-    body: 'Dù bạn là Azubi, Học sinh, Sinh viên Cử nhân, Thạc sĩ, hay đã đi làm – đây là sân chơi dành cho tất cả mọi người!',
+    body: 'Dành cho sinh viên, học sinh, Azubi, cử nhân, thạc sĩ và người trẻ Việt Nam tại Châu Âu',
     folderBody: '#b8a4e8',
     tabColor: '#9078cc',
     textColor: 'rgba(0,0,0,0.9)',
@@ -61,7 +61,7 @@ const folders = [
     id: 'viet',
     title: 'Người Việt',
     subtitle: 'Người Việt hoặc người gốc Việt',
-    body: 'Đang học tập hoặc làm việc tại châu Âu. Cộng đồng của chúng ta.',
+    body: 'Đang học tập hoặc làm việc tại châu Âu.',
     folderBody: '#f0ece8',
     tabColor: '#d0c8c0',
     textColor: 'rgba(0,0,0,1)',
@@ -228,7 +228,7 @@ export function SiviHackSection() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
               {[
-                'SiviHack là một sân chơi Hackathon chuyên nghiệp, uy tín, quy mô toàn châu Âu - lần đầu tiên được tổ chức dành riêng cho bạn trẻ Việt Nam! Nơi tinh thần đổi mới, sáng tạo và làm việc nhóm được đẩy đến giới hạn để tạo nên những ý tưởng đột phá, những giải pháp thực tiễn cho những đơn vị doanh nghiệp đồng hành!',
+                'SiviHack là một sân chơi Hackathon chuyên nghiệp, uy tín, quy mô toàn châu Âu - lần đầu tiên được tổ chức dành riêng cho bạn trẻ Việt Nam!',
                 'Trong 24 giờ, 100 tài năng trẻ sẽ làm việc theo đội 3-6 để giải quyết bài toán thực tế và xây dựng prototype. Mentoring, workshop thực chiến, kết nối đối tác - cầu nối giữa học thuật và thực tiễn.',
               ].map((text, i) => (
                 <motion.p
