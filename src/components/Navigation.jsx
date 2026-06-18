@@ -1,6 +1,13 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { REGISTRATION_URL } from '@/config/links'
+import {
+  RegistrationFireworkLayer,
+  useRegistrationFirework,
+  pressRegistrationButton,
+  releaseRegistrationButton,
+  registrationPressStyle,
+} from './ui/registration-firework'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 
@@ -13,69 +20,9 @@ const navLinks = [
   { label: 'Ban Tổ Chức', href: '#org' },
 ]
 
-const FIREWORK_COLORS = ['#cab1fd', '#eeb2ff', '#71a1e6', '#f9d4ff', '#fbbf24', '#f472b6', '#ff6b6b', '#4ade80', '#fff', '#a78bfa']
-
-function NavRocket({ x, y, targetX, targetY, color, duration, onComplete }) {
-  const angle = Math.atan2(targetY - y, targetX - x) * (180 / Math.PI) + 90
-  return (
-    <motion.div
-      style={{
-        position: 'fixed',
-        left: x - 2,
-        top: y - 8,
-        width: 4,
-        height: 10,
-        background: `linear-gradient(to top, transparent, ${color}, #fff)`,
-        borderRadius: 3,
-        pointerEvents: 'none',
-        zIndex: 200,
-        rotate: angle,
-        boxShadow: `0 0 8px 2px ${color}`,
-      }}
-      initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-      animate={{ x: targetX - x, y: targetY - y, opacity: [1, 1, 0.7] }}
-      transition={{ duration, ease: [0.4, 0, 0.6, 1] }}
-      onAnimationComplete={onComplete}
-    />
-  )
-}
-
-function NavSpark({ x, y, angle, speed, color, size, gravity }) {
-  const rad = (angle * Math.PI) / 180
-  const vx = Math.cos(rad) * speed
-  const vy = Math.sin(rad) * speed
-  return (
-    <motion.div
-      style={{
-        position: 'fixed',
-        left: x - size / 2,
-        top: y - size / 2,
-        width: size,
-        height: size,
-        borderRadius: size > 5 ? '50%' : 1,
-        background: color,
-        pointerEvents: 'none',
-        zIndex: 200,
-        boxShadow: `0 0 ${size * 2.5}px ${color}`,
-      }}
-      initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-      animate={{
-        x: [0, vx * 0.55, vx],
-        y: [0, vy * 0.55, vy + gravity],
-        opacity: [1, 0.85, 0],
-        scale: [1, 0.8, 0.15],
-      }}
-      transition={{ duration: 1.1 + Math.random() * 0.5, times: [0, 0.4, 1], ease: 'easeIn' }}
-    />
-  )
-}
-
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const [rockets, setRockets] = useState([])
-  const [sparks, setSparks] = useState([])
-  const regButtonRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -96,54 +43,12 @@ export function Navigation() {
 
   const close = () => setOpen(false)
 
-  const spawnExplosion = useCallback((cx, cy) => {
-    const count = 32
-    const newSparks = Array.from({ length: count }, (_, i) => ({
-      id: `nav-spark-${Date.now()}-${Math.random()}`,
-      x: cx,
-      y: cy,
-      angle: (360 / count) * i + (Math.random() - 0.5) * 14,
-      speed: 70 + Math.random() * 110,
-      color: FIREWORK_COLORS[Math.floor(Math.random() * FIREWORK_COLORS.length)],
-      size: Math.random() < 0.2 ? 7 : Math.random() * 4 + 2,
-      gravity: 80 + Math.random() * 100,
-    }))
-    setSparks((prev) => [...prev, ...newSparks])
-    const ids = new Set(newSparks.map((s) => s.id))
-    setTimeout(() => setSparks((prev) => prev.filter((s) => !ids.has(s.id))), 2000)
-  }, [])
+  const { burst, handleRegistrationClick } = useRegistrationFirework()
 
-  const handleRocketDone = useCallback(
-    (rocketId, tx, ty) => {
-      setRockets((prev) => prev.filter((r) => r.id !== rocketId))
-      spawnExplosion(tx, ty)
-    },
-    [spawnExplosion],
-  )
-
-  const handleRegClick = useCallback(
-    (e) => {
-      e.preventDefault()
-      close()
-      if (!regButtonRef.current) return
-      const btnRect = regButtonRef.current.getBoundingClientRect()
-      const cx = btnRect.left + btnRect.width / 2
-      const cy = btnRect.top + btnRect.height / 2
-
-      const newRockets = Array.from({ length: 6 }, (_, i) => ({
-        id: `nav-rocket-${Date.now()}-${i}`,
-        x: cx + (Math.random() - 0.5) * 40,
-        y: cy,
-        targetX: cx + (Math.random() - 0.5) * (window.innerWidth * 0.7),
-        targetY: cy - window.innerHeight * (0.25 + Math.random() * 0.5),
-        color: FIREWORK_COLORS[Math.floor(Math.random() * FIREWORK_COLORS.length)],
-        duration: 0.45 + Math.random() * 0.35,
-      }))
-      setRockets((prev) => [...prev, ...newRockets])
-      setTimeout(() => window.open(REGISTRATION_URL, '_blank'), 1800)
-    },
-    [],
-  )
+  const handleRegClick = (event) => {
+    close()
+    handleRegistrationClick(event)
+  }
 
   return (
     <>
@@ -206,6 +111,15 @@ export function Navigation() {
         <a
           href={REGISTRATION_URL}
           target="_blank"
+          onClick={handleRegistrationClick}
+          onPointerDown={pressRegistrationButton}
+          onPointerUp={releaseRegistrationButton}
+          onPointerCancel={releaseRegistrationButton}
+          onPointerLeave={releaseRegistrationButton}
+          onBlur={releaseRegistrationButton}
+          onTouchStart={pressRegistrationButton}
+          onTouchEnd={releaseRegistrationButton}
+          onTouchCancel={releaseRegistrationButton}
           className="desktop-cta"
           style={{
             fontFamily: HW,
@@ -285,38 +199,47 @@ export function Navigation() {
               </nav>
               <div style={{ padding: '0 24px 40px' }}>
                 <a
-                  ref={regButtonRef}
-                  href={REGISTRATION_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleRegClick}
-                  style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', padding: '16px 0',
-                    fontFamily: HW, fontWeight: 700, letterSpacing: '0.08em', fontSize: '0.85rem',
-                    background: 'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
-                    color: '#fff', border: '2px solid rgba(255,255,255,0.15)',
-                    boxShadow: '0 4px 16px rgba(90,48,192,0.4)',
-                    borderRadius: '9999px',
-                  }}
-                >
-                  ĐĂNG KÝ NGAY
-                </a>
+                href={REGISTRATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleRegistrationClick}
+                onPointerDown={pressRegistrationButton}
+                onPointerUp={releaseRegistrationButton}
+                onPointerCancel={releaseRegistrationButton}
+                onPointerLeave={releaseRegistrationButton}
+                onBlur={releaseRegistrationButton}
+                onTouchStart={pressRegistrationButton}
+                onTouchEnd={releaseRegistrationButton}
+                onTouchCancel={releaseRegistrationButton}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '100%',
+                  padding: '16px 0',
+                  fontFamily: HW,
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  fontSize: '0.85rem',
+                  background:
+                    'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
+                  color: '#fff',
+                  border: '2px solid rgba(255,255,255,0.15)',
+                  boxShadow: '0 4px 16px rgba(90,48,192,0.4)',
+                  borderRadius: '9999px',
+                  willChange: 'transform',
+                  ...registrationPressStyle,
+                }}
+              >
+                ĐĂNG KÝ NGAY
+              </a>
               </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
 
-      {rockets.map((r) => (
-        <NavRocket
-          key={r.id}
-          {...r}
-          onComplete={() => handleRocketDone(r.id, r.targetX, r.targetY)}
-        />
-      ))}
-      {sparks.map((s) => (
-        <NavSpark key={s.id} {...s} />
-      ))}
+      <RegistrationFireworkLayer burst={burst} />
 
       <style>{`
         @media (min-width: 768px) {
