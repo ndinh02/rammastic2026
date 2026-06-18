@@ -10,11 +10,11 @@ const ticketTiers = [
     color: 'blue',
     popular: true,
     features: [
-      'Tham gia Cuộc thi SIVIHACK',
-      'SIVITOUR - khám phá trải nghiệm Frankfurt',
-      'SIVITA - Gala trao giải và cuộc thi âm nhạc',
-      'Tham gia Workshop của NVIDIA và có cơ hội nhận được chứng chỉ trị giá 90 USD',
-      'Bao gồm Áo Trại sinh, quà tặng Welcome Bag, 02 bữa ăn trưa và 01 bữa ăn tối',
+      { text: <>Tham gia Cuộc thi <strong>SIVIHACK</strong></> },
+      { text: <><strong>SIVITOUR</strong> - khám phá trải nghiệm Frankfurt</> },
+      { text: <><strong>SIVITA</strong> - Gala trao giải và cuộc thi âm nhạc</> },
+      { text: <>Tham gia Workshop của <strong>NVIDIA</strong> và có cơ hội nhận được chứng chỉ trị giá <strong>90 USD</strong></> },
+      { text: <>Bao gồm <strong>Áo Trại sinh</strong>, quà tặng <strong>Welcome Bag</strong>, <strong>02 bữa ăn trưa</strong> và <strong>01 bữa ăn tối</strong></> },
     ],
   },
   // {
