@@ -23,7 +23,6 @@ function SectionLabel({ children }) {
 const typeColors = {
   CEREMONY:   '#cab1fd',
   HACK:       '#f97316',
-  WORKSHOP:   '#4ade80',
   SOCIAL:     '#fbbf24',
   CHECKPOINT: '#71a1e6',
   GALA:       '#eeb2ff',
