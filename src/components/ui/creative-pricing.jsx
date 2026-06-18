@@ -331,8 +331,8 @@ export function CreativePricing({ tag, title, description, tiers }) {
           style={{
             textAlign: 'center',
             fontFamily: HW,
-            fontSize: '0.7rem',
-            color: 'rgba(202,177,253,0.28)',
+            fontSize: '1rem',
+            color: 'rgba(255,255,255,1)',
             letterSpacing: '0.08em',
             paddingBottom: 64,
           }}
