@@ -36,7 +36,7 @@ const schedule = [
     weekday: 'Thứ Năm',
     color: '#cab1fd',
     title: 'Kick-off SiviHack',
-    subtitle: 'Ý tưởng 24 giờ Hackathon thách mọi giới hạn!',
+    subtitle: 'Ý tưởng 24 giờ Hackathon thử thách mọi giới hạn!',
     location: 'Deutschherrnufer 12, 60594 Frankfurt am Main',
     events: [
       {
