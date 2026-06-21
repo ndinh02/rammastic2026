@@ -1,13 +1,13 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'motion/react'
 import { REGISTRATION_URL } from '@/config/links'
-import {
-  RegistrationFireworkLayer,
-  useRegistrationFirework,
-  pressRegistrationButton,
-  releaseRegistrationButton,
-  registrationPressStyle,
-} from './ui/registration-firework'
+// import {
+//   RegistrationFireworkLayer,
+//   useRegistrationFirework,
+//   pressRegistrationButton,
+//   releaseRegistrationButton,
+//   registrationPressStyle,
+// } from './ui/registration-firework'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
@@ -190,7 +190,7 @@ export function SiviHackSection() {
   const [hoveredId, setHoveredId] = useState(null)
   const [frontId, setFrontId] = useState(null)
   const hoverTimerRef = useRef(null)
-  const { burst, handleRegistrationClick } = useRegistrationFirework()
+  // const { burst, handleRegistrationClick } = useRegistrationFirework()
 
   const handleFolderEnter = id => {
     clearTimeout(hoverTimerRef.current)
@@ -325,16 +325,7 @@ export function SiviHackSection() {
           <motion.a
             href={REGISTRATION_URL}
             target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleRegistrationClick}
-            onPointerDown={pressRegistrationButton}
-            onPointerUp={releaseRegistrationButton}
-            onPointerCancel={releaseRegistrationButton}
-            onPointerLeave={releaseRegistrationButton}
-            onBlur={releaseRegistrationButton}
-            onTouchStart={pressRegistrationButton}
-            onTouchEnd={releaseRegistrationButton}
-            onTouchCancel={releaseRegistrationButton}
+            rel="noreferrer"
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.85 }}
@@ -361,7 +352,7 @@ export function SiviHackSection() {
           </motion.div>
         </motion.div>
         </div>
-      <RegistrationFireworkLayer burst={burst} />
+      {/* <RegistrationFireworkLayer burst={burst} /> */}
       <style>{`
         .folders-scatter {
           display: grid;

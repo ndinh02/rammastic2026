@@ -1,13 +1,13 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
 import { REGISTRATION_URL } from '@/config/links'
-import {
-  RegistrationFireworkLayer,
-  useRegistrationFirework,
-  pressRegistrationButton,
-  releaseRegistrationButton,
-  registrationPressStyle,
-} from './registration-firework'
+// import {
+//   RegistrationFireworkLayer,
+//   useRegistrationFirework,
+//   pressRegistrationButton,
+//   releaseRegistrationButton,
+//   registrationPressStyle,
+// } from './registration-firework'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
@@ -45,7 +45,7 @@ function StackCard({ tier, index }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '0px 0px -15% 0px' })
   const cfg = colorConfigs[tier.color] || colorConfigs.blue
-  const { burst, handleRegistrationClick } = useRegistrationFirework()
+  // const { burst, handleRegistrationClick } = useRegistrationFirework()
 
   return (
     <div
@@ -210,16 +210,7 @@ function StackCard({ tier, index }) {
           <motion.a
             href={REGISTRATION_URL}
             target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleRegistrationClick}
-            onPointerDown={pressRegistrationButton}
-            onPointerUp={releaseRegistrationButton}
-            onPointerCancel={releaseRegistrationButton}
-            onPointerLeave={releaseRegistrationButton}
-            onBlur={releaseRegistrationButton}
-            onTouchStart={pressRegistrationButton}
-            onTouchEnd={releaseRegistrationButton}
-            onTouchCancel={releaseRegistrationButton}
+            rel="noreferrer"
             style={{
               display: 'block',
               textAlign: 'center',
@@ -235,18 +226,14 @@ function StackCard({ tier, index }) {
                 : 'transparent',
               border: `1.5px solid ${cfg.primary}`,
               boxShadow: tier.popular ? `0 6px 24px ${cfg.primary}35` : 'none',
-              transition: 'opacity 0.18s, transform 80ms ease-out',
-              WebkitTapHighlightColor: 'transparent',
-              userSelect: 'none',
-              ...registrationPressStyle,
+              transition: 'opacity 0.18s',
             }}
-    
           >
             Đăng ký ngay
           </motion.a>
         </div>
       </motion.div>
-      <RegistrationFireworkLayer burst={burst} />
+      {/* <RegistrationFireworkLayer burst={burst} /> */}
     </div>
   )
 }

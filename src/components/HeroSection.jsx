@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
 import { SponsorsBar } from './SponsorsBar'
 import { REGISTRATION_URL } from '@/config/links'
-import {
-  RegistrationFireworkLayer,
-  useRegistrationFirework,
-  pressRegistrationButton,
-  releaseRegistrationButton,
-  registrationPressStyle,
-} from './ui/registration-firework'
+// import {
+//   RegistrationFireworkLayer,
+//   useRegistrationFirework,
+//   pressRegistrationButton,
+//   releaseRegistrationButton,
+//   registrationPressStyle,
+// } from './ui/registration-firework'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 
@@ -158,7 +158,7 @@ function ParticleField() {
 }
 
 export function HeroSection() {
-  const { burst, handleRegistrationClick } = useRegistrationFirework()
+  // const { burst, handleRegistrationClick } = useRegistrationFirework()
 
   return (
     <section
@@ -215,7 +215,7 @@ export function HeroSection() {
 
       <ParticleField />
 
-      <RegistrationFireworkLayer burst={burst} />
+      {/* <RegistrationFireworkLayer burst={burst} /> */}
 
       <div
         style={{
@@ -393,15 +393,6 @@ export function HeroSection() {
               href={REGISTRATION_URL}
               target="_blank"
               rel="noreferrer"
-              onClick={handleRegistrationClick}
-              onPointerDown={pressRegistrationButton}
-              onPointerUp={releaseRegistrationButton}
-              onPointerCancel={releaseRegistrationButton}
-              onPointerLeave={releaseRegistrationButton}
-              onBlur={releaseRegistrationButton}
-              onTouchStart={pressRegistrationButton}
-              onTouchEnd={releaseRegistrationButton}
-              onTouchCancel={releaseRegistrationButton}
               style={{
                 fontFamily: HW,
                 background:
@@ -420,7 +411,6 @@ export function HeroSection() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                ...registrationPressStyle,
               }}
               onMouseDown={(e) => {
                 e.currentTarget.style.transform = 'translateY(2px) scale(0.97)'

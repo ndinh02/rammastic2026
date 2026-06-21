@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { REGISTRATION_URL } from '@/config/links'
-import {
-  RegistrationFireworkLayer,
-  useRegistrationFirework,
-  pressRegistrationButton,
-  releaseRegistrationButton,
-  registrationPressStyle,
-} from './ui/registration-firework'
+// import {
+//   RegistrationFireworkLayer,
+//   useRegistrationFirework,
+//   pressRegistrationButton,
+//   releaseRegistrationButton,
+//   registrationPressStyle,
+// } from './ui/registration-firework'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 
@@ -43,12 +43,7 @@ export function Navigation() {
 
   const close = () => setOpen(false)
 
-  const { burst, handleRegistrationClick } = useRegistrationFirework()
-
-  const handleRegClick = (event) => {
-    close()
-    handleRegistrationClick(event)
-  }
+  // const { burst, handleRegistrationClick } = useRegistrationFirework()
 
   return (
     <>
@@ -111,15 +106,7 @@ export function Navigation() {
         <a
           href={REGISTRATION_URL}
           target="_blank"
-          onClick={handleRegistrationClick}
-          onPointerDown={pressRegistrationButton}
-          onPointerUp={releaseRegistrationButton}
-          onPointerCancel={releaseRegistrationButton}
-          onPointerLeave={releaseRegistrationButton}
-          onBlur={releaseRegistrationButton}
-          onTouchStart={pressRegistrationButton}
-          onTouchEnd={releaseRegistrationButton}
-          onTouchCancel={releaseRegistrationButton}
+          rel="noreferrer"
           className="desktop-cta"
           style={{
             fontFamily: HW,
@@ -201,16 +188,8 @@ export function Navigation() {
                 <a
                 href={REGISTRATION_URL}
                 target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleRegistrationClick}
-                onPointerDown={pressRegistrationButton}
-                onPointerUp={releaseRegistrationButton}
-                onPointerCancel={releaseRegistrationButton}
-                onPointerLeave={releaseRegistrationButton}
-                onBlur={releaseRegistrationButton}
-                onTouchStart={pressRegistrationButton}
-                onTouchEnd={releaseRegistrationButton}
-                onTouchCancel={releaseRegistrationButton}
+                rel="noreferrer"
+                onClick={close}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -227,8 +206,6 @@ export function Navigation() {
                   border: '2px solid rgba(255,255,255,0.15)',
                   boxShadow: '0 4px 16px rgba(90,48,192,0.4)',
                   borderRadius: '9999px',
-                  willChange: 'transform',
-                  ...registrationPressStyle,
                 }}
               >
                 ĐĂNG KÝ NGAY
@@ -239,7 +216,7 @@ export function Navigation() {
         )}
       </AnimatePresence>
 
-      <RegistrationFireworkLayer burst={burst} />
+      {/* <RegistrationFireworkLayer burst={burst} /> */}
 
       <style>{`
         @media (min-width: 768px) {

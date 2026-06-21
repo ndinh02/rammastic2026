@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { REGISTRATION_URL } from '@/config/links'
-import {
-  RegistrationFireworkLayer,
-  useRegistrationFirework,
-  pressRegistrationButton,
-  releaseRegistrationButton,
-  registrationPressStyle,
-} from './ui/registration-firework'
+// import {
+//   RegistrationFireworkLayer,
+//   useRegistrationFirework,
+//   pressRegistrationButton,
+//   releaseRegistrationButton,
+//   registrationPressStyle,
+// } from './ui/registration-firework'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 
 export function StickyCtaBar() {
   const [visible, setVisible] = useState(false)
-  const { burst, handleRegistrationClick } = useRegistrationFirework()
+  // const { burst, handleRegistrationClick } = useRegistrationFirework()
 
   useEffect(() => {
     const hero = document.getElementById('hero')
@@ -63,24 +63,14 @@ export function StickyCtaBar() {
             <a
               href={REGISTRATION_URL}
               target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleRegistrationClick}
-              onPointerDown={pressRegistrationButton}
-              onPointerUp={releaseRegistrationButton}
-              onPointerCancel={releaseRegistrationButton}
-              onPointerLeave={releaseRegistrationButton}
-              onBlur={releaseRegistrationButton}
-              onTouchStart={pressRegistrationButton}
-              onTouchEnd={releaseRegistrationButton}
-              onTouchCancel={releaseRegistrationButton}
+              rel="noreferrer"
               style={{
                 flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, minHeight: 48,
                 fontFamily: HW, fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.08em',
                 background: 'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
                 color: '#fff', border: '2px solid rgba(255,255,255,0.15)',
                 boxShadow: '0 4px 16px rgba(90,48,192,0.4), inset 0 1px 0 rgba(255,255,255,0.2)',
-                borderRadius: '9999px', willChange: 'transform',
-                ...registrationPressStyle,
+                borderRadius: '9999px',
               }}
             >
               ĐĂNG KÝ NGAY
@@ -90,7 +80,7 @@ export function StickyCtaBar() {
       )}
     </AnimatePresence>
 
-    <RegistrationFireworkLayer burst={burst} />
+    {/* <RegistrationFireworkLayer burst={burst} /> */}
   </>
   )
 }
