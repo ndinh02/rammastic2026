@@ -1,6 +1,11 @@
-import { useRef, useState } from 'react'
+import { lazy, Suspense, useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'motion/react'
-import { SiviTourMap } from './SiviTourMap'
+
+const SiviTourMap = lazy(() =>
+  import('./SiviTourMap').then((module) => ({
+    default: module.SiviTourMap,
+  }))
+)
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
@@ -148,7 +153,42 @@ export function SiviTourSection() {
           transition={{ duration: 0.6 }}
           style={{ position: 'relative', marginTop: 24, marginBottom: 48, height: 320, borderRadius: 8, overflow: 'hidden', border: '1px solid rgba(113,161,230,0.2)' }}
         >
-          <SiviTourMap />
+          {inView ? (
+            <Suspense
+              fallback={
+                <div
+                  style={{
+                    minHeight: 420,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    border: '1px solid rgba(202,177,253,0.16)',
+                    borderRadius: 24,
+                    background: 'rgba(7,3,15,0.72)',
+                    color: '#cab1fd',
+                    fontFamily: HW,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    fontSize: '0.75rem',
+                  }}
+                >
+                  Loading map...
+                </div>
+              }
+            >
+              <SiviTourMap />
+            </Suspense>
+          ) : (
+            <div
+              style={{
+                minHeight: 420,
+                border: '1px solid rgba(202,177,253,0.16)',
+                borderRadius: 24,
+                background:
+                  'radial-gradient(circle at 50% 40%, rgba(113,161,230,0.14), transparent 42%), rgba(7,3,15,0.72)',
+              }}
+            />
+          )}
           <div style={{ position: 'absolute', bottom: 10, left: 14, fontFamily: HW, fontSize: '0.62rem', color: 'rgba(113,161,230,0.65)', letterSpacing: '0.18em', fontWeight: 600, pointerEvents: 'none', zIndex: 10 }}>
             FRANKFURT AM MAIN · GERMANY
           </div>
