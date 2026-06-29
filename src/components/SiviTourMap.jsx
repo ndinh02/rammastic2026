@@ -5,34 +5,34 @@ import { Map, MapMarker, MarkerContent, MarkerLabel, MarkerTooltip } from '@/com
 const tourMarkers = [
   {
     id: 1,
-    name: 'Römerberg',
-    label: '01 · Old Town',
-    lng: 8.6826,
-    lat: 50.1109,
+    name: 'Alter Oper',
+    label: '01 · Alter Oper',
+    lng: 8.671937457742056,
+    lat: 50.11618325350693,
     color: '#71a1e6',
   },
   {
     id: 2,
-    name: 'Main Riverbank',
-    label: '02 · Sachsenhausen',
-    lng: 8.6840,
-    lat: 50.1044,
+    name: 'Dom-Römer-Quartier',
+    label: '02 · Dom-Römer-Quartier',
+    lng: 8.683766697881591,
+    lat: 50.11146330962498,
     color: '#cab1fd',
   },
   {
     id: 3,
-    name: 'Skyline Plaza',
-    label: '03 · City Centre',
-    lng: 8.6597,
-    lat: 50.1042,
+    name: 'Eisener Steg',
+    label: '03 · Eisener Steg',
+    lng: 8.682228259572982,
+    lat: 50.10839549863814,
     color: '#eeb2ff',
   },
   {
     id: 4,
-    name: 'ECB District',
-    label: '04 · EU Quarter',
-    lng: 8.7133,
-    lat: 50.1107,
+    name: 'Bethmann Park',
+    label: '04 · Bethmann Park',
+    lng: 8.691012477086138,
+    lat: 50.11903834105573,
     color: '#4ade80',
   },
 ]
@@ -40,7 +40,7 @@ const tourMarkers = [
 export function SiviTourMap() {
   return (
     <Map
-      center={[8.6860, 50.1080]}
+      center={[8.6980, 50.1065]}
       zoom={13}
       theme="dark"
     >

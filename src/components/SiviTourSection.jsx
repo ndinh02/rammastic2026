@@ -23,35 +23,35 @@ function SectionLabel({ children }) {
 const tourStops = [
   {
     marker: '01',
-    name: 'Römerberg',
+    name: 'Alter Oper',
     desc: 'Old Town · Lịch sử Frankfurt',
     detail: 'Quảng trường cổ nhất Frankfurt, được xây dựng từ thế kỷ 15. Kiến trúc khung gỗ truyền thống và Römer — tòa thị chính lịch sử — là điểm chụp ảnh không thể bỏ qua. Đây cũng là nơi diễn ra các sự kiện văn hóa lớn của thành phố.',
     color: '#71a1e6',
   },
   {
     marker: '02',
-    name: 'Main Riverbank',
+    name: 'Dom-Römer-Quartier',
     desc: 'Sachsenhausen · Ẩm thực & văn hoá',
     detail: 'Bờ sông Main với hàng quán cà phê và nhà hàng dọc hai bên. Sachsenhausen nổi tiếng với rượu táo Apfelwein — đặc sản Frankfurt. Buổi tối ở đây cực kỳ sôi động với nhiều quán bar và sự kiện.',
     color: '#cab1fd',
   },
   {
     marker: '03',
-    name: 'Skyline Plaza',
+    name: 'Eisener Steg',
     desc: 'Trung tâm thành phố hiện đại',
     detail: 'Trung tâm mua sắm hiện đại nằm giữa lòng thành phố, bao quanh bởi những tòa nhà chọc trời — đặc trưng của Frankfurt, thành phố duy nhất ở Đức có skyline mang phong cách Manhattan.',
     color: '#eeb2ff',
   },
   {
     marker: '04',
-    name: 'EU Community',
+    name: 'Bethmann Park',
     desc: 'Gặp gỡ người trẻ từ khắp châu Âu',
     detail: 'Frankfurt là trung tâm tài chính của châu Âu và nơi đặt trụ sở Ngân hàng Trung ương châu Âu (ECB). SiviTour sẽ kết nối bạn với sinh viên và người trẻ Việt Nam từ nhiều quốc gia EU khác nhau.',
     color: '#4ade80',
   },
 ]
 
-function AccordionItem({ stop, isOpen, onToggle, inView, index }) {
+function AccordionItem({ stop, isOpen, inView, index }) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -60,7 +60,7 @@ function AccordionItem({ stop, isOpen, onToggle, inView, index }) {
       style={{ borderBottom: '1px solid rgba(113,161,230,0.12)' }}
     >
       <button
-        onClick={onToggle}
+        onClick={undefined}
         style={{
           width: '100%',
           display: 'flex',
@@ -69,7 +69,7 @@ function AccordionItem({ stop, isOpen, onToggle, inView, index }) {
           padding: '18px 0',
           background: 'none',
           border: 'none',
-          cursor: 'pointer',
+          cursor: 'default',
           textAlign: 'left',
         }}
         onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
@@ -92,13 +92,13 @@ function AccordionItem({ stop, isOpen, onToggle, inView, index }) {
           <div style={{ fontFamily: HW, fontSize: '0.72rem', color: '#a896cc', letterSpacing: '0.06em' }}>{stop.desc}</div>
         </div>
 
-        <motion.div
+        {/* <motion.div
           animate={{ rotate: isOpen ? 90 : 0 }}
           transition={{ type: 'spring', stiffness: 300, damping: 25 }}
           style={{ flexShrink: 0, width: 20, height: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', color: stop.color, fontSize: '0.9rem' }}
         >
           ▸
-        </motion.div>
+        </motion.div> */}
       </button>
 
       <AnimatePresence initial={false}>
@@ -231,7 +231,6 @@ export function SiviTourSection() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <div style={{ position: 'relative' }}>
-            <div style={{ position: 'absolute', left: 20, top: 0, bottom: 0, width: 1, background: 'linear-gradient(to bottom, #71a1e6, rgba(113,161,230,0.1))', pointerEvents: 'none' }} />
             <div style={{ paddingLeft: 0 }}>
               {tourStops.map((stop, i) => (
                 <AccordionItem
