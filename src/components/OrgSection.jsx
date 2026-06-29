@@ -29,7 +29,7 @@ const orgs = [
     role: 'Main Organizer', roleVi: 'Đơn vị tổ chức chính',
     description: 'Hội Sinh viên Việt Nam tại CHLB Đức',
     stats: [{ label: 'FOUNDED', value: '2012' }],//, { label: 'MEMBERS', value: '200+' }],
-    logo: `${import.meta.env.BASE_URL}logo/sividuc.svg`,
+    logo: `${import.meta.env.BASE_URL}logo/sividuc.webp`,
     link: 'https://www.facebook.com/sividuc',
   },
   {
@@ -37,7 +37,7 @@ const orgs = [
     role: 'Operations Partner', roleVi: 'Vận hành & Hậu cần',
     description: 'Hội Sinh viên Việt Nam tại TP. Frankfurt am Main',
     stats: [{ label: 'FOUNDED', value: '2015' }], //{ label: 'CAPACITY', value: '200' }],
-    logo: `${import.meta.env.BASE_URL}logo/vsaf.svg`,
+    logo: `${import.meta.env.BASE_URL}logo/vsaf.webp`,
     link: 'https://www.facebook.com/vsa.frankfurt',
     logoWidth: 100,
   },
