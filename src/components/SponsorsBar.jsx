@@ -113,6 +113,10 @@ export function SponsorsBar() {
               <img
                 src={sponsor.src}
                 alt={sponsor.name}
+                width={190}
+                height={58}
+                loading="lazy"
+                decoding="async"
                 draggable="false"
                 style={{
                   width: sponsor.width,

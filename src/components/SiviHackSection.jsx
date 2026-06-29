@@ -306,6 +306,10 @@ export function SiviHackSection() {
                   src={benefit.icon}
                   alt=""
                   aria-hidden="true"
+                  width={96}
+                  height={96}
+                  loading="lazy"
+                  decoding="async"
                   className="benefit-icon"
                 />
 
@@ -347,6 +351,10 @@ export function SiviHackSection() {
                 key={alt}
                 src={src}
                 alt={alt}
+                width={160}
+                height={160}
+                loading="lazy"
+                decoding="async"
               />
             ))}
           </motion.div>

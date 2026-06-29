@@ -102,6 +102,10 @@ export function OrgSection() {
                   <img
                     src={org.logo}
                     alt={org.name}
+                    width={112}
+                    height={88}
+                    loading="lazy"
+                    decoding="async"
                     style={{
                       width: org.logoWidth,
                       height: 'auto',

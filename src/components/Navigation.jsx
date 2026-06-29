@@ -73,6 +73,9 @@ export function Navigation() {
           <img
             src={`${import.meta.env.BASE_URL}logo/logo rammastic.png`}
             alt="Rammastic"
+            width={800}
+            height={200}
+            decoding="async"
             style={{
               height: '100%',
               maxHeight: 56,
