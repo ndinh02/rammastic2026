@@ -283,7 +283,11 @@ export function HeroSection() {
           }}
         >
           <img
-            src={`${import.meta.env.BASE_URL}hero/logo_SiviCamp.png?v=png-fix-1`}
+            src={`${import.meta.env.BASE_URL}hero/logo_SiviCamp-512.webp?v=lcp-1`}
+            width={512}
+            height={512}
+            fetchPriority="high"
+            loading="eager"
             alt="SiviCamp 2026"
             draggable={false}
             onContextMenu={(e) => e.preventDefault()}
