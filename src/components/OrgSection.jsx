@@ -20,7 +20,7 @@ const orgs = [
     role: 'Technical Partner', roleVi: 'Chuyên môn & Hội đồng đánh giá',
     description: 'Mạng lưới Đổi mới Sáng tạo Việt Đức',
     stats: [{ label: 'FOUNDED', value: '2019' }], //{ label: 'WORKSHOPS', value: '3' }],
-    logo: `${import.meta.env.BASE_URL}logo/vgi.svg`,
+    logo: `${import.meta.env.BASE_URL}logo/vgi.webp`,
     link: 'https://vgi.network',
     logoWidth: 100,
   },
