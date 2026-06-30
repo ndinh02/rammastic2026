@@ -205,11 +205,10 @@ export function SiviTourSection() {
           >
             <div style={{ fontFamily: HW, fontSize: '0.7rem', letterSpacing: '0.12em', color: '#71a1e6', marginBottom: 16, fontWeight: 600 }}>MISSION_002</div>
             <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginBottom: 8 }}>SiviTour</h2>
-            <div style={{ fontFamily: HW, fontSize: '1.2rem', color: '#71a1e6', marginBottom: 24, fontStyle: 'italic' }}>"Explore · Connect · Belong"</div>
+            <div style={{ fontFamily: HW, fontSize: '1.2rem', color: '#71a1e6', marginBottom: 24, fontStyle: 'italic' }}>"Đi đâu không quan trọng bằng bạn đi với ai."</div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                'Đi đâu không quan trọng bằng bạn đi với ai.',
                 'SiviTour là chiếc cớ để bạn bước ra khỏi vùng an toàn, “bắt chuyện” với người lạ và biến họ thành đồng đội mới trong hành trình du học một cách nhanh nhất.',
                 'Một buổi city tour, nhưng điều mà bạn nhận về cả một vòng tròn bạn bè mới ở châu Âu.',
                 'Slots có hạn – đăng ký sớm để chắc chắn có mặt trong chặng hành trình của SiviTour nhé.',
