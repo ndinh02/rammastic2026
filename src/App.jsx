@@ -3,8 +3,8 @@ import { StickyCtaBar } from './components/StickyCtaBar'
 import { HeroSection } from './components/HeroSection'
 import { AboutSection } from './components/AboutSection'
 import { SiviHackSection } from './components/SiviHackSection'
-// import { SiviTaSection } from './components/SiviTaSection'
-// import { SiviTourSection } from './components/SiviTourSection'
+import { SiviTaSection } from './components/SiviTaSection'
+import { SiviTourSection } from './components/SiviTourSection'
 import { ScheduleSection } from './components/ScheduleSection'
 import { PricingSection } from './components/PricingSection'
 import { OrgSection } from './components/OrgSection'
@@ -29,8 +29,8 @@ export default function App() {
       <HeroSection />
       <AboutSection />
       <SiviHackSection />
-      {/* <SiviTaSection /> */}
-      {/* <SiviTourSection /> */}
+      <SiviTourSection />
+      <SiviTaSection />
       <ScheduleSection />
       <PricingSection />
       <OrgSection />

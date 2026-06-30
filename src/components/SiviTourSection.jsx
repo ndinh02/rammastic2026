@@ -201,7 +201,7 @@ export function SiviTourSection() {
           transition={{ duration: 0.7 }}
           style={{ marginBottom: 48, maxWidth: 720 }}
         >
-          <div style={{ fontFamily: HW, fontSize: '0.7rem', letterSpacing: '0.12em', color: '#71a1e6', marginBottom: 16, fontWeight: 600 }}>MISSION_003</div>
+          <div style={{ fontFamily: HW, fontSize: '0.7rem', letterSpacing: '0.12em', color: '#71a1e6', marginBottom: 16, fontWeight: 600 }}>MISSION_002</div>
           <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginBottom: 8 }}>SiviTour</h2>
           <div style={{ fontFamily: HW, fontSize: '1.2rem', color: '#71a1e6', marginBottom: 24, fontStyle: 'italic' }}>"Explore · Connect · Belong"</div>
 

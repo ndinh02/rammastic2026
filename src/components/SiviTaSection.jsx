@@ -31,7 +31,7 @@ export function SiviTaSection() {
         >
           <SectionLabel>TALENT SHOW · GALA NIGHT</SectionLabel>
 
-          <div className="sivita-mission">MISSION_002</div>
+          <div className="sivita-mission">MISSION_003</div>
 
           <h2 className="sivita-title">SiviTa</h2>
 
@@ -88,6 +88,17 @@ export function SiviTaSection() {
             </div>
           </a>
         </motion.div>
+
+        <div className="sivita-polaroids" aria-hidden="true">
+          {[3, 4, 5, 6].map((n, i) => (
+            <img
+              key={n}
+              src={`/sivita/${n}.svg`}
+              className={`sivita-polaroid sivita-polaroid-${i + 1}`}
+              alt=""
+            />
+          ))}
+        </div>
       </div>
 
       <style>{`
@@ -100,13 +111,48 @@ export function SiviTaSection() {
 
         .sivita-wrap {
           width: 100%;
-          max-width: none;
+          max-width: 1400px;
           margin: 0 auto;
+          display: flex;
+          align-items: center;
+          gap: 0;
         }
 
         .sivita-copy {
           width: min(100%, 560px);
           margin-left: clamp(56px, 6vw, 98px);
+          flex-shrink: 0;
+        }
+
+        .sivita-polaroids {
+          flex-shrink: 0;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 8px;
+          padding: 16px 48px 16px 0;
+          place-items: center;
+          margin-left: auto;
+        }
+
+        .sivita-polaroid {
+          width: 250px;
+          height: auto;
+          display: block;
+          border-radius: 2px;
+          box-shadow:
+            0 4px 16px rgba(0, 0, 0, 0.65),
+            0 1px 4px rgba(0, 0, 0, 0.45),
+            0 0 0 1px rgba(255, 255, 255, 0.04);
+        }
+
+        .sivita-polaroid-1 { transform: rotate(-5deg) translateY(8px); }
+        .sivita-polaroid-2 { transform: rotate(4deg) translateY(-6px); }
+        .sivita-polaroid-3 { transform: rotate(3.5deg) translateY(10px); }
+        .sivita-polaroid-4 { transform: rotate(-4.5deg) translateY(-4px); }
+
+        @media (max-width: 900px) {
+          .sivita-polaroids { display: none; }
         }
 
         .sivita-section-label {
