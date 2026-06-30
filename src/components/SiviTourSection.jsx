@@ -24,28 +24,28 @@ const tourStops = [
   {
     marker: '01',
     name: 'Alter Oper',
-    desc: 'Old Town · Lịch sử Frankfurt',
+    desc: 'Nhà hát opera lịch sử giữa lòng Frankfurt',
     detail: 'Quảng trường cổ nhất Frankfurt, được xây dựng từ thế kỷ 15. Kiến trúc khung gỗ truyền thống và Römer — tòa thị chính lịch sử — là điểm chụp ảnh không thể bỏ qua. Đây cũng là nơi diễn ra các sự kiện văn hóa lớn của thành phố.',
     color: '#71a1e6',
   },
   {
     marker: '02',
     name: 'Dom-Römer-Quartier',
-    desc: 'Sachsenhausen · Ẩm thực & văn hoá',
+    desc: 'Khu phố cổ với kiến trúc truyền thống và không khí châu Âu cổ điển',
     detail: 'Bờ sông Main với hàng quán cà phê và nhà hàng dọc hai bên. Sachsenhausen nổi tiếng với rượu táo Apfelwein — đặc sản Frankfurt. Buổi tối ở đây cực kỳ sôi động với nhiều quán bar và sự kiện.',
     color: '#cab1fd',
   },
   {
     marker: '03',
     name: 'Eisener Steg',
-    desc: 'Trung tâm thành phố hiện đại',
+    desc: 'Cầu đi bộ biểu tượng bắc qua sông Main',
     detail: 'Trung tâm mua sắm hiện đại nằm giữa lòng thành phố, bao quanh bởi những tòa nhà chọc trời — đặc trưng của Frankfurt, thành phố duy nhất ở Đức có skyline mang phong cách Manhattan.',
     color: '#eeb2ff',
   },
   {
     marker: '04',
     name: 'Bethmann Park',
-    desc: 'Gặp gỡ người trẻ từ khắp châu Âu',
+    desc: 'Công viên xanh nổi tiếng với khu vườn kiến trúc Á Đông',
     detail: 'Frankfurt là trung tâm tài chính của châu Âu và nơi đặt trụ sở Ngân hàng Trung ương châu Âu (ECB). SiviTour sẽ kết nối bạn với sinh viên và người trẻ Việt Nam từ nhiều quốc gia EU khác nhau.',
     color: '#4ade80',
   },
@@ -209,9 +209,10 @@ export function SiviTourSection() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                'Khám phá Frankfurt — một trong những thành phố sôi động nhất châu Âu — cùng với những người bạn mới từ khắp nơi.',
-                'SiviTour không chỉ là tham quan: đây là cơ hội gặp gỡ người trẻ từ nhiều quốc gia, chia sẻ câu chuyện và mở rộng mạng lưới quan hệ xuyên châu Âu.',
-                'Tìm hiểu văn hoá, lịch sử và cuộc sống tại Đức — góc nhìn hoàn toàn khác ngoài giảng đường.',
+                'Đi đâu không quan trọng bằng bạn đi với ai.',
+                'SiviTour là chiếc cớ để bạn bước ra khỏi vùng an toàn, “bắt chuyện” với người lạ và biến họ thành đồng đội mới trong hành trình du học một cách nhanh nhất.',
+                'Một buổi city tour, nhưng điều mà bạn nhận về cả một vòng tròn bạn bè mới ở châu Âu.',
+                'Slots có hạn – đăng ký sớm để chắc chắn có mặt trong chặng hành trình của SiviTour nhé.',
               ].map((text, i) => (
                 <motion.p
                   key={i}
