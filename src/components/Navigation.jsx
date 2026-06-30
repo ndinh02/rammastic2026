@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { REGISTRATION_URL } from '@/config/links'
+// import {
+//   RegistrationFireworkLayer,
+//   useRegistrationFirework,
+//   pressRegistrationButton,
+//   releaseRegistrationButton,
+//   registrationPressStyle,
+// } from './ui/registration-firework'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 
@@ -36,6 +43,8 @@ export function Navigation() {
 
   const close = () => setOpen(false)
 
+  // const { burst, handleRegistrationClick } = useRegistrationFirework()
+
   return (
     <>
       <motion.nav
@@ -45,7 +54,7 @@ export function Navigation() {
         style={{
           position: 'fixed', top: 0, left: 0, right: 0, zIndex: 40,
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '16px 32px',
+          padding: '16px 20px',
           background: scrolled || open ? 'rgba(7,3,15,0.95)' : 'transparent',
           backdropFilter: scrolled || open ? 'blur(14px)' : 'none',
           borderBottom: scrolled || open ? '1px solid rgba(202,177,253,0.1)' : 'none',
@@ -62,8 +71,11 @@ export function Navigation() {
           }}
         >
           <img
-            src="/logo/logo_RAMmastic.svg"
+            src={`${import.meta.env.BASE_URL}logo/logo rammastic.png`}
             alt="Rammastic"
+            width={800}
+            height={200}
+            decoding="async"
             style={{
               height: '100%',
               maxHeight: 56,
@@ -97,6 +109,7 @@ export function Navigation() {
         <a
           href={REGISTRATION_URL}
           target="_blank"
+          rel="noreferrer"
           className="desktop-cta"
           style={{
             fontFamily: HW,
@@ -114,7 +127,7 @@ export function Navigation() {
           className="hamburger"
           onClick={() => setOpen(v => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
-          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 40, height: 40, gap: 6 }}
+          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: 40, height: 40, gap: 6, background: 'none', border: 'none', padding: 0, margin: 0, cursor: 'pointer' }}
         >
           <motion.span animate={open ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }} transition={{ duration: 0.25 }} style={{ display: 'block', width: 24, height: 2, background: '#cab1fd', transformOrigin: 'center' }} />
           <motion.span animate={open ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }} transition={{ duration: 0.2 }} style={{ display: 'block', width: 24, height: 2, background: '#cab1fd' }} />
@@ -176,26 +189,37 @@ export function Navigation() {
               </nav>
               <div style={{ padding: '0 24px 40px' }}>
                 <a
-                  href={REGISTRATION_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={close}
-                  style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', padding: '16px 0',
-                    fontFamily: HW, fontWeight: 700, letterSpacing: '0.08em', fontSize: '0.85rem',
-                    background: 'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
-                    color: '#fff', border: '2px solid rgba(255,255,255,0.15)',
-                    boxShadow: '0 4px 16px rgba(90,48,192,0.4)',
-                    borderRadius: '9999px',
-                  }}
-                >
-                  ĐĂNG KÝ NGAY
-                </a>
+                href={REGISTRATION_URL}
+                target="_blank"
+                rel="noreferrer"
+                onClick={close}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '100%',
+                  padding: '16px 0',
+                  fontFamily: HW,
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  fontSize: '0.85rem',
+                  background:
+                    'linear-gradient(180deg, #d4c0ff 0%, #9b78f0 45%, #7a50e0 100%)',
+                  color: '#fff',
+                  border: '2px solid rgba(255,255,255,0.15)',
+                  boxShadow: '0 4px 16px rgba(90,48,192,0.4)',
+                  borderRadius: '9999px',
+                }}
+              >
+                ĐĂNG KÝ NGAY
+              </a>
               </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
+
+      {/* <RegistrationFireworkLayer burst={burst} /> */}
 
       <style>{`
         @media (min-width: 768px) {

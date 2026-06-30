@@ -3,10 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="%BASE_URL%brand_assets/logo.png" />  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SiviCamp 2026 — #RAMMASTIC · Frankfurt am Main</title>
+  <title>SiviCamp 2026 — {#} RAMMASTIC · Frankfurt am Main</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap"
+    />
+  </noscript>
+  <link
+    rel="preload"
+    as="image"
+    href="/sivicamp2026/hero/logo_SiviCamp-512.webp?v=lcp-1"
+    fetchpriority="high"
+  />
 </head>
 <body>
   <div id="root"></div>

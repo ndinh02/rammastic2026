@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
 import { SponsorsBar } from './SponsorsBar'
 import { REGISTRATION_URL } from '@/config/links'
+// import {
+//   RegistrationFireworkLayer,
+//   useRegistrationFirework,
+//   pressRegistrationButton,
+//   releaseRegistrationButton,
+//   registrationPressStyle,
+// } from './ui/registration-firework'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 
@@ -9,7 +16,7 @@ function Countdown() {
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 })
 
   useEffect(() => {
-    const target = new Date('2026-09-17T09:00:00+02:00').getTime()
+    const target = new Date('2026-07-01T00:00:00+02:00').getTime()
 
     const tick = () => {
       const diff = target - Date.now()
@@ -151,9 +158,12 @@ function ParticleField() {
 }
 
 export function HeroSection() {
+  // const { burst, handleRegistrationClick } = useRegistrationFirework()
+
   return (
     <section
       id="hero"
+      className="hero-section"
       style={{
         position: 'relative',
         display: 'flex',
@@ -162,7 +172,6 @@ export function HeroSection() {
         justifyContent: 'center',
         overflow: 'hidden',
         minHeight: '100svh',
-        paddingTop: 64,
         paddingBottom: 120,
       }}
     >
@@ -172,7 +181,7 @@ export function HeroSection() {
           position: 'absolute',
           inset: 0,
           pointerEvents: 'none',
-          backgroundImage: "url('/hero/hero.svg')",
+          backgroundImage: `url(${import.meta.env.BASE_URL}hero/hero.webp)`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -206,6 +215,8 @@ export function HeroSection() {
 
       <ParticleField />
 
+      {/* <RegistrationFireworkLayer burst={burst} /> */}
+
       <div
         style={{
           position: 'relative',
@@ -222,39 +233,41 @@ export function HeroSection() {
         }}
       >
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+        className="hero-event-info"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        <span
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 4,
+            fontFamily: HW,
+            fontSize: 'clamp(1.17rem, 1.5vw, 1.33rem)',
+            fontWeight: 700,
+            letterSpacing: '0.18em',
+            lineHeight: 1.5,
+            color: '#71a1e6',
+            textAlign: 'center',
+            textTransform: 'uppercase',
           }}
         >
-          <span
-            style={{
-              fontFamily: HW,
-              fontSize: '0.75rem',
-              color: '#71a1e6',
-              letterSpacing: '0.3em',
-              fontWeight: 600,
-            }}
-          >
-            TRAI HÈ TÀI NĂNG THANH NIÊN SINH VIÊN VIỆT NAM TẠI ĐỨC
-          </span>
+          TRẠI HÈ TÀI NĂNG THANH NIÊN SINH VIÊN VIỆT NAM TẠI ĐỨC
+        </span>
 
-          <span
-            style={{
-              fontFamily: HW,
-              fontSize: '0.7rem',
-              color: 'white',
-              letterSpacing: '0.18em',
-            }}
-          >
-            17–19 SEPT · FRANKFURT AM MAIN, GERMANY
-          </span>
-        </motion.div>
+        <span
+          style={{
+            fontFamily: HW,
+            fontSize: 'clamp(0.68rem, 2vw, 0.78rem)',
+            fontWeight: 700,
+            letterSpacing: '0.18em',
+            lineHeight: 1.5,
+            color: '#ffffff',
+            textAlign: 'center',
+            textTransform: 'uppercase',
+          }}
+        >
+          17–19 SEPT · FRANKFURT AM MAIN, GERMANY
+        </span>
+      </motion.div>
 
         {/* Center SiviCamp logo */}
         <motion.div
@@ -270,15 +283,24 @@ export function HeroSection() {
           }}
         >
           <img
-            src="/hero/logo_SiviCamp.svg"
+            src={`${import.meta.env.BASE_URL}hero/logo_SiviCamp-512.webp?v=lcp-1`}
+            width={512}
+            height={512}
+            fetchPriority="high"
+            loading="eager"
             alt="SiviCamp 2026"
+            draggable={false}
+            onContextMenu={(e) => e.preventDefault()}
             style={{
               width: 'min(68vw, 380px)',
               height: 'auto',
               display: 'block',
               margin: 0,
               padding: 0,
-              filter: 'drop-shadow(0 0 18px rgba(202,177,253,0.38))',
+              WebkitTouchCallout: 'none',
+              WebkitUserSelect: 'none',
+              userSelect: 'none',
+              pointerEvents: 'none',
             }}
           />
 
@@ -307,7 +329,7 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
@@ -324,7 +346,7 @@ export function HeroSection() {
           <span style={{ color: 'rgba(232,224,255,0.3)' }}>
             Nơi Công nghệ gặp gỡ Văn hoá.
           </span>
-        </motion.p>
+        </motion.p> */}
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -345,7 +367,7 @@ export function HeroSection() {
               letterSpacing: '0.15em',
             }}
           >
-            EVENT_STARTS_IN
+            EARLY_BIRD_ENDS_IN
           </span>
 
           <Countdown />
@@ -476,6 +498,67 @@ export function HeroSection() {
       >
         <SponsorsBar />
       </div>
+      <style>{`
+        .hero-section {
+          padding-top: 104px;
+        }
+
+        .hero-event-info {
+          width: 100%;
+          max-width: 960px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          padding: 0 16px;
+          text-align: center;
+        }
+
+        @media (max-width: 767px) {
+          .hero-section {
+            justify-content: flex-start !important;
+            padding-top: 142px;
+            padding-bottom: 120px;
+          }
+
+          .hero-event-info {
+            gap: 12px;
+            padding-left: 18px;
+            padding-right: 18px;
+            margin-bottom: 4px;
+          }
+
+          .hero-event-info span:first-child {
+            font-size: clamp(1.14rem, 4.7vw, 1.36rem) !important;
+            letter-spacing: 0.14em !important;
+            line-height: 1.5 !important;
+            max-width: min(94vw, 680px);
+          }
+
+          .hero-event-info span:last-child {
+            font-size: 0.76rem !important;
+            letter-spacing: 0.1em !important;
+            line-height: 1.45 !important;
+          }
+        }
+
+        @media (max-width: 430px) {
+          .hero-section {
+            padding-top: 136px;
+          }
+
+          .hero-event-info span:first-child {
+            font-size: 1.17rem !important;
+            letter-spacing: 0.12em !important;
+            line-height: 1.5 !important;
+          }
+
+          .hero-event-info span:last-child {
+            font-size: 0.7rem !important;
+            letter-spacing: 0.08em !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

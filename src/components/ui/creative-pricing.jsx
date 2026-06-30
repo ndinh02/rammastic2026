@@ -1,6 +1,13 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
 import { REGISTRATION_URL } from '@/config/links'
+// import {
+//   RegistrationFireworkLayer,
+//   useRegistrationFirework,
+//   pressRegistrationButton,
+//   releaseRegistrationButton,
+//   registrationPressStyle,
+// } from './registration-firework'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
@@ -38,6 +45,7 @@ function StackCard({ tier, index }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '0px 0px -15% 0px' })
   const cfg = colorConfigs[tier.color] || colorConfigs.blue
+  // const { burst, handleRegistrationClick } = useRegistrationFirework()
 
   return (
     <div
@@ -69,7 +77,7 @@ function StackCard({ tier, index }) {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            padding: '48px 40px',
+            padding: '76px 40px 56px',
             background: cfg.accent,
             borderRight: `1px solid ${cfg.border}`,
             minHeight: 260,
@@ -123,16 +131,43 @@ function StackCard({ tier, index }) {
               {tier.price}
             </span>
           </div>
-          <div style={{ fontFamily: HW, fontSize: '0.65rem', color: `${cfg.primary}60`, letterSpacing: '0.12em', marginBottom: 16 }}>
-            PER PERSON
-          </div>
+          <div
+          style={{
+            fontFamily: HW,
+            fontSize: '0.65rem',
+            color: `${cfg.primary}70`,
+            letterSpacing: '0.12em',
+            marginBottom: 22,
+          }}
+        >
+          PER PERSON
+        </div>
 
-          <div style={{ fontFamily: PIXEL, fontSize: 'clamp(0.85rem, 2vw, 1.05rem)', color: '#e8e0ff', lineHeight: 1.25, marginBottom: 10 }}>
-            {tier.name}
-          </div>
-          <p style={{ fontFamily: HW, fontSize: '0.78rem', color: 'rgba(232,224,255,0.4)', lineHeight: 1.55, maxWidth: 220 }}>
-            {tier.description}
-          </p>
+        <div
+          style={{
+            fontFamily: PIXEL,
+            fontSize: 'clamp(1.45rem, 5.5vw, 1.9rem)',
+            fontWeight: 800,
+            color: '#f4eeff',
+            lineHeight: 1.2,
+            marginBottom: 18,
+            letterSpacing: '0.01em',
+          }}
+        >
+          {tier.name}
+        </div>
+
+        <p
+          style={{
+            fontFamily: HW,
+            fontSize: '0.82rem',
+            color: 'rgba(232,224,255,0.55)',
+            lineHeight: 1.65,
+            maxWidth: 260,
+          }}
+        >
+          {tier.description}
+        </p>
         </div>
 
         {/* Right panel — features + CTA */}
@@ -172,10 +207,10 @@ function StackCard({ tier, index }) {
             ))}
           </div>
 
-          <a
+          <motion.a
             href={REGISTRATION_URL}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
             style={{
               display: 'block',
               textAlign: 'center',
@@ -191,17 +226,14 @@ function StackCard({ tier, index }) {
                 : 'transparent',
               border: `1.5px solid ${cfg.primary}`,
               boxShadow: tier.popular ? `0 6px 24px ${cfg.primary}35` : 'none',
-              transition: 'opacity 0.18s, transform 0.1s',
+              transition: 'opacity 0.18s',
             }}
-            onMouseEnter={e => { e.currentTarget.style.opacity = '0.8' }}
-            onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = '' }}
-            onMouseDown={e => { e.currentTarget.style.transform = 'translateY(1px)' }}
-            onMouseUp={e => { e.currentTarget.style.transform = '' }}
           >
             Đăng ký ngay
-          </a>
+          </motion.a>
         </div>
       </motion.div>
+      {/* <RegistrationFireworkLayer burst={burst} /> */}
     </div>
   )
 }
@@ -286,8 +318,8 @@ export function CreativePricing({ tag, title, description, tiers }) {
           style={{
             textAlign: 'center',
             fontFamily: HW,
-            fontSize: '0.7rem',
-            color: 'rgba(202,177,253,0.28)',
+            fontSize: '1rem',
+            color: 'rgba(255,255,255,1)',
             letterSpacing: '0.08em',
             paddingBottom: 64,
           }}

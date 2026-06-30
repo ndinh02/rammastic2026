@@ -19,8 +19,9 @@ const orgs = [
     name: 'VGI e.V.', color: '#71a1e6',
     role: 'Technical Partner', roleVi: 'Chuyên môn & Hội đồng đánh giá',
     description: 'Mạng lưới Đổi mới Sáng tạo Việt Đức',
-    stats: [{ label: 'FOUNDED', value: '2020' }], //{ label: 'WORKSHOPS', value: '3' }],
-    logo: `${import.meta.env.BASE_URL}logo/vgi.svg`,
+    stats: [{ label: 'FOUNDED', value: '2019' }], //{ label: 'WORKSHOPS', value: '3' }],
+    logo: `${import.meta.env.BASE_URL}logo/vgi.webp`,
+    link: 'https://vgi.network',
     logoWidth: 100,
   },
   {
@@ -28,15 +29,16 @@ const orgs = [
     role: 'Main Organizer', roleVi: 'Đơn vị tổ chức chính',
     description: 'Hội Sinh viên Việt Nam tại CHLB Đức',
     stats: [{ label: 'FOUNDED', value: '2012' }],//, { label: 'MEMBERS', value: '200+' }],
-    logo: `${import.meta.env.BASE_URL}logo/sividuc.svg`,
-    logoWidth: 105,
+    logo: `${import.meta.env.BASE_URL}logo/sividuc.webp`,
+    link: 'https://www.facebook.com/sividuc',
   },
   {
     name: 'VSAF e.V.', color: '#eeb2ff',
     role: 'Operations Partner', roleVi: 'Vận hành & Hậu cần',
     description: 'Hội Sinh viên Việt Nam tại TP. Frankfurt am Main',
     stats: [{ label: 'FOUNDED', value: '2015' }], //{ label: 'CAPACITY', value: '200' }],
-    logo: `${import.meta.env.BASE_URL}logo/vsaf.svg`,
+    logo: `${import.meta.env.BASE_URL}logo/vsaf.webp`,
+    link: 'https://www.facebook.com/vsa.frankfurt',
     logoWidth: 100,
   },
 ]
@@ -53,21 +55,36 @@ export function OrgSection() {
         <SectionLabel>ban tổ chức</SectionLabel>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} style={{ marginTop: 32, marginBottom: 48, textAlign: 'center' }}>
-          <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, color: '#e8e0ff' }}>Được tổ chức bởi</h2>
+          <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 800, color: '#e8e0ff' }}>ORGANISED BY</h2>
           <p style={{ marginTop: 12, maxWidth: 672, margin: '12px auto 0', fontSize: '0.875rem', lineHeight: 1.6, color: 'rgba(232,224,255,0.5)', fontFamily: HW }}>
-            SiviCamp 2026 được dẫn dắt bởi ba tổ chức sinh viên Việt Nam hàng đầu tại Đức, cùng nhau xây dựng một trải nghiệm cộng đồng chất lượng và bền vững.
+            SiviCamp 2026 được dẫn dắt bởi ba tổ chức phi lợi nhuận, hướng tới phát triển phong trào Thanh niên Sinh viên Việt Nam tại Châu Âu
           </p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
+        <div
+          className="org-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 24,
+          }}
+        >
           {orgs.map((org, i) => (
-            <motion.div
-              key={org.id}
-              initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.15 + i * 0.12 }}
-              style={{ position: 'relative', padding: 24, display: 'flex', flexDirection: 'column', gap: 20, background: 'rgba(18,11,36,0.8)', border: '1px solid rgba(202,177,253,0.12)', transition: 'all 0.3s', alignItems: 'center', textAlign: 'center' }}
-              onMouseEnter={e => { const el = e.currentTarget; el.style.border = `1px solid ${org.color}50`; el.style.boxShadow = `0 8px 40px ${org.color}12`; el.style.transform = 'translateY(-4px)' }}
-              onMouseLeave={e => { const el = e.currentTarget; el.style.border = '1px solid rgba(202,177,253,0.12)'; el.style.boxShadow = 'none'; el.style.transform = 'none' }}
+            <a
+              key={org.name}
+              href={org.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Open ${org.name} website`}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+              onClick={e => e.stopPropagation()}
             >
+              <motion.div
+                initial={{ opacity: 0, y: 40 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.15 + i * 0.12 }}
+                style={{ position: 'relative', padding: 24, display: 'flex', flexDirection: 'column', gap: 20, background: 'rgba(18,11,36,0.8)', border: '1px solid rgba(202,177,253,0.12)', transition: 'all 0.3s', alignItems: 'center', textAlign: 'center' }}
+                onMouseEnter={e => { const el = e.currentTarget; el.style.border = `1px solid ${org.color}50`; el.style.boxShadow = `0 8px 40px ${org.color}12`; el.style.transform = 'translateY(-4px)' }}
+                onMouseLeave={e => { const el = e.currentTarget; el.style.border = '1px solid rgba(202,177,253,0.12)'; el.style.boxShadow = 'none'; el.style.transform = 'none' }}
+              >
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(90deg, transparent, ${org.color}60, transparent)` }} />
 
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
@@ -85,6 +102,10 @@ export function OrgSection() {
                   <img
                     src={org.logo}
                     alt={org.name}
+                    width={112}
+                    height={88}
+                    loading="lazy"
+                    decoding="async"
                     style={{
                       width: org.logoWidth,
                       height: 'auto',
@@ -113,9 +134,22 @@ export function OrgSection() {
                 ))}
               </div>
             </motion.div>
+            </a>
           ))}
         </div>
       </div>
+    
+        <style>{`
+      @media (max-width: 640px) {
+        .org-grid {
+          grid-template-columns: 1fr !important;
+        }
+
+        .org-card-sividuc {
+          order: -1;
+        }
+      }
+    `}</style>
     </section>
   )
 }

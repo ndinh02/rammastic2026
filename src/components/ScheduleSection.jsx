@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'motion/react'
-import { ChevronLeft, ChevronRight, MapPin, Clock } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
@@ -23,7 +23,6 @@ function SectionLabel({ children }) {
 const typeColors = {
   CEREMONY:   '#cab1fd',
   HACK:       '#f97316',
-  WORKSHOP:   '#4ade80',
   SOCIAL:     '#fbbf24',
   CHECKPOINT: '#71a1e6',
   GALA:       '#eeb2ff',
@@ -36,8 +35,8 @@ const schedule = [
     dayIndex: 0,
     weekday: 'Thứ Năm',
     color: '#cab1fd',
-    title: 'Khởi tranh SiviHack',
-    subtitle: 'Ý tưởng 24 giờ Hackathon thách mọi giới hạn!',
+    title: 'Kick-off SiviHack',
+    subtitle: 'Ý tưởng 24 giờ Hackathon thử thách mọi giới hạn!',
     location: 'Deutschherrnufer 12, 60594 Frankfurt am Main',
     events: [
       {
@@ -60,8 +59,8 @@ const schedule = [
       },
       {
         time: '22:00', endTime: '',
-        title: 'Trại Sinh Hoạt Tự Do',
-        desc: 'Vui chơi và nghỉ ngơi thoải mái.',
+        title: 'Sinh Hoạt Tự Do',
+        desc: 'Vui chơi, bonding, nghỉ ngơi.',
         type: 'SOCIAL',
       },
     ],
@@ -71,7 +70,7 @@ const schedule = [
     dayIndex: 1,
     weekday: 'Thứ Sáu',
     color: '#71a1e6',
-    title: 'Chung kết SiviHack',
+    title: 'The Final Showdown - SiviHack',
     subtitle: 'Ý tưởng lên tiếng, bản lĩnh toả sáng — trận đấu cuối cùng!',
     location: 'Deutschherrnufer 12, 60594 Frankfurt am Main',
     events: [
@@ -84,12 +83,12 @@ const schedule = [
       {
         time: '09:00', endTime: '15:00',
         title: 'Nước Rút Cuối Cùng',
-        desc: 'Những giờ phút cuồng nước rút cuối cùng của SiviHack.',
+        desc: 'Những giờ phút nước rút cuối cùng của SiviHack.',
         type: 'HACK',
       },
       {
         time: '15:00', endTime: '',
-        title: 'Nộp Bài — Giờ G!',
+        title: 'Nộp Bài!',
         desc: 'Giờ phút quyết định đã điểm.',
         type: 'CHECKPOINT',
       },
@@ -101,8 +100,8 @@ const schedule = [
       },
       {
         time: '19:00', endTime: '',
-        title: 'Trại Sinh Hoạt Tự Do',
-        desc: 'Vui chơi và nghỉ ngơi.',
+        title: 'Sinh Hoạt Tự Do',
+        desc: 'Vui chơi, bonding, nghỉ ngơi.',
         type: 'SOCIAL',
       },
     ],
@@ -189,7 +188,16 @@ function EventCard({ ev, index, color }) {
       {/* Content column */}
       <div style={{ padding: '14px 16px', flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-          <span style={{ fontFamily: HW, fontSize: '0.85rem', fontWeight: 700, color: '#e8e0ff', lineHeight: 1.3 }}>
+          <span
+            className="schedule-event-title"
+            style={{
+              fontFamily: HW,
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              color: '#e8e0ff',
+              lineHeight: 1.3,
+            }}
+          >
             {ev.title}
           </span>
           <span style={{
@@ -260,25 +268,10 @@ export function ScheduleSection() {
             padding: '28px 24px 32px',
           }}>
             {/* Month header */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 24 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', marginBottom: 24 }}>
               <span style={{ fontFamily: HW, fontSize: '1rem', fontWeight: 700, color: '#e8e0ff', letterSpacing: '-0.01em' }}>
                 September <span style={{ color: '#cab1fd' }}>2026</span>
               </span>
-              <div style={{ display: 'flex', gap: 2 }}>
-                {[ChevronLeft, ChevronRight].map((Icon, i) => (
-                  <button
-                    key={i}
-                    style={{
-                      width: 28, height: 28, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      background: 'rgba(202,177,253,0.06)', border: '1px solid rgba(202,177,253,0.12)',
-                      color: 'rgba(202,177,253,0.5)', cursor: 'default',
-                      transition: 'opacity 0.15s',
-                    }}
-                  >
-                    <Icon size={13} />
-                  </button>
-                ))}
-              </div>
             </div>
 
             {/* Week day headers */}
@@ -396,13 +389,17 @@ export function ScheduleSection() {
                       {currentDay.weekday} · {currentDay.date}/09/2026
                     </span>
                   </div>
-                  <h3 style={{
-                    fontFamily: PIXEL,
-                    fontSize: 'clamp(1rem, 2.5vw, 1.35rem)',
-                    color: '#e8e0ff',
-                    lineHeight: 1.2,
-                    marginBottom: 8,
-                  }}>
+                  <h3
+                    className="schedule-main-title"
+                    style={{
+                      fontFamily: PIXEL,
+                      fontSize: 'clamp(1.25rem, 2.9vw, 1.7rem)',
+                      color: '#e8e0ff',
+                      lineHeight: 1.12,
+                      letterSpacing: '0.01em',
+                      marginBottom: 10,
+                    }}
+                  >
                     {currentDay.title}
                   </h3>
                   <p style={{
@@ -454,13 +451,37 @@ export function ScheduleSection() {
         </motion.div>
       </div>
 
-      <style>{`
-        @media (max-width: 700px) {
-          .calendar-layout {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
-    </section>
-  )
-}
+            <style>{`
+              @media (max-width: 700px) {
+                .calendar-layout {
+                  grid-template-columns: 1fr !important;
+                }
+
+                .schedule-main-title {
+                  font-family: 'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+                  font-size: 1.38rem !important;
+                  line-height: 1.22 !important;
+                  letter-spacing: 0.01em !important;
+                  font-weight: 800 !important;
+                }
+
+                .schedule-event-title {
+                  font-size: 0.95rem !important;
+                  line-height: 1.35 !important;
+                  letter-spacing: 0 !important;
+                }
+              }
+
+              @media (max-width: 430px) {
+                .schedule-main-title {
+                  font-size: 1.28rem !important;
+                }
+
+                .schedule-event-title {
+                  font-size: 0.92rem !important;
+                }
+              }
+            `}</style>
+          </section>
+        )
+      }

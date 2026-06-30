@@ -1,11 +1,19 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { REGISTRATION_URL } from '@/config/links'
+// import {
+//   RegistrationFireworkLayer,
+//   useRegistrationFirework,
+//   pressRegistrationButton,
+//   releaseRegistrationButton,
+//   registrationPressStyle,
+// } from './ui/registration-firework'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 
 export function StickyCtaBar() {
   const [visible, setVisible] = useState(false)
+  // const { burst, handleRegistrationClick } = useRegistrationFirework()
 
   useEffect(() => {
     const hero = document.getElementById('hero')
@@ -19,6 +27,19 @@ export function StickyCtaBar() {
   }, [])
 
   return (
+  <>
+    <style>{`
+      .mobile-sticky-cta {
+        display: none !important;
+      }
+
+      @media (max-width: 640px) {
+        .mobile-sticky-cta {
+          display: block !important;
+        }
+      }
+    `}</style>
+
     <AnimatePresence>
       {visible && (
         <motion.div
@@ -37,11 +58,12 @@ export function StickyCtaBar() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0, background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.2)', padding: '6px 10px' }}>
               <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4ade80', boxShadow: '0 0 6px #4ade80', display: 'inline-block', flexShrink: 0 }} />
-              <span style={{ fontFamily: HW, fontSize: '0.75rem', color: '#4ade80', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>100 chỗ</span>
+              <span style={{ fontFamily: HW, fontSize: '0.75rem', color: '#4ade80', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>79 chỗ</span>
             </div>
             <a
               href={REGISTRATION_URL}
               target="_blank"
+              rel="noreferrer"
               style={{
                 flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, minHeight: 48,
                 fontFamily: HW, fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.08em',
@@ -50,8 +72,6 @@ export function StickyCtaBar() {
                 boxShadow: '0 4px 16px rgba(90,48,192,0.4), inset 0 1px 0 rgba(255,255,255,0.2)',
                 borderRadius: '9999px',
               }}
-              onTouchStart={e => { e.currentTarget.style.transform = 'scale(0.97)' }}
-              onTouchEnd={e => { e.currentTarget.style.transform = '' }}
             >
               ĐĂNG KÝ NGAY
             </a>
@@ -59,5 +79,8 @@ export function StickyCtaBar() {
         </motion.div>
       )}
     </AnimatePresence>
+
+    {/* <RegistrationFireworkLayer burst={burst} /> */}
+  </>
   )
 }

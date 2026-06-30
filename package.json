@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && rsync -avz --delete --exclude='.htaccess' dist/ strato:sividuc.org/sivicamp2026"
   },
   "dependencies": {
     "gsap": "^3.12.5",
