@@ -16,7 +16,7 @@ function Countdown() {
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 })
 
   useEffect(() => {
-    const target = new Date('2026-07-01T00:00:00+02:00').getTime()
+    const target = new Date('2026-07-31T00:00:00+02:00').getTime()
 
     const tick = () => {
       const diff = target - Date.now()
@@ -367,7 +367,7 @@ export function HeroSection() {
               letterSpacing: '0.15em',
             }}
           >
-            EARLY_BIRD_ENDS_IN
+            REGULAR_ENDS_IN
           </span>
 
           <Countdown />

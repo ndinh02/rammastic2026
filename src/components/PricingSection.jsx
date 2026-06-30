@@ -1,4 +1,4 @@
-import { Star, Sparkles } from 'lucide-react'
+import { Star, Sparkles, Mic } from 'lucide-react'
 import { CreativePricing } from '@/components/ui/creative-pricing'
 
 const ticketTiers = [
@@ -23,6 +23,18 @@ const ticketTiers = [
     price: 19,
     description: 'Trải nghiệm chương trình Day 3 của Trại hè',
     color: 'amber',
+    features: [
+      { text: 'Theo dõi trận Chung kết cuộc thi SiviHack 2026' },
+      { text: 'Tham gia SiviTour - chuyến du lịch khám phá Frankfurt và giao lưu, kết bạn mới.' },
+      { text: 'Tham dự Đêm Gala SIVITA và gặp gỡ hàng trăm du học sinh tại Đức.' },
+      { text: '01 bữa trưa và Áo Trại sinh' },
+    ],
+  },
+  {
+    name: 'Dự thi SiviTa',
+    icon: <Mic className="w-6 h-6" />,
+    description: 'Trải nghiệm chương trình Day 3 của Trại hè',
+    color: 'purple',
     features: [
       { text: 'Theo dõi trận Chung kết cuộc thi SiviHack 2026' },
       { text: 'Tham gia SiviTour - chuyến du lịch khám phá Frankfurt và giao lưu, kết bạn mới.' },

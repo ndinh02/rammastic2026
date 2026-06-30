@@ -58,7 +58,7 @@ export function SiviTaSection() {
             </p>
           </div>
 
-          <a href="#schedule" className="sivita-event-card">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfM3kZ6b9P6ZdE3Ioaq4LRmY1s82gUhkmw1XBAwRww7D_3ctQ/viewform" target="_blank" className="sivita-event-card">
             <div className="sivita-event-icon" aria-hidden="true">
               <span className="sivita-calendar-top" />
               <span className="sivita-calendar-left" />
@@ -67,10 +67,10 @@ export function SiviTaSection() {
             </div>
 
             <div className="sivita-event-copy">
-              <div className="sivita-event-title">Last Day · Gala Night</div>
+              <div className="sivita-event-title">Chung kết SiviTa 2026</div>
               <div className="sivita-event-date">19/09/2026</div>
               <div className="sivita-event-subtitle">
-                Dành cho tất cả người đăng ký
+                Đăng ký dự thi ngay hôm nay !
               </div>
             </div>
 

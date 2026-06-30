@@ -29,6 +29,14 @@ const colorConfigs = {
     glow: '0 0 80px rgba(113,161,230,0.16), 0 24px 60px rgba(0,0,0,0.75)',
     topBar: 'linear-gradient(90deg, rgba(113,161,230,0.7), rgba(113,161,230,0.2), transparent)',
   },
+  purple: {
+    primary: '#eeb2ff',
+    border: 'rgba(238,178,255,0.28)',
+    bg: 'linear-gradient(135deg, #1a0d20 0%, #110817 100%)',
+    accent: 'rgba(238,178,255,0.07)',
+    glow: '0 0 80px rgba(238,178,255,0.12), 0 24px 60px rgba(0,0,0,0.75)',
+    topBar: 'linear-gradient(90deg, rgba(238,178,255,0.7), rgba(238,178,255,0.2), transparent)',
+  },
 }
 
 function SectionLabel({ children }) {
@@ -119,29 +127,21 @@ function StackCard({ tier, index }) {
           </div>
 
           {/* Price */}
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 6 }}>
-            <span style={{ fontFamily: HW, fontSize: '1.1rem', fontWeight: 700, color: cfg.primary }}>€</span>
-            <span style={{
-              fontFamily: PIXEL,
-              fontSize: 'clamp(2.8rem, 5vw, 3.6rem)',
-              color: cfg.primary,
-              lineHeight: 1,
-              textShadow: `0 0 50px ${cfg.primary}55`,
-            }}>
-              {tier.price}
-            </span>
-          </div>
-          <div
-          style={{
-            fontFamily: HW,
-            fontSize: '0.65rem',
-            color: `${cfg.primary}70`,
-            letterSpacing: '0.12em',
-            marginBottom: 22,
-          }}
-        >
-          PER PERSON
-        </div>
+          {tier.price != null && (
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, marginBottom: 6 }}>
+              <span style={{ fontFamily: HW, fontSize: '1.1rem', fontWeight: 700, color: cfg.primary }}>€</span>
+              <span style={{
+                fontFamily: PIXEL,
+                fontSize: 'clamp(2.8rem, 5vw, 3.6rem)',
+                fontWeight: 700,
+                color: cfg.primary,
+                lineHeight: 1,
+                textShadow: `0 0 50px ${cfg.primary}55`,
+              }}>
+                {tier.price}
+              </span>
+            </div>
+          )}
 
         <div
           style={{
