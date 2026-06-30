@@ -17,19 +17,19 @@ const ticketTiers = [
       { text: <>Bao gồm <strong>Áo Trại sinh</strong>, quà tặng <strong>Welcome Bag</strong>, <strong>02 bữa ăn trưa</strong> và <strong>01 bữa ăn tối</strong></> },
     ],
   },
-  // {
-  //   name: 'Day Pass',
-  //   icon: <Star className="w-6 h-6" />,
-  //   price: 19,
-  //   description: 'Trải nghiệm chương trình Day 3 của Trại hè',
-  //   color: 'amber',
-  //   features: [
-  //     'Xem chung kết cuộc thi SIVIHACK',
-  //     'SIVITOUR - khám phá trải nghiệm Frankfurt',
-  //     'SIVITA - Gala trao giải và cuộc thi âm nhạc',
-  //     'Bao gồm Áo Trại sinh và 01 bữa ăn trưa',
-  //   ],
-  // },
+  {
+    name: 'Day Pass',
+    icon: <Star className="w-6 h-6" />,
+    price: 19,
+    description: 'Trải nghiệm chương trình Day 3 của Trại hè',
+    color: 'amber',
+    features: [
+      { text: 'Theo dõi trận Chung kết cuộc thi SiviHack 2026' },
+      { text: 'Tham gia SiviTour - chuyến du lịch khám phá Frankfurt và giao lưu, kết bạn mới.' },
+      { text: 'Tham dự Đêm Gala SIVITA và gặp gỡ hàng trăm du học sinh tại Đức.' },
+      { text: '01 bữa trưa và Áo Trại sinh' },
+    ],
+  },
 ]
 
 export function PricingSection() {
