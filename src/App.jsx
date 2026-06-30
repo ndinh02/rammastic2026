@@ -1,6 +1,7 @@
 import { Navigation } from './components/Navigation'
 import { StickyCtaBar } from './components/StickyCtaBar'
 import { HeroSection } from './components/HeroSection'
+import { QuoteSection } from './components/QuoteSection'
 import { AboutSection } from './components/AboutSection'
 import { SiviHackSection } from './components/SiviHackSection'
 import { SiviTaSection } from './components/SiviTaSection'
@@ -27,6 +28,7 @@ export default function App() {
       <Navigation />
       <StickyCtaBar />
       <HeroSection />
+      <QuoteSection />
       <AboutSection />
       <SiviHackSection />
       <SiviTourSection />
