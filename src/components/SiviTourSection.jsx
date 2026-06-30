@@ -194,57 +194,57 @@ export function SiviTourSection() {
           </div>
         </motion.div>
 
-        {/* SiviTour description — full width, stacked above city list */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          style={{ marginBottom: 48, maxWidth: 720 }}
-        >
-          <div style={{ fontFamily: HW, fontSize: '0.7rem', letterSpacing: '0.12em', color: '#71a1e6', marginBottom: 16, fontWeight: 600 }}>MISSION_002</div>
-          <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginBottom: 8 }}>SiviTour</h2>
-          <div style={{ fontFamily: HW, fontSize: '1.2rem', color: '#71a1e6', marginBottom: 24, fontStyle: 'italic' }}>"Explore · Connect · Belong"</div>
+        {/* Description + tour stops side by side */}
+        <div style={{ display: 'flex', gap: 48, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+          {/* Left: SiviTour description */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7 }}
+            style={{ flex: '1 1 320px', minWidth: 0 }}
+          >
+            <div style={{ fontFamily: HW, fontSize: '0.7rem', letterSpacing: '0.12em', color: '#71a1e6', marginBottom: 16, fontWeight: 600 }}>MISSION_002</div>
+            <h2 style={{ fontFamily: PIXEL, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', fontWeight: 800, color: '#e8e0ff', lineHeight: 1.1, marginBottom: 8 }}>SiviTour</h2>
+            <div style={{ fontFamily: HW, fontSize: '1.2rem', color: '#71a1e6', marginBottom: 24, fontStyle: 'italic' }}>"Explore · Connect · Belong"</div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-            {[
-              'Khám phá Frankfurt — một trong những thành phố sôi động nhất châu Âu — cùng với những người bạn mới từ khắp nơi.',
-              'SiviTour không chỉ là tham quan: đây là cơ hội gặp gỡ người trẻ từ nhiều quốc gia, chia sẻ câu chuyện và mở rộng mạng lưới quan hệ xuyên châu Âu.',
-              'Tìm hiểu văn hoá, lịch sử và cuộc sống tại Đức — góc nhìn hoàn toàn khác ngoài giảng đường.',
-            ].map((text, i) => (
-              <motion.p
-                key={i}
-                initial={{ opacity: 0, y: 12 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 + i * 0.1 }}
-                style={{ color: 'rgba(232,224,255,0.85)', lineHeight: 1.8, fontSize: '0.88rem', fontFamily: HW }}
-              >
-                {text}
-              </motion.p>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* City exploration accordion — below SiviTour */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <div style={{ position: 'relative' }}>
-            <div style={{ paddingLeft: 0 }}>
-              {tourStops.map((stop, i) => (
-                <AccordionItem
-                  key={stop.name}
-                  stop={stop}
-                  isOpen={openIndex === i}
-                  onToggle={() => toggle(i)}
-                  inView={inView}
-                  index={i}
-                />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              {[
+                'Khám phá Frankfurt — một trong những thành phố sôi động nhất châu Âu — cùng với những người bạn mới từ khắp nơi.',
+                'SiviTour không chỉ là tham quan: đây là cơ hội gặp gỡ người trẻ từ nhiều quốc gia, chia sẻ câu chuyện và mở rộng mạng lưới quan hệ xuyên châu Âu.',
+                'Tìm hiểu văn hoá, lịch sử và cuộc sống tại Đức — góc nhìn hoàn toàn khác ngoài giảng đường.',
+              ].map((text, i) => (
+                <motion.p
+                  key={i}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.2 + i * 0.1 }}
+                  style={{ color: 'rgba(232,224,255,0.85)', lineHeight: 1.8, fontSize: '0.88rem', fontFamily: HW }}
+                >
+                  {text}
+                </motion.p>
               ))}
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          {/* Right: City exploration accordion */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            style={{ flex: '1 1 320px', minWidth: 0 }}
+          >
+            {tourStops.map((stop, i) => (
+              <AccordionItem
+                key={stop.name}
+                stop={stop}
+                isOpen={openIndex === i}
+                onToggle={() => toggle(i)}
+                inView={inView}
+                index={i}
+              />
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   )
