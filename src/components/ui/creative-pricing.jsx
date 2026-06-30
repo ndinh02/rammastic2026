@@ -10,7 +10,7 @@ import { REGISTRATION_URL } from '@/config/links'
 // } from './registration-firework'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
-const PIXEL = "'Pixelify Sans', sans-serif"
+const PIXEL = "ui-rounded, 'SF Pro Rounded', system-ui, sans-serif"
 
 const colorConfigs = {
   amber: {

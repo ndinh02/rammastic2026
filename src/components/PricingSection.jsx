@@ -5,7 +5,7 @@ const ticketTiers = [
   {
     name: 'Full Experience Pass',
     icon: <Sparkles className="w-6 h-6" />,
-    price: 49,
+    price: 59,
     description: 'Tham gia toàn bộ chương trình Trại hè (giá Early Bird từ ngày 19/6 - 30/6)',
     color: 'blue',
     popular: true,

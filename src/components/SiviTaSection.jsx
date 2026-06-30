@@ -37,7 +37,7 @@ export function SiviTaSection() {
 
           <div className="sivita-quote-wrap">
             <div className="sivita-quote">
-              “Everyone has a story worth sharing”
+              Who am "AI" ?
             </div>
 
             <span className="sivita-sparkle-main">✦</span>
@@ -51,18 +51,10 @@ export function SiviTaSection() {
 
           <div className="sivita-body">
             <p>
-              SIVITA Gala Night là đêm biểu diễn tài năng khép lại SiviCamp 2026 —
-              sân khấu thuộc về tất cả mọi người.
+              SIVITA là cuộc thi Tìm kiếm Tài năng Nghệ thuật dành cho những người trẻ Việt Nam đang sinh sống tại Đức. Đây là sân khấu để mỗi cá nhân tự tin bước ra ánh đèn, thể hiện đam mê và kể câu chuyện của chính mình thông qua nghệ thuật - dù là hát, nhảy, diễn xuất, độc tấu...
             </p>
-
             <p>
-              Mỗi người đăng ký đều có cơ hội lên sân khấu: hát, múa, diễn xuất,
-              độc tấu, hay bất kỳ hình thức sáng tạo nào bạn chọn.
-            </p>
-
-            <p>
-              Đây không phải cuộc thi — đây là khoảnh khắc bạn{' '}
-              <strong>kể câu chuyện của mình</strong> trước cộng đồng.
+              SIVITA Gala Night - đêm chung kết Sivita và lễ trao giải khép lại SiviCamp 2026 - sẽ là nơi những tài năng được thăng hoa trên sân khấu. Một đêm để cùng hòa mình vào âm nhạc, cổ vũ những gương mặt đầy nhiệt huyết, gặp gỡ những người bạn mới và lưu giữ những kỷ niệm đáng nhớ trong hành trình tuổi trẻ.
             </p>
           </div>
 
