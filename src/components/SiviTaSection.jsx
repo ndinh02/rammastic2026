@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
-import { ShaderAnimation } from '@/components/ui/shader-lines'
 
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
@@ -23,15 +22,6 @@ export function SiviTaSection() {
 
   return (
     <section id="sivita" ref={ref} className="sivita-section">
-
-      {/* Shader background — low opacity so it reads as texture, not distraction */}
-      <div className="sivita-shader-layer">
-        <ShaderAnimation />
-      </div>
-
-      {/* Purple tint + vignette overlay to unify shader with section palette */}
-      <div className="sivita-shader-overlay" />
-
       <div className="sivita-wrap">
         <motion.div
           className="sivita-copy"
@@ -119,35 +109,7 @@ export function SiviTaSection() {
           background: linear-gradient(180deg, #07030f 0%, #100818 60%, #07030f 100%);
         }
 
-        /* Shader layers */
-        .sivita-shader-layer {
-          position: absolute;
-          inset: 0;
-          opacity: 0.18;
-          pointer-events: none;
-          z-index: 0;
-        }
-
-        /* Tints the RGB shader lines toward purple + kills edges */
-        .sivita-shader-overlay {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          z-index: 1;
-          background:
-            radial-gradient(ellipse 90% 80% at 50% 50%,
-              rgba(120, 60, 200, 0.28) 0%,
-              rgba(7, 3, 15, 0.72) 100%),
-            linear-gradient(180deg,
-              rgba(7, 3, 15, 0.55) 0%,
-              rgba(7, 3, 15, 0.12) 40%,
-              rgba(7, 3, 15, 0.12) 60%,
-              rgba(7, 3, 15, 0.55) 100%);
-        }
-
         .sivita-wrap {
-          position: relative;
-          z-index: 2;
           width: 100%;
           max-width: 1400px;
           margin: 0 auto;
