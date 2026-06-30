@@ -35,11 +35,11 @@ const ticketTiers = [
     icon: <Mic className="w-6 h-6" />,
     description: 'Trải nghiệm chương trình Day 3 của Trại hè',
     color: 'purple',
+    href: 'https://docs.google.com/forms/d/e/1FAIpQLSfM3kZ6b9P6ZdE3Ioaq4LRmY1s82gUhkmw1XBAwRww7D_3ctQ/viewform?pli=1',
     features: [
-      { text: 'Theo dõi trận Chung kết cuộc thi SiviHack 2026' },
-      { text: 'Tham gia SiviTour - chuyến du lịch khám phá Frankfurt và giao lưu, kết bạn mới.' },
-      { text: 'Tham dự Đêm Gala SIVITA và gặp gỡ hàng trăm du học sinh tại Đức.' },
-      { text: '01 bữa trưa và Áo Trại sinh' },
+      { text: ' ⁠Thí sinh gửi video dự thi theo hướng dẫn của Ban Tổ chức.' },
+      { text: ' ⁠⁠Sau khi kết thúc thời gian nhận bài, các tiết mục hợp lệ sẽ được đăng tải trên Fanpage SIVIDUC để tiến hành bình chọn trực tuyến.' },
+      { text: 'Các thí sinh/nhóm thí sinh được lựa chọn từ Vòng Sơ khảo sẽ biểu diễn trực tiếp trên sân khấu Vòng Chung kết' },
     ],
   },
 ]

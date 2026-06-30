@@ -208,7 +208,7 @@ function StackCard({ tier, index }) {
           </div>
 
           <motion.a
-            href={REGISTRATION_URL}
+            href={tier.href ?? REGISTRATION_URL}
             target="_blank"
             rel="noreferrer"
             style={{
@@ -250,6 +250,7 @@ export function CreativePricing({ tag, title, description, tiers }) {
 
   return (
     <section
+      id="pricing"
       ref={ref}
       style={{
         position: 'relative',

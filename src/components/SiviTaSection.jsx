@@ -58,7 +58,7 @@ export function SiviTaSection() {
             </p>
           </div>
 
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfM3kZ6b9P6ZdE3Ioaq4LRmY1s82gUhkmw1XBAwRww7D_3ctQ/viewform" target="_blank" className="sivita-event-card">
+          <a href="#pricing" className="sivita-event-card">
             <div className="sivita-event-icon" aria-hidden="true">
               <span className="sivita-calendar-top" />
               <span className="sivita-calendar-left" />
