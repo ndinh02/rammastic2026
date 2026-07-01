@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { REGISTRATION_URL } from '@/config/links'
+// import { REGISTRATION_URL } from '@/config/links'
 // import {
 //   RegistrationFireworkLayer,
 //   useRegistrationFirework,
@@ -61,8 +61,7 @@ export function StickyCtaBar() {
               <span style={{ fontFamily: HW, fontSize: '0.75rem', color: '#4ade80', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>67 chỗ</span>
             </div>
             <a
-              href={REGISTRATION_URL}
-              target="_blank"
+              href="#pricing"
               rel="noreferrer"
               style={{
                 flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, minHeight: 48,

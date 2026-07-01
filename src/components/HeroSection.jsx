@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
 import { SponsorsBar } from './SponsorsBar'
-import { REGISTRATION_URL } from '@/config/links'
 // import {
 //   RegistrationFireworkLayer,
 //   useRegistrationFirework,
@@ -394,9 +393,7 @@ export function HeroSection() {
             }}
           >
             <a
-              href={REGISTRATION_URL}
-              target="_blank"
-              rel="noreferrer"
+              href="#pricing"
               style={{
                 fontFamily: HW,
                 background:
