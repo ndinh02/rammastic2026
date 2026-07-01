@@ -1,6 +1,59 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
 
+import bubble1 from '../../brand_assets/light_bubbles/Sivita1.svg'
+import bubble2 from '../../brand_assets/light_bubbles/Sivita2.svg'
+import bubble3 from '../../brand_assets/light_bubbles/Sivita3.svg'
+import bubble4 from '../../brand_assets/light_bubbles/Sivita4.svg'
+import bubble5 from '../../brand_assets/light_bubbles/Sivita5.svg'
+
+// Fixed corner positions: top-left, top-right, bottom-left, bottom-right, center accent
+const BUBBLE_CONFIG = [
+  { src: bubble1, size: 200, delay: 0,   dur: 5.5, max: 1.00, left: '0%',  top: '0%'  },
+  { src: bubble2, size: 130, delay: 1.8, dur: 5.0, max: 0.96, left: '76%', top: '3%'  },
+  { src: bubble3, size: 152, delay: 3.5, dur: 6.0, max: 0.92, left: '2%',  top: '72%' },
+  { src: bubble4, size: 190, delay: 1.0, dur: 5.5, max: 0.98, left: '66%', top: '68%' },
+  { src: bubble5, size: 112, delay: 2.8, dur: 5.2, max: 0.94, left: '38%', top: '36%' },
+]
+
+function Bubble({ src, size, delay, dur, max, left, top }) {
+  return (
+    <motion.img
+      src={src}
+      alt=""
+      draggable={false}
+      style={{
+        position: 'absolute',
+        left,
+        top,
+        width: size,
+        height: size,
+        pointerEvents: 'none',
+        userSelect: 'none',
+        WebkitUserSelect: 'none',
+      }}
+      animate={{ opacity: [0, 0, max, max, 0] }}
+      transition={{
+        duration: dur,
+        delay,
+        repeat: Infinity,
+        times: [0, 0.04, 0.14, 0.65, 1],
+        ease: 'easeInOut',
+      }}
+    />
+  )
+}
+
+function BubbleField() {
+  return (
+    <div className="sivita-bubble-field" aria-hidden="true">
+      {BUBBLE_CONFIG.map(({ src, size, delay, dur, max, left, top }, i) => (
+        <Bubble key={i} src={src} size={size} delay={delay} dur={dur} max={max} left={left} top={top} />
+      ))}
+    </div>
+  )
+}
+
 const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const PIXEL = "'Pixelify Sans', sans-serif"
 const VIET = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif"
@@ -82,6 +135,7 @@ export function SiviTaSection() {
         </motion.div>
 
         <div className="sivita-polaroids" aria-hidden="true">
+          <BubbleField />
           {[3, 4, 5, 6].map((n, i) => (
             <img
               key={n}
@@ -117,6 +171,7 @@ export function SiviTaSection() {
         }
 
         .sivita-polaroids {
+          position: relative;
           flex-shrink: 0;
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -127,7 +182,17 @@ export function SiviTaSection() {
           margin-left: auto;
         }
 
+        .sivita-bubble-field {
+          position: absolute;
+          inset: -60px;
+          pointer-events: none;
+          z-index: 0;
+          overflow: visible;
+        }
+
         .sivita-polaroid {
+          position: relative;
+          z-index: 1;
           width: 250px;
           height: auto;
           display: block;
@@ -480,6 +545,12 @@ export function SiviTaSection() {
 
           .sivita-polaroid {
             width: 190px;
+          }
+
+          .sivita-bubble-field {
+            inset: -20px;
+            transform: scale(0.72);
+            transform-origin: center center;
           }
 
           .sivita-title {
