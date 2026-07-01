@@ -548,9 +548,7 @@ export function SiviTaSection() {
           }
 
           .sivita-bubble-field {
-            inset: -20px;
-            transform: scale(0.72);
-            transform-origin: center center;
+            inset: -50px;
           }
 
           .sivita-title {
