@@ -56,7 +56,7 @@ const tourMarkers = [
 export function SiviTourMap() {
   return (
     <Map
-      center={[8.6980, 50.1065]}
+      center={[8.6860, 50.1120]}
       zoom={13}
       theme="dark"
     >
