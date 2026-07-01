@@ -14,8 +14,8 @@ const HW = "'Helvetica World', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 const navLinks = [
   { label: 'Về RAMmastic', href: '#about' },
   { label: 'SiviHack', href: '#sivihack' },
-  // { label: 'SiviTa', href: '#sivita' },
-  // { label: 'SiviTour', href: '#sivitour' },
+  { label: 'SiviTour', href: '#sivitour' },
+  { label: 'SiviTa', href: '#sivita' },
   { label: 'Chương Trình', href: '#schedule' },
   { label: 'Ban Tổ Chức', href: '#org' },
 ]
