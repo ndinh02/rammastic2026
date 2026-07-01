@@ -76,6 +76,7 @@ export function OrgSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Open ${org.name} website`}
+              className={org.name === 'SIVIDUC e.V.' ? 'org-card-sividuc' : undefined}
               style={{ textDecoration: 'none', color: 'inherit' }}
               onClick={e => e.stopPropagation()}
             >

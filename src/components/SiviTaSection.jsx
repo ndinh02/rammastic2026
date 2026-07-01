@@ -143,9 +143,7 @@ export function SiviTaSection() {
         .sivita-polaroid-3 { transform: rotate(3.5deg) translateY(10px); }
         .sivita-polaroid-4 { transform: rotate(-4.5deg) translateY(-4px); }
 
-        @media (max-width: 900px) {
-          .sivita-polaroids { display: none; }
-        }
+
 
         .sivita-section-label {
           display: flex;
@@ -456,9 +454,32 @@ export function SiviTaSection() {
             padding: 88px 22px;
           }
 
+          .sivita-wrap {
+            flex-direction: column;
+          }
+
           .sivita-copy {
             width: min(100%, 620px);
             margin-left: 0;
+          }
+
+          .sivita-polaroids {
+            width: 100%;
+            margin-left: 0;
+            padding: 40px 0 0;
+            grid-template-columns: auto auto;
+            gap: 2px;
+            justify-content: center;
+            justify-items: center;
+          }
+
+          .sivita-polaroid-1 { transform: rotate(-3deg) translateY(4px); }
+          .sivita-polaroid-2 { transform: rotate(2.5deg) translateY(-3px); }
+          .sivita-polaroid-3 { transform: rotate(2deg) translateY(4px); }
+          .sivita-polaroid-4 { transform: rotate(-2.5deg) translateY(-2px); }
+
+          .sivita-polaroid {
+            width: 190px;
           }
 
           .sivita-title {
@@ -483,6 +504,10 @@ export function SiviTaSection() {
         @media (max-width: 520px) {
           .sivita-section {
             padding: 76px 18px;
+          }
+
+          .sivita-polaroid {
+            width: 155px;
           }
 
           .sivita-section-label {
