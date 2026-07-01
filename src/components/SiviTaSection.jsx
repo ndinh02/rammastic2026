@@ -85,7 +85,7 @@ export function SiviTaSection() {
           {[3, 4, 5, 6].map((n, i) => (
             <img
               key={n}
-              src={`/sivita/${n}.svg`}
+              src={`${import.meta.env.BASE_URL}sivita/${n}.svg`}
               className={`sivita-polaroid sivita-polaroid-${i + 1}`}
               alt=""
             />
