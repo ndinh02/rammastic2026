@@ -15,12 +15,15 @@ function Countdown() {
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 })
 
   useEffect(() => {
-    const target = new Date('2026-07-31T00:00:00+02:00').getTime()
+    const target = new Date('2026-07-31T23:59:59+02:00').getTime()
 
     const tick = () => {
       const diff = target - Date.now()
 
-      if (diff <= 0) return
+      if (diff <= 0) {
+        setTimeLeft({ d: 0, h: 0, m: 0, s: 0 })
+        return
+      }
 
       setTimeLeft({
         d: Math.floor(diff / 86400000),
